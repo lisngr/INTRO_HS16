@@ -41,7 +41,6 @@ int main(void)
     for (;;) {
         i++;
         i--;
-        i++;
     }
     /* Never leave main */
     return 0;
