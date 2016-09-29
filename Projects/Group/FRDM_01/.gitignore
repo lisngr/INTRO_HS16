@@ -110,3 +110,5 @@ Temporary Items
 *.g_x
 ProjectInfo.xml
 .cwGeneratedFileSetLog
+
+*.launch
