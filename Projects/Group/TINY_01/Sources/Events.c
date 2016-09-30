@@ -1,11 +1,11 @@
 /* ###################################################################
 **     Filename    : Events.c
-**     Project     : INTRO_FRDM_Master
-**     Processor   : MKL25Z128VLK4
+**     Project     : INTRO_Remote_Master
+**     Processor   : MK20DX128VFT5
 **     Component   : Events
 **     Version     : Driver 01.00
 **     Compiler    : GNU C Compiler
-**     Date/Time   : 2016-09-20, 21:02, # CodeGen: 0
+**     Date/Time   : 2016-09-20, 21:05, # CodeGen: 0
 **     Abstract    :
 **         This is user's event module.
 **         Put your event handler code here.
@@ -40,7 +40,7 @@ extern "C" {
 ** ===================================================================
 **     Event       :  Cpu_OnNMIINT (module Events)
 **
-**     Component   :  Cpu [MKL25Z128LK4]
+**     Component   :  Cpu [MK20DX128EX5]
 */
 /*!
 **     @brief

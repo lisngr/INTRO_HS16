@@ -1,10 +1,10 @@
 /* ###################################################################
 **     Filename    : main.c
-**     Project     : INTRO_FRDM_Master
-**     Processor   : MKL25Z128VLK4
+**     Project     : INTRO_Remote_Master
+**     Processor   : MK20DX128VFT5
 **     Version     : Driver 01.01
 **     Compiler    : GNU C Compiler
-**     Date/Time   : 2016-09-20, 21:02, # CodeGen: 0
+**     Date/Time   : 2016-09-20, 21:05, # CodeGen: 0
 **     Abstract    :
 **         Main module.
 **         This module contains user's application code.
@@ -31,11 +31,11 @@
 #include "Cpu.h"
 #include "Events.h"
 #include "WAIT1.h"
-#include "CS1.h"
-#include "HF1.h"
-#include "KSDK1.h"
 #include "UTIL1.h"
 #include "KIN1.h"
+#include "KSDK1.h"
+#include "HF1.h"
+#include "CS1.h"
 /* Including shared modules, which are used for whole project */
 #include "PE_Types.h"
 #include "PE_Error.h"
@@ -55,8 +55,8 @@ int main(void)
   /*** End of Processor Expert internal initialization.                    ***/
 
   /* Write your code here */
-  /* For example: for(;;) { } */
   APP_Start();
+  /* For example: for(;;) { } */
 
   /*** Don't write any code pass this line, or it will be deleted during code generation. ***/
   /*** RTOS startup code. Macro PEX_RTOS_START is defined by the RTOS component. DON'T MODIFY THIS CODE!!! ***/

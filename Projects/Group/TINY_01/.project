@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <projectDescription>
-	<name>ROBO_01</name>
+	<name>TINY_01</name>
 	<comment></comment>
 	<projects>
 	</projects>
@@ -34,13 +34,13 @@
 		<link>
 			<name>INTRO_Common</name>
 			<type>2</type>
-			<locationURI>PARENT-1-PROJECT_LOC/INTRO_Common</locationURI>
+			<locationURI>PARENT-4-PROJECT_LOC/INTRO_HS2016/Projects/Styger/INTRO_Common</locationURI>
 		</link>
 	</linkedResources>
 	<variableList>
 		<variable>
 			<name>copy_PARENT</name>
-			<value>$%7BPARENT-3-PROJECT_LOC%7D/git_styger/Projects/Styger</value>
+			<value>$%7BPARENT-5-PROJECT_LOC%7D/Git/INTRO_HS16/Projects/Group</value>
 		</variable>
 	</variableList>
 </projectDescription>
