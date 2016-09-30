@@ -122,7 +122,7 @@
 	<storageModule moduleId="org.eclipse.cdt.core.pathentry"/>
 	<storageModule moduleId="refreshScope" versionNumber="2">
 		<configuration configurationName="Debug">
-			<resource resourceType="PROJECT" workspacePath="/INTRO_Robot_Master"/>
+			<resource resourceType="PROJECT" workspacePath="/ROBO_01"/>
 		</configuration>
 	</storageModule>
 </cproject>
