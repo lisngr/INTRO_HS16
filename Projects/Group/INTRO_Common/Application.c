@@ -121,6 +121,10 @@ void APP_Start(void) {
   vTaskStartScheduler(); /* start the RTOS, create the IDLE task and run my tasks (if any) */
   /* does usually not return! */
 #else
+  /*MY CODE*/
+    LED1_On();
+    LED2_On();
+  /*END OF MY CODE*/
   for(;;) {
 #if PL_CONFIG_HAS_KEYS
     KEY_Scan();

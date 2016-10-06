@@ -60,8 +60,7 @@ int main(void)
 
   /* Write your code here */
   /* For example: for(;;) { } */
-  LED1_On();
-  WAIT1_Waitms(100);
+
   APP_Start();
 #if 0
   Bit1_ClrVal();
