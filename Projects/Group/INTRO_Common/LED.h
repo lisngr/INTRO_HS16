@@ -60,7 +60,7 @@
   #define LED2_Open()     LED_Open(2)
   #define LED2_Close()    LED_Close(2)
 #else
-  #define LED2_On()       /* empty */
+  #define LED2_Off()       /* empty */
   #define LED2_On()       /* empty */
   #define LED2_Neg()      /* empty */
   #define LED2_Get()      /* empty */

@@ -30,4 +30,17 @@
 		<nature>org.eclipse.cdt.managedbuilder.core.managedBuildNature</nature>
 		<nature>org.eclipse.cdt.managedbuilder.core.ScannerConfigNature</nature>
 	</natures>
+	<linkedResources>
+		<link>
+			<name>INTRO_Common</name>
+			<type>2</type>
+			<locationURI>PARENT-1-PROJECT_LOC/INTRO_Common</locationURI>
+		</link>
+	</linkedResources>
+	<variableList>
+		<variable>
+			<name>copy_PARENT</name>
+			<value>$%7BPARENT-5-PROJECT_LOC%7D/Git/INTRO_HS2016/Projects/Styger</value>
+		</variable>
+	</variableList>
 </projectDescription>
