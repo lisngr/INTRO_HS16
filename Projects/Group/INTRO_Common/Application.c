@@ -122,8 +122,13 @@ void APP_Start(void) {
   /* does usually not return! */
 #else
   /*MY CODE*/
+  	  CS1_CriticalVariable();
+
+    CS1_EnterCritical();
     LED1_On();
+    WAIT1_Waitms(500);
     LED2_On();
+    CS1_ExitCritical();
   /*END OF MY CODE*/
   for(;;) {
 #if PL_CONFIG_HAS_KEYS
@@ -132,6 +137,7 @@ void APP_Start(void) {
 #if PL_CONFIG_HAS_EVENTS
     EVNT_HandleEvent(APP_EventHandler, TRUE);
 #endif
+
     WAIT1_Waitms(25); /* just wait for some arbitrary time .... */
   }
 #endif

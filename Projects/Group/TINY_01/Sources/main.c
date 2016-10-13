@@ -1,10 +1,10 @@
 /* ###################################################################
 **     Filename    : main.c
-**     Project     : INTRO_FRDM_Master
-**     Processor   : MKL25Z128VLK4
+**     Project     : INTRO_Remote_Master
+**     Processor   : MK20DX128VFT5
 **     Version     : Driver 01.01
 **     Compiler    : GNU C Compiler
-**     Date/Time   : 2016-09-20, 21:02, # CodeGen: 0
+**     Date/Time   : 2016-09-20, 21:05, # CodeGen: 0
 **     Abstract    :
 **         Main module.
 **         This module contains user's application code.
@@ -30,26 +30,11 @@
 /* Including needed modules to compile this module/procedure */
 #include "Cpu.h"
 #include "Events.h"
-#include "SW1.h"
-#include "BitIoLdd1.h"
-#include "SW2.h"
-#include "BitIoLdd2.h"
-#include "SW3.h"
-#include "BitIoLdd3.h"
-#include "SW4.h"
-#include "BitIoLdd4.h"
-#include "SW5.h"
-#include "BitIoLdd5.h"
-#include "SW6.h"
-#include "BitIoLdd6.h"
-#include "SW7.h"
-#include "BitIoLdd7.h"
 #include "LEDPin1.h"
-#include "BitIoLdd10.h"
-#include "LEDPin2.h"
-#include "BitIoLdd11.h"
-#include "LEDPin3.h"
-#include "BitIoLdd12.h"
+#include "BitIoLdd17.h"
+#include "WAIT1.h"
+#include "UTIL1.h"
+#include "KIN1.h"
 #include "TI1.h"
 #include "TimerIntLdd1.h"
 #include "TU1.h"
@@ -57,13 +42,26 @@
 #include "AS1.h"
 #include "ASerialLdd1.h"
 #include "RTT1.h"
-#include "WAIT1.h"
-#include "CS1.h"
-#include "HF1.h"
 #include "SW1.h"
-#include "UTIL1.h"
+#include "BitIoLdd10.h"
+#include "SW2.h"
+#include "BitIoLdd11.h"
+#include "SW3.h"
+#include "BitIoLdd12.h"
+#include "SW4.h"
+#include "BitIoLdd13.h"
+#include "SW5.h"
+#include "BitIoLdd14.h"
+#include "SW6.h"
+#include "BitIoLdd15.h"
+#include "SW7.h"
+#include "BitIoLdd16.h"
+#include "PTA.h"
+#include "PTB.h"
+#include "PTD.h"
 #include "KSDK1.h"
-#include "KIN1.h"
+#include "HF1.h"
+#include "CS1.h"
 /* Including shared modules, which are used for whole project */
 #include "PE_Types.h"
 #include "PE_Error.h"
@@ -83,8 +81,8 @@ int main(void)
   /*** End of Processor Expert internal initialization.                    ***/
 
   /* Write your code here */
-  /* For example: for(;;) { } */
   APP_Start();
+  /* For example: for(;;) { } */
 
   /*** Don't write any code pass this line, or it will be deleted during code generation. ***/
   /*** RTOS startup code. Macro PEX_RTOS_START is defined by the RTOS component. DON'T MODIFY THIS CODE!!! ***/
