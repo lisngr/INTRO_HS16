@@ -31,7 +31,11 @@
 /* set of defines to disable a functionality: if it is defined, it will disable it in the common part */
 //#define PL_LOCAL_CONFIG_HAS_LEDS_DISABLED                 /* disable LEDs */
 //#define PL_LOCAL_CONFIG_HAS_EVENTS_DISABLED               /* disable events */
+<<<<<<< HEAD
 //#define PL_LOCAL_CONFIG_HAS_TIMER_DISABLED                /* disable own timer */
+=======
+#define PL_LOCAL_CONFIG_HAS_TIMER_DISABLED                /* disable own timer */
+>>>>>>> da190f0ff04267cdb17487ca9705b6ab0153ea84
 #define PL_LOCAL_CONFIG_HAS_KEYS_DISABLED                 /* disable key/push buttons */
 #define PL_LOCAL_CONFIG_HAS_TRIGGER_DISABLED              /* disable triggers */
 #define PL_LOCAL_CONFIG_HAS_DEBOUNCE_DISABLED             /* disable debouncing */
