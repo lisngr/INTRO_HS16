@@ -56,7 +56,7 @@ void APP_EventHandler(EVNT_Handle event) {
   case EVNT_SW1_PRESSED:
     LED2_Neg();
     //CLS1_SendStr("SW1 pressed\r\n", CLS1_GetStdio()->stdOut);
-    SHELL_SendString("SW1 pressed\r\n");
+   // SHELL_SendString("SW1 pressed\r\n");
     #if PL_CONFIG_HAS_BUZZER
     BUZ_PlayTune(BUZ_TUNE_BUTTON);
     #endif
@@ -121,19 +121,6 @@ void APP_Start(void) {
   vTaskStartScheduler(); /* start the RTOS, create the IDLE task and run my tasks (if any) */
   /* does usually not return! */
 #else
-<<<<<<< HEAD
-
-=======
-  /*MY CODE*/
-  	  CS1_CriticalVariable();
-
-    CS1_EnterCritical();
-    LED1_On();
-    WAIT1_Waitms(500);
-    LED2_On();
-    CS1_ExitCritical();
-  /*END OF MY CODE*/
->>>>>>> da190f0ff04267cdb17487ca9705b6ab0153ea84
   for(;;) {
 #if PL_CONFIG_HAS_KEYS
     KEY_Scan();
@@ -141,12 +128,8 @@ void APP_Start(void) {
 #if PL_CONFIG_HAS_EVENTS
     EVNT_HandleEvent(APP_EventHandler, TRUE);
 #endif
-<<<<<<< HEAD
-   WAIT1_Waitms(25); /* just wait for some arbitrary time .... */
-=======
 
     WAIT1_Waitms(25); /* just wait for some arbitrary time .... */
->>>>>>> da190f0ff04267cdb17487ca9705b6ab0153ea84
   }
 #endif
 }
