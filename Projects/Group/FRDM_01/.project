@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <projectDescription>
-	<name>FRDM_02</name>
+	<name>FRDM_01</name>
 	<comment></comment>
 	<projects>
 	</projects>
@@ -34,7 +34,17 @@
 		<link>
 			<name>INTRO_Common</name>
 			<type>2</type>
-			<locationURI>PARENT-1-PROJECT_LOC/INTRO_Common</locationURI>
+			<locationURI>copy_PARENT1/INTRO_Common</locationURI>
 		</link>
 	</linkedResources>
+	<variableList>
+		<variable>
+			<name>copy_PARENT</name>
+			<value>$%7BPARENT-5-PROJECT_LOC%7D/Git/INTRO_HS2016/Projects/Styger</value>
+		</variable>
+		<variable>
+			<name>copy_PARENT1</name>
+			<value>$%7BPARENT-2-PROJECT_LOC%7D/git_group/Projects/Group</value>
+		</variable>
+	</variableList>
 </projectDescription>
