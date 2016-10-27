@@ -11,6 +11,7 @@
 #include "Shell.h"
 #include "CLS1.h"
 #include "Application.h"
+
 #if PL_CONFIG_HAS_RTOS
 #include "FRTOS1.h"
 #endif

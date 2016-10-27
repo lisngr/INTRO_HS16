@@ -3,7 +3,7 @@
   <Header>
     <Name>ROBO_01</Name>
     <SavedBy>Erich Styger</SavedBy>
-    <ModificationStamp>93</ModificationStamp>
+    <ModificationStamp>98</ModificationStamp>
     <Date>2016-02-29</Date>
     <IDE>Eclipse IDE</IDE>
     <PEversion>1.12.2.RT7_b1550-0615</PEversion>
@@ -29,7 +29,7 @@
     <UseExistingModules>true</UseExistingModules>
     <RenamePeripheries>false</RenamePeripheries>
     <Autodependency>true</Autodependency>
-    <ProjectCompNumb>331</ProjectCompNumb>
+    <ProjectCompNumb>346</ProjectCompNumb>
     <DelUnusedPreviouslyGenFiles>true</DelUnusedPreviouslyGenFiles>
     <GeneratedCodeFrozen>false</GeneratedCodeFrozen>
     <AssignInitComponentNameToPrph>true</AssignInitComponentNameToPrph>
@@ -10279,7 +10279,7 @@
       <Count>0</Count>
     </BoolList_FpgaConfig>
     <BoolList_BeanConfig>
-      <Count>49</Count>
+      <Count>48</Count>
       <ItemId0>5</ItemId0>
       <Value0>true</Value0>
       <ItemId1>7</ItemId1>
@@ -10376,8 +10376,6 @@
       <Value46>true</Value46>
       <ItemId47>276</ItemId47>
       <Value47>true</Value47>
-      <ItemId48>330</ItemId48>
-      <Value48>true</Value48>
     </BoolList_BeanConfig>
     <BoolList_TaskConfig>
       <Count>0</Count>
@@ -10452,7 +10450,7 @@
       <Count>0</Count>
     </BoolList_FpgaConfig>
     <BoolList_BeanConfig>
-      <Count>49</Count>
+      <Count>48</Count>
       <ItemId0>5</ItemId0>
       <Value0>true</Value0>
       <ItemId1>7</ItemId1>
@@ -10482,11 +10480,11 @@
       <ItemId13>31</ItemId13>
       <Value13>true</Value13>
       <ItemId14>33</ItemId14>
-      <Value14>false</Value14>
+      <Value14>true</Value14>
       <ItemId15>35</ItemId15>
       <Value15>false</Value15>
       <ItemId16>39</ItemId16>
-      <Value16>false</Value16>
+      <Value16>true</Value16>
       <ItemId17>40</ItemId17>
       <Value17>false</Value17>
       <ItemId18>44</ItemId18>
@@ -10530,7 +10528,7 @@
       <ItemId37>98</ItemId37>
       <Value37>false</Value37>
       <ItemId38>124</ItemId38>
-      <Value38>false</Value38>
+      <Value38>true</Value38>
       <ItemId39>174</ItemId39>
       <Value39>true</Value39>
       <ItemId40>190</ItemId40>
@@ -10549,8 +10547,6 @@
       <Value46>false</Value46>
       <ItemId47>276</ItemId47>
       <Value47>false</Value47>
-      <ItemId48>330</ItemId48>
-      <Value48>true</Value48>
     </BoolList_BeanConfig>
     <BoolList_TaskConfig>
       <Count>0</Count>
@@ -11801,7 +11797,7 @@
     <BeanType>BitIO</BeanType>
     <Name>BUZ1</Name>
     <CompNumb>33</CompNumb>
-    <CompEnabled>false</CompEnabled>
+    <CompEnabled>true</CompEnabled>
     <GenCodeMode>ALWAYS_WRITE</GenCodeMode>
     <IconName>BITIO</IconName>
     <UserFolderName />
@@ -12013,7 +12009,7 @@
             </ItemState>
             <ItemState>
               <ItemSymbol>Deinit</ItemSymbol>
-              <ReadOnly>true</ReadOnly>
+              <ReadOnly>false</ReadOnly>
               <UserReadOnly>false</UserReadOnly>
               <PropertyModelIsAutomatic>false</PropertyModelIsAutomatic>
               <Index>1</Index>
@@ -12024,7 +12020,7 @@
             </ItemState>
             <ItemState>
               <ItemSymbol>GetDir</ItemSymbol>
-              <ReadOnly>true</ReadOnly>
+              <ReadOnly>false</ReadOnly>
               <UserReadOnly>false</UserReadOnly>
               <PropertyModelIsAutomatic>false</PropertyModelIsAutomatic>
               <Index>1</Index>
@@ -12128,7 +12124,7 @@
             </ItemState>
             <ItemState>
               <ItemSymbol>ConnectPin</ItemSymbol>
-              <ReadOnly>true</ReadOnly>
+              <ReadOnly>false</ReadOnly>
               <UserReadOnly>false</UserReadOnly>
               <PropertyModelIsAutomatic>false</PropertyModelIsAutomatic>
               <Index>1</Index>
@@ -12144,7 +12140,7 @@
             </ItemState>
             <ItemState>
               <ItemSymbol>GetRawVal</ItemSymbol>
-              <ReadOnly>true</ReadOnly>
+              <ReadOnly>false</ReadOnly>
               <UserReadOnly>false</UserReadOnly>
               <PropertyModelIsAutomatic>false</PropertyModelIsAutomatic>
               <Index>1</Index>
@@ -13552,7 +13548,7 @@
     <BeanType>AsynchroSerial</BeanType>
     <Name>AS1</Name>
     <CompNumb>124</CompNumb>
-    <CompEnabled>false</CompEnabled>
+    <CompEnabled>true</CompEnabled>
     <GenCodeMode>ALWAYS_WRITE</GenCodeMode>
     <IconName>PHONE</IconName>
     <UserFolderName>V2</UserFolderName>
@@ -14660,7 +14656,7 @@
               <ItemSymbol>BdRate</ItemSymbol>
               <ReadOnly>false</ReadOnly>
               <UserReadOnly>false</UserReadOnly>
-              <Value>38400 baud</Value>
+              <Value>init:38400 baud;prec:1.5%;RTS:none;clksrc_presc[SpeedMode0]Auto select;clksrc_presc[SpeedMode1]Auto select;clksrc_presc[SpeedMode2]Auto select;clksrc_presc[SpeedMode3]Auto select;clksrc_presc[SpeedMode4]Auto select;clksrc_presc[SpeedMode5]Auto select;clksrc_presc[SpeedMode6]Auto select;clksrc_presc[SpeedMode7]Auto select</Value>
               <RuntimeSetting>0</RuntimeSetting>
               <ReqDevPrescHigh>-1</ReqDevPrescHigh>
               <ReqDevPrescLow>-1</ReqDevPrescLow>
@@ -22881,7 +22877,7 @@
         <ItemSymbol>Serial</ItemSymbol>
         <ReadOnly>false</ReadOnly>
         <UserReadOnly>false</UserReadOnly>
-        <Value>RTT2</Value>
+        <Value>RTT1</Value>
       </ItemState>
       <ItemState>
         <ItemSymbol>ConsoleSempahore</ItemSymbol>
@@ -31450,7 +31446,7 @@
     <BeanType>SeggerRTT</BeanType>
     <Name>RTT1</Name>
     <CompNumb>39</CompNumb>
-    <CompEnabled>false</CompEnabled>
+    <CompEnabled>true</CompEnabled>
     <GenCodeMode>ALWAYS_WRITE</GenCodeMode>
     <IconName>SeggerRTT</IconName>
     <UserFolderName />
@@ -58946,412 +58942,6 @@
         <LastSelection>true</LastSelection>
         <LastUserSel>yes</LastUserSel>
         <UsrMethodName>ExitCritical</UsrMethodName>
-      </ItemState>
-    </Methods>
-    <Events />
-  </Bean>
-  <Bean>
-    <Repository>file:/${home_ProcessorExpert_loc}/MyComponents</Repository>
-    <BeanType>SeggerRTT</BeanType>
-    <Name>RTT2</Name>
-    <CompNumb>330</CompNumb>
-    <CompEnabled>true</CompEnabled>
-    <GenCodeMode>ALWAYS_WRITE</GenCodeMode>
-    <IconName>SeggerRTT</IconName>
-    <UserFolderName>Referenced_Components</UserFolderName>
-    <Comment lines_count="0" />
-    <Template />
-    <BeanVersion>01.076</BeanVersion>
-    <LightErrorsIgnored>false</LightErrorsIgnored>
-    <Properties>
-      <ItemState>
-        <ItemSymbol>DeviceName</ItemSymbol>
-        <ReadOnly>false</ReadOnly>
-        <UserReadOnly>false</UserReadOnly>
-        <Value>RTT2</Value>
-      </ItemState>
-      <ItemState>
-        <ItemSymbol>SeggerRTTVersion</ItemSymbol>
-        <ReadOnly>false</ReadOnly>
-        <UserReadOnly>false</UserReadOnly>
-        <Value>V5.10u</Value>
-      </ItemState>
-      <ItemState>
-        <ItemSymbol>RTTBufferNofUp</ItemSymbol>
-        <ReadOnly>false</ReadOnly>
-        <UserReadOnly>false</UserReadOnly>
-        <PropertyModelIsAutomatic>false</PropertyModelIsAutomatic>
-        <Value>1</Value>
-        <Base>DEC</Base>
-      </ItemState>
-      <ItemState>
-        <ItemSymbol>RTTBufferNofDown</ItemSymbol>
-        <ReadOnly>false</ReadOnly>
-        <UserReadOnly>false</UserReadOnly>
-        <PropertyModelIsAutomatic>false</PropertyModelIsAutomatic>
-        <Value>1</Value>
-        <Base>DEC</Base>
-      </ItemState>
-      <ItemState>
-        <ItemSymbol>SeggerRTTMaxBlockedInterruptLevel</ItemSymbol>
-        <ReadOnly>false</ReadOnly>
-        <UserReadOnly>false</UserReadOnly>
-        <PropertyModelIsAutomatic>false</PropertyModelIsAutomatic>
-        <Value>3</Value>
-        <Base>DEC</Base>
-      </ItemState>
-      <ItemState>
-        <ItemSymbol>RTTChannel0Enabled</ItemSymbol>
-        <ReadOnly>false</ReadOnly>
-        <UserReadOnly>false</UserReadOnly>
-        <PropertyModelIsAutomatic>false</PropertyModelIsAutomatic>
-        <Value>true</Value>
-        <Expanded>true</Expanded>
-      </ItemState>
-      <ItemState>
-        <ItemSymbol>NameChannel0</ItemSymbol>
-        <ReadOnly>false</ReadOnly>
-        <UserReadOnly>false</UserReadOnly>
-        <Value>"Terminal"</Value>
-      </ItemState>
-      <ItemState>
-        <ItemSymbol>RTTBufferSizeUp</ItemSymbol>
-        <ReadOnly>false</ReadOnly>
-        <UserReadOnly>false</UserReadOnly>
-        <PropertyModelIsAutomatic>false</PropertyModelIsAutomatic>
-        <Value>512</Value>
-        <Base>DEC</Base>
-      </ItemState>
-      <ItemState>
-        <ItemSymbol>RTTBufferSizeDown</ItemSymbol>
-        <ReadOnly>false</ReadOnly>
-        <UserReadOnly>false</UserReadOnly>
-        <PropertyModelIsAutomatic>false</PropertyModelIsAutomatic>
-        <Value>64</Value>
-        <Base>DEC</Base>
-      </ItemState>
-      <ItemState>
-        <ItemSymbol>UpBufferMode</ItemSymbol>
-        <ReadOnly>false</ReadOnly>
-        <UserReadOnly>false</UserReadOnly>
-        <PropertyModelIsAutomatic>false</PropertyModelIsAutomatic>
-        <Index>0</Index>
-        <EnumSymbVal>SEGGER_RTT_MODE_NO_BLOCK_SKIP</EnumSymbVal>
-      </ItemState>
-      <ItemState>
-        <ItemSymbol>DownBufferMode</ItemSymbol>
-        <ReadOnly>false</ReadOnly>
-        <UserReadOnly>false</UserReadOnly>
-        <PropertyModelIsAutomatic>false</PropertyModelIsAutomatic>
-        <Index>0</Index>
-        <EnumSymbVal>SEGGER_RTT_MODE_NO_BLOCK_SKIP</EnumSymbVal>
-      </ItemState>
-      <ItemState>
-        <ItemSymbol>BlockingSend</ItemSymbol>
-        <ReadOnly>false</ReadOnly>
-        <UserReadOnly>false</UserReadOnly>
-        <PropertyModelIsAutomatic>false</PropertyModelIsAutomatic>
-        <Value>true</Value>
-        <Expanded>true</Expanded>
-      </ItemState>
-      <ItemState>
-        <ItemSymbol>RTTBlockingSendTimeoutMs</ItemSymbol>
-        <ReadOnly>false</ReadOnly>
-        <UserReadOnly>false</UserReadOnly>
-        <PropertyModelIsAutomatic>false</PropertyModelIsAutomatic>
-        <Value>5</Value>
-        <Base>DEC</Base>
-      </ItemState>
-      <ItemState>
-        <ItemSymbol>Wait</ItemSymbol>
-        <ReadOnly>false</ReadOnly>
-        <UserReadOnly>false</UserReadOnly>
-        <Value>WAIT1</Value>
-      </ItemState>
-      <ItemState>
-        <ItemSymbol>WaitTimeMs</ItemSymbol>
-        <ReadOnly>false</ReadOnly>
-        <UserReadOnly>false</UserReadOnly>
-        <PropertyModelIsAutomatic>false</PropertyModelIsAutomatic>
-        <Value>1</Value>
-        <Base>DEC</Base>
-      </ItemState>
-      <ItemState>
-        <ItemSymbol>RTTBufferSizePrintf</ItemSymbol>
-        <ReadOnly>false</ReadOnly>
-        <UserReadOnly>false</UserReadOnly>
-        <PropertyModelIsAutomatic>false</PropertyModelIsAutomatic>
-        <Value>64</Value>
-        <Base>DEC</Base>
-      </ItemState>
-      <ItemState>
-        <ItemSymbol>Channel1Enabled</ItemSymbol>
-        <ReadOnly>false</ReadOnly>
-        <UserReadOnly>false</UserReadOnly>
-        <PropertyModelIsAutomatic>false</PropertyModelIsAutomatic>
-        <Value>false</Value>
-        <Expanded>false</Expanded>
-      </ItemState>
-      <ItemState>
-        <ItemSymbol>NameChannel1</ItemSymbol>
-        <ReadOnly>false</ReadOnly>
-        <UserReadOnly>false</UserReadOnly>
-        <Value>"Channel 1"</Value>
-      </ItemState>
-      <ItemState>
-        <ItemSymbol>RTTBufferSizeUpChannel1</ItemSymbol>
-        <ReadOnly>false</ReadOnly>
-        <UserReadOnly>false</UserReadOnly>
-        <PropertyModelIsAutomatic>false</PropertyModelIsAutomatic>
-        <Value>128</Value>
-        <Base>DEC</Base>
-      </ItemState>
-      <ItemState>
-        <ItemSymbol>UpBufferModeChannel1</ItemSymbol>
-        <ReadOnly>false</ReadOnly>
-        <UserReadOnly>false</UserReadOnly>
-        <PropertyModelIsAutomatic>false</PropertyModelIsAutomatic>
-        <Index>0</Index>
-        <EnumSymbVal>SEGGER_RTT_MODE_NO_BLOCK_SKIP</EnumSymbVal>
-      </ItemState>
-      <ItemState>
-        <ItemSymbol>RTTBufferSizeDownChannel1</ItemSymbol>
-        <ReadOnly>false</ReadOnly>
-        <UserReadOnly>false</UserReadOnly>
-        <PropertyModelIsAutomatic>false</PropertyModelIsAutomatic>
-        <Value>64</Value>
-        <Base>DEC</Base>
-      </ItemState>
-      <ItemState>
-        <ItemSymbol>DownBufferModeChannel1</ItemSymbol>
-        <ReadOnly>false</ReadOnly>
-        <UserReadOnly>false</UserReadOnly>
-        <PropertyModelIsAutomatic>false</PropertyModelIsAutomatic>
-        <Index>0</Index>
-        <EnumSymbVal>SEGGER_RTT_MODE_NO_BLOCK_SKIP</EnumSymbVal>
-      </ItemState>
-      <ItemState>
-        <ItemSymbol>sdk</ItemSymbol>
-        <ReadOnly>false</ReadOnly>
-        <UserReadOnly>false</UserReadOnly>
-        <Value>KSDK1</Value>
-      </ItemState>
-      <ItemState>
-        <ItemSymbol>Shell</ItemSymbol>
-        <ReadOnly>false</ReadOnly>
-        <UserReadOnly>false</UserReadOnly>
-        <Value>CLS1</Value>
-      </ItemState>
-    </Properties>
-    <Methods>
-      <ItemState>
-        <ItemSymbol>Read</ItemSymbol>
-        <ReadOnly>false</ReadOnly>
-        <UserReadOnly>false</UserReadOnly>
-        <PropertyModelIsAutomatic>false</PropertyModelIsAutomatic>
-        <Index>0</Index>
-        <Value>true</Value>
-        <LastSelection>true</LastSelection>
-        <LastUserSel>yes</LastUserSel>
-        <UsrMethodName>Read</UsrMethodName>
-      </ItemState>
-      <ItemState>
-        <ItemSymbol>Write</ItemSymbol>
-        <ReadOnly>false</ReadOnly>
-        <UserReadOnly>false</UserReadOnly>
-        <PropertyModelIsAutomatic>false</PropertyModelIsAutomatic>
-        <Index>0</Index>
-        <Value>true</Value>
-        <LastSelection>true</LastSelection>
-        <LastUserSel>yes</LastUserSel>
-        <UsrMethodName>Write</UsrMethodName>
-      </ItemState>
-      <ItemState>
-        <ItemSymbol>WriteString</ItemSymbol>
-        <ReadOnly>false</ReadOnly>
-        <UserReadOnly>false</UserReadOnly>
-        <PropertyModelIsAutomatic>false</PropertyModelIsAutomatic>
-        <Index>0</Index>
-        <Value>true</Value>
-        <LastSelection>true</LastSelection>
-        <LastUserSel>yes</LastUserSel>
-        <UsrMethodName>WriteString</UsrMethodName>
-      </ItemState>
-      <ItemState>
-        <ItemSymbol>printf</ItemSymbol>
-        <ReadOnly>false</ReadOnly>
-        <UserReadOnly>false</UserReadOnly>
-        <PropertyModelIsAutomatic>false</PropertyModelIsAutomatic>
-        <Index>0</Index>
-        <Value>true</Value>
-        <LastSelection>true</LastSelection>
-        <LastUserSel>yes</LastUserSel>
-        <UsrMethodName>printf</UsrMethodName>
-      </ItemState>
-      <ItemState>
-        <ItemSymbol>GetKey</ItemSymbol>
-        <ReadOnly>false</ReadOnly>
-        <UserReadOnly>false</UserReadOnly>
-        <PropertyModelIsAutomatic>false</PropertyModelIsAutomatic>
-        <Index>0</Index>
-        <Value>true</Value>
-        <LastSelection>true</LastSelection>
-        <LastUserSel>yes</LastUserSel>
-        <UsrMethodName>GetKey</UsrMethodName>
-      </ItemState>
-      <ItemState>
-        <ItemSymbol>WaitKey</ItemSymbol>
-        <ReadOnly>false</ReadOnly>
-        <UserReadOnly>false</UserReadOnly>
-        <PropertyModelIsAutomatic>false</PropertyModelIsAutomatic>
-        <Index>0</Index>
-        <Value>true</Value>
-        <LastSelection>true</LastSelection>
-        <LastUserSel>yes</LastUserSel>
-        <UsrMethodName>WaitKey</UsrMethodName>
-      </ItemState>
-      <ItemState>
-        <ItemSymbol>HasKey</ItemSymbol>
-        <ReadOnly>false</ReadOnly>
-        <UserReadOnly>false</UserReadOnly>
-        <PropertyModelIsAutomatic>false</PropertyModelIsAutomatic>
-        <Index>0</Index>
-        <Value>true</Value>
-        <LastSelection>true</LastSelection>
-        <LastUserSel>yes</LastUserSel>
-        <UsrMethodName>HasKey</UsrMethodName>
-      </ItemState>
-      <ItemState>
-        <ItemSymbol>SetTerminal</ItemSymbol>
-        <ReadOnly>false</ReadOnly>
-        <UserReadOnly>false</UserReadOnly>
-        <PropertyModelIsAutomatic>false</PropertyModelIsAutomatic>
-        <Index>0</Index>
-        <Value>true</Value>
-        <LastSelection>true</LastSelection>
-        <LastUserSel>yes</LastUserSel>
-        <UsrMethodName>SetTerminal</UsrMethodName>
-      </ItemState>
-      <ItemState>
-        <ItemSymbol>TerminalOut</ItemSymbol>
-        <ReadOnly>false</ReadOnly>
-        <UserReadOnly>false</UserReadOnly>
-        <PropertyModelIsAutomatic>false</PropertyModelIsAutomatic>
-        <Index>0</Index>
-        <Value>true</Value>
-        <LastSelection>true</LastSelection>
-        <LastUserSel>yes</LastUserSel>
-        <UsrMethodName>TerminalOut</UsrMethodName>
-      </ItemState>
-      <ItemState>
-        <ItemSymbol>ConfigUpBuffer</ItemSymbol>
-        <ReadOnly>false</ReadOnly>
-        <UserReadOnly>false</UserReadOnly>
-        <PropertyModelIsAutomatic>false</PropertyModelIsAutomatic>
-        <Index>0</Index>
-        <Value>true</Value>
-        <LastSelection>true</LastSelection>
-        <LastUserSel>yes</LastUserSel>
-        <UsrMethodName>ConfigUpBuffer</UsrMethodName>
-      </ItemState>
-      <ItemState>
-        <ItemSymbol>ConfigDownBuffer</ItemSymbol>
-        <ReadOnly>false</ReadOnly>
-        <UserReadOnly>false</UserReadOnly>
-        <PropertyModelIsAutomatic>false</PropertyModelIsAutomatic>
-        <Index>0</Index>
-        <Value>true</Value>
-        <LastSelection>true</LastSelection>
-        <LastUserSel>yes</LastUserSel>
-        <UsrMethodName>ConfigDownBuffer</UsrMethodName>
-      </ItemState>
-      <ItemState>
-        <ItemSymbol>RecvChar</ItemSymbol>
-        <ReadOnly>false</ReadOnly>
-        <UserReadOnly>false</UserReadOnly>
-        <PropertyModelIsAutomatic>false</PropertyModelIsAutomatic>
-        <Index>0</Index>
-        <Value>true</Value>
-        <LastSelection>true</LastSelection>
-        <LastUserSel>yes</LastUserSel>
-        <UsrMethodName>RecvChar</UsrMethodName>
-      </ItemState>
-      <ItemState>
-        <ItemSymbol>SendChar</ItemSymbol>
-        <ReadOnly>false</ReadOnly>
-        <UserReadOnly>false</UserReadOnly>
-        <PropertyModelIsAutomatic>false</PropertyModelIsAutomatic>
-        <Index>0</Index>
-        <Value>true</Value>
-        <LastSelection>true</LastSelection>
-        <LastUserSel>yes</LastUserSel>
-        <UsrMethodName>SendChar</UsrMethodName>
-      </ItemState>
-      <ItemState>
-        <ItemSymbol>GetCharsInRxBuf</ItemSymbol>
-        <ReadOnly>false</ReadOnly>
-        <UserReadOnly>false</UserReadOnly>
-        <PropertyModelIsAutomatic>false</PropertyModelIsAutomatic>
-        <Index>0</Index>
-        <Value>true</Value>
-        <LastSelection>true</LastSelection>
-        <LastUserSel>yes</LastUserSel>
-        <UsrMethodName>GetCharsInRxBuf</UsrMethodName>
-      </ItemState>
-      <ItemState>
-        <ItemSymbol>StdIOKeyPressed</ItemSymbol>
-        <ReadOnly>false</ReadOnly>
-        <UserReadOnly>false</UserReadOnly>
-        <PropertyModelIsAutomatic>false</PropertyModelIsAutomatic>
-        <Index>0</Index>
-        <Value>true</Value>
-        <LastSelection>true</LastSelection>
-        <LastUserSel>yes</LastUserSel>
-        <UsrMethodName>StdIOKeyPressed</UsrMethodName>
-      </ItemState>
-      <ItemState>
-        <ItemSymbol>StdIOReadChar</ItemSymbol>
-        <ReadOnly>false</ReadOnly>
-        <UserReadOnly>false</UserReadOnly>
-        <PropertyModelIsAutomatic>false</PropertyModelIsAutomatic>
-        <Index>0</Index>
-        <Value>true</Value>
-        <LastSelection>true</LastSelection>
-        <LastUserSel>yes</LastUserSel>
-        <UsrMethodName>StdIOReadChar</UsrMethodName>
-      </ItemState>
-      <ItemState>
-        <ItemSymbol>StdIOSendChar</ItemSymbol>
-        <ReadOnly>false</ReadOnly>
-        <UserReadOnly>false</UserReadOnly>
-        <PropertyModelIsAutomatic>false</PropertyModelIsAutomatic>
-        <Index>0</Index>
-        <Value>true</Value>
-        <LastSelection>true</LastSelection>
-        <LastUserSel>yes</LastUserSel>
-        <UsrMethodName>StdIOSendChar</UsrMethodName>
-      </ItemState>
-      <ItemState>
-        <ItemSymbol>Deinit</ItemSymbol>
-        <ReadOnly>false</ReadOnly>
-        <UserReadOnly>false</UserReadOnly>
-        <PropertyModelIsAutomatic>false</PropertyModelIsAutomatic>
-        <Index>0</Index>
-        <Value>true</Value>
-        <LastSelection>true</LastSelection>
-        <LastUserSel>yes</LastUserSel>
-        <UsrMethodName>Deinit</UsrMethodName>
-      </ItemState>
-      <ItemState>
-        <ItemSymbol>Init</ItemSymbol>
-        <ReadOnly>false</ReadOnly>
-        <UserReadOnly>false</UserReadOnly>
-        <PropertyModelIsAutomatic>false</PropertyModelIsAutomatic>
-        <Index>0</Index>
-        <Value>true</Value>
-        <LastSelection>true</LastSelection>
-        <LastUserSel>yes</LastUserSel>
-        <UsrMethodName>Init</UsrMethodName>
       </ItemState>
     </Methods>
     <Events />

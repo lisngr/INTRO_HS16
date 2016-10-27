@@ -63,6 +63,7 @@
 #include "SW1.h"
 #include "UTIL1.h"
 #include "KSDK1.h"
+#include "SW1.h"
 #include "KIN1.h"
 /* Including shared modules, which are used for whole project */
 #include "PE_Types.h"
@@ -71,6 +72,7 @@
 #include "IO_Map.h"
 /* User includes (#include below this line is not maintained by Processor Expert) */
 #include "Application.h"
+#include "LED.h"
 
 /*lint -save  -e970 Disable MISRA rule (6.3) checking. */
 int main(void)
@@ -84,6 +86,7 @@ int main(void)
 
   /* Write your code here */
   /* For example: for(;;) { } */
+
   APP_Start();
 
   /*** Don't write any code pass this line, or it will be deleted during code generation. ***/

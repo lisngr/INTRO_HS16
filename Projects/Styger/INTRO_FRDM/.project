@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <projectDescription>
-	<name>INTRO_FRDM_Master</name>
+	<name>Freedom_1</name>
 	<comment></comment>
 	<projects>
 	</projects>
@@ -30,4 +30,17 @@
 		<nature>org.eclipse.cdt.managedbuilder.core.managedBuildNature</nature>
 		<nature>org.eclipse.cdt.managedbuilder.core.ScannerConfigNature</nature>
 	</natures>
+	<linkedResources>
+		<link>
+			<name>Sources/INTRO_Common</name>
+			<type>2</type>
+			<locationURI>copy_PARENT/INTRO_Common</locationURI>
+		</link>
+	</linkedResources>
+	<variableList>
+		<variable>
+			<name>copy_PARENT</name>
+			<value>$%7BPARENT-2-PROJECT_LOC%7D/git_group/Projects/Styger</value>
+		</variable>
+	</variableList>
 </projectDescription>

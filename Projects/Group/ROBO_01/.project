@@ -37,10 +37,4 @@
 			<locationURI>PARENT-1-PROJECT_LOC/INTRO_Common</locationURI>
 		</link>
 	</linkedResources>
-	<variableList>
-		<variable>
-			<name>copy_PARENT</name>
-			<value>$%7BPARENT-3-PROJECT_LOC%7D/git_styger/Projects/Styger</value>
-		</variable>
-	</variableList>
 </projectDescription>

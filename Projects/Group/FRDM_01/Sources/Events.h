@@ -65,6 +65,7 @@
 #include "BitIoLdd7.h"
 #include "UTIL1.h"
 #include "KSDK1.h"
+#include "SW1.h"
 #include "KIN1.h"
 
 #ifdef __cplusplus

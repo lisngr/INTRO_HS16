@@ -4,13 +4,13 @@
 /*##                                   */
 /*##     Filename  : ProcessorExpert.ld */
 /*##                                   */
-/*##     Project   : FRDM_01           */
+/*##     Project   : FRDM_02           */
 /*##                                   */
 /*##     Processor : MKL25Z128VLK4     */
 /*##                                   */
 /*##     Compiler  : GNU C Compiler    */
 /*##                                   */
-/*##     Date/Time : 2016-10-13, 16:13, # CodeGen: 8 */
+/*##     Date/Time : 2016-10-23, 16:32, # CodeGen: 0 */
 /*##                                   */
 /*##     Abstract  :                   */
 /*##                                   */

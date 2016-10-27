@@ -55,8 +55,8 @@ void APP_EventHandler(EVNT_Handle event) {
   #if PL_CONFIG_NOF_KEYS>=1
   case EVNT_SW1_PRESSED:
     LED2_Neg();
-    //CLS1_SendStr("SW1 pressed\r\n", CLS1_GetStdio()->stdOut);
-   // SHELL_SendString("SW1 pressed\r\n");
+    CLS1_SendStr((uint8_t*)"SW1 pressed\r\n", CLS1_GetStdio()->stdOut);
+   SHELL_SendString("SW 1 PRESSED\r\n");
     #if PL_CONFIG_HAS_BUZZER
     BUZ_PlayTune(BUZ_TUNE_BUTTON);
     #endif
@@ -64,15 +64,17 @@ void APP_EventHandler(EVNT_Handle event) {
   #endif
 #endif /* PL_CONFIG_HAS_KEYS */
 
+  default:
+	  break;
     /* \todo extend handler as needed */
    } /* switch */
 }
 #endif /* PL_CONFIG_HAS_EVENTS */
 
 static const KIN1_UID RoboIDs[] = {
-  /* 0: L20, V2 */ {0x00,0x03,0x00,0x00,0x4E,0x45,0xB7,0x21,0x4E,0x45,0x32,0x15,0x30,0x02,0x00,0x13},
-  /* 1: L21, V2 */ {0x00,0x05,0x00,0x00,0x4E,0x45,0xB7,0x21,0x4E,0x45,0x32,0x15,0x30,0x02,0x00,0x13},
-  /* 2: L4, V1  */ {0x00,0x0B,0xFF,0xFF,0x4E,0x45,0xFF,0xFF,0x4E,0x45,0x27,0x99,0x10,0x02,0x00,0x24}, /* revert right motor */
+  /* 0: L20, V2 */ {{0x00,0x03,0x00,0x00,0x4E,0x45,0xB7,0x21,0x4E,0x45,0x32,0x15,0x30,0x02,0x00,0x13}},
+  /* 1: L21, V2 */ {{0x00,0x05,0x00,0x00,0x4E,0x45,0xB7,0x21,0x4E,0x45,0x32,0x15,0x30,0x02,0x00,0x13}},
+  /* 2: L4, V1  */ {{0x00,0x0B,0xFF,0xFF,0x4E,0x45,0xFF,0xFF,0x4E,0x45,0x27,0x99,0x10,0x02,0x00,0x24}}, /* revert right motor */
 };
 
 static void APP_AdoptToHardware(void) {
@@ -114,7 +116,7 @@ void APP_Start(void) {
   EVNT_SetEvent(EVNT_STARTUP);
 #endif
 #if CLS1_DEFAULT_SERIAL
-  CLS1_SendStr("Hello World!\r\n", CLS1_GetStdio()->stdOut);
+  CLS1_SendStr((uint8_t*)"Hello World!\r\n", CLS1_GetStdio()->stdOut);
 #endif
   APP_AdoptToHardware();
 #if PL_CONFIG_HAS_RTOS
@@ -128,8 +130,9 @@ void APP_Start(void) {
 #if PL_CONFIG_HAS_EVENTS
     EVNT_HandleEvent(APP_EventHandler, TRUE);
 #endif
-
-    WAIT1_Waitms(25); /* just wait for some arbitrary time .... */
+    //
+    // CREATE KEY EVENT
+    //
   }
 #endif
 }
