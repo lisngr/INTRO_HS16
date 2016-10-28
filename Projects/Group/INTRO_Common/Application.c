@@ -122,18 +122,6 @@ void APP_Start(void) {
 #if PL_CONFIG_HAS_RTOS
   vTaskStartScheduler(); /* start the RTOS, create the IDLE task and run my tasks (if any) */
   /* does usually not return! */
-#else
-  for(;;) {
-#if PL_CONFIG_HAS_KEYS
-    KEY_Scan();
-#endif
-#if PL_CONFIG_HAS_EVENTS
-    EVNT_HandleEvent(APP_EventHandler, TRUE);
-#endif
-    //
-    // CREATE KEY EVENT
-    //
-  }
 #endif
 }
 
