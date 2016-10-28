@@ -54,7 +54,7 @@ void APP_EventHandler(EVNT_Handle event) {
 #if PL_CONFIG_HAS_KEYS
   #if PL_CONFIG_NOF_KEYS>=1
   case EVNT_SW1_PRESSED:
-    LED2_Neg();
+    LED3_Neg();
     CLS1_SendStr((uint8_t*)"SW1 pressed\r\n", CLS1_GetStdio()->stdOut);
    SHELL_SendString("SW 1 PRESSED\r\n");
     #if PL_CONFIG_HAS_BUZZER
