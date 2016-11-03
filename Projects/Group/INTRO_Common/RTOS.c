@@ -37,7 +37,7 @@ static void MainTask(void* param) {
 		EVNT_HandleEvent(APP_EventHandler, TRUE);
 	#endif
 	  /*Task Delay*/
-	  //FRTOS1_vTaskDelay(pdMS_TO_TICKS(500));
+	  FRTOS1_vTaskDelay(pdMS_TO_TICKS(500));
   }
 }
 
