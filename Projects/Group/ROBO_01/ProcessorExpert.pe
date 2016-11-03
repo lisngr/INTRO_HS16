@@ -3,7 +3,7 @@
   <Header>
     <Name>ROBO_01</Name>
     <SavedBy>Erich Styger</SavedBy>
-    <ModificationStamp>108</ModificationStamp>
+    <ModificationStamp>110</ModificationStamp>
     <Date>2016-02-29</Date>
     <IDE>Eclipse IDE</IDE>
     <PEversion>1.12.2.RT7_b1550-0615</PEversion>
@@ -29,7 +29,7 @@
     <UseExistingModules>true</UseExistingModules>
     <RenamePeripheries>false</RenamePeripheries>
     <Autodependency>true</Autodependency>
-    <ProjectCompNumb>383</ProjectCompNumb>
+    <ProjectCompNumb>388</ProjectCompNumb>
     <DelUnusedPreviouslyGenFiles>true</DelUnusedPreviouslyGenFiles>
     <GeneratedCodeFrozen>false</GeneratedCodeFrozen>
     <AssignInitComponentNameToPrph>true</AssignInitComponentNameToPrph>
@@ -10336,11 +10336,11 @@
       <ItemId30>84</ItemId30>
       <Value30>true</Value30>
       <ItemId31>91</ItemId31>
-      <Value31>false</Value31>
+      <Value31>true</Value31>
       <ItemId32>92</ItemId32>
-      <Value32>false</Value32>
+      <Value32>true</Value32>
       <ItemId33>94</ItemId33>
-      <Value33>false</Value33>
+      <Value33>true</Value33>
       <ItemId34>96</ItemId34>
       <Value34>true</Value34>
       <ItemId35>98</ItemId35>
@@ -10348,13 +10348,13 @@
       <ItemId36>174</ItemId36>
       <Value36>true</Value36>
       <ItemId37>190</ItemId37>
-      <Value37>true</Value37>
+      <Value37>false</Value37>
       <ItemId38>191</ItemId38>
-      <Value38>true</Value38>
+      <Value38>false</Value38>
       <ItemId39>212</ItemId39>
       <Value39>true</Value39>
       <ItemId40>214</ItemId40>
-      <Value40>true</Value40>
+      <Value40>false</Value40>
       <ItemId41>234</ItemId41>
       <Value41>true</Value41>
       <ItemId42>260</ItemId42>
@@ -13364,7 +13364,7 @@
     <BeanType>TimerUnit_LDD</BeanType>
     <Name>TU_MCP4728</Name>
     <CompNumb>91</CompNumb>
-    <CompEnabled>false</CompEnabled>
+    <CompEnabled>true</CompEnabled>
     <GenCodeMode>ALWAYS_WRITE</GenCodeMode>
     <IconName>CLOCKS_LDD</IconName>
     <UserFolderName>V1</UserFolderName>
@@ -13549,7 +13549,7 @@
         <ItemSymbol>Overrundevice</ItemSymbol>
         <ReadOnly>false</ReadOnly>
         <UserReadOnly>false</UserReadOnly>
-        <Value />
+        <Value>FTM3_Free</Value>
         <SharedPrphMode>false</SharedPrphMode>
       </ItemState>
       <ItemState>
@@ -13647,7 +13647,7 @@
       </ItemState>
       <ItemState>
         <ItemSymbol>CounterInt</ItemSymbol>
-        <Value />
+        <Value>INT_FTM3</Value>
       </ItemState>
       <ItemState>
         <ItemSymbol>CounterInitPriority</ItemSymbol>
@@ -14292,7 +14292,7 @@
     <BeanType>BitIO</BeanType>
     <Name>MCP4728_LDAC</Name>
     <CompNumb>92</CompNumb>
-    <CompEnabled>false</CompEnabled>
+    <CompEnabled>true</CompEnabled>
     <GenCodeMode>ALWAYS_WRITE</GenCodeMode>
     <IconName>BITIO</IconName>
     <UserFolderName>V1</UserFolderName>
@@ -14504,7 +14504,7 @@
             </ItemState>
             <ItemState>
               <ItemSymbol>Deinit</ItemSymbol>
-              <ReadOnly>true</ReadOnly>
+              <ReadOnly>false</ReadOnly>
               <UserReadOnly>false</UserReadOnly>
               <PropertyModelIsAutomatic>false</PropertyModelIsAutomatic>
               <Index>1</Index>
@@ -14515,7 +14515,7 @@
             </ItemState>
             <ItemState>
               <ItemSymbol>GetDir</ItemSymbol>
-              <ReadOnly>true</ReadOnly>
+              <ReadOnly>false</ReadOnly>
               <UserReadOnly>false</UserReadOnly>
               <PropertyModelIsAutomatic>false</PropertyModelIsAutomatic>
               <Index>1</Index>
@@ -14603,11 +14603,11 @@
             </ItemState>
             <ItemState>
               <ItemSymbol>NegVal</ItemSymbol>
-              <ReadOnly>true</ReadOnly>
+              <ReadOnly>false</ReadOnly>
               <UserReadOnly>false</UserReadOnly>
               <PropertyModelIsAutomatic>false</PropertyModelIsAutomatic>
-              <Index>0</Index>
-              <Value>true</Value>
+              <Index>1</Index>
+              <Value>false</Value>
               <LastSelection>false</LastSelection>
               <LastUserSel>no</LastUserSel>
               <UsrMethodName>NegVal</UsrMethodName>
@@ -14619,7 +14619,7 @@
             </ItemState>
             <ItemState>
               <ItemSymbol>ConnectPin</ItemSymbol>
-              <ReadOnly>true</ReadOnly>
+              <ReadOnly>false</ReadOnly>
               <UserReadOnly>false</UserReadOnly>
               <PropertyModelIsAutomatic>false</PropertyModelIsAutomatic>
               <Index>1</Index>
@@ -14635,7 +14635,7 @@
             </ItemState>
             <ItemState>
               <ItemSymbol>GetRawVal</ItemSymbol>
-              <ReadOnly>true</ReadOnly>
+              <ReadOnly>false</ReadOnly>
               <UserReadOnly>false</UserReadOnly>
               <PropertyModelIsAutomatic>false</PropertyModelIsAutomatic>
               <Index>1</Index>
@@ -14883,7 +14883,7 @@
     <BeanType>BitIO</BeanType>
     <Name>MCP4728_RDY</Name>
     <CompNumb>94</CompNumb>
-    <CompEnabled>false</CompEnabled>
+    <CompEnabled>true</CompEnabled>
     <GenCodeMode>ALWAYS_WRITE</GenCodeMode>
     <IconName>BITIO</IconName>
     <UserFolderName>V1</UserFolderName>
@@ -15095,7 +15095,7 @@
             </ItemState>
             <ItemState>
               <ItemSymbol>Deinit</ItemSymbol>
-              <ReadOnly>true</ReadOnly>
+              <ReadOnly>false</ReadOnly>
               <UserReadOnly>false</UserReadOnly>
               <PropertyModelIsAutomatic>false</PropertyModelIsAutomatic>
               <Index>1</Index>
@@ -15106,7 +15106,7 @@
             </ItemState>
             <ItemState>
               <ItemSymbol>GetDir</ItemSymbol>
-              <ReadOnly>true</ReadOnly>
+              <ReadOnly>false</ReadOnly>
               <UserReadOnly>false</UserReadOnly>
               <PropertyModelIsAutomatic>false</PropertyModelIsAutomatic>
               <Index>1</Index>
@@ -15210,7 +15210,7 @@
             </ItemState>
             <ItemState>
               <ItemSymbol>ConnectPin</ItemSymbol>
-              <ReadOnly>true</ReadOnly>
+              <ReadOnly>false</ReadOnly>
               <UserReadOnly>false</UserReadOnly>
               <PropertyModelIsAutomatic>false</PropertyModelIsAutomatic>
               <Index>1</Index>
@@ -15226,7 +15226,7 @@
             </ItemState>
             <ItemState>
               <ItemSymbol>GetRawVal</ItemSymbol>
-              <ReadOnly>true</ReadOnly>
+              <ReadOnly>false</ReadOnly>
               <UserReadOnly>false</UserReadOnly>
               <PropertyModelIsAutomatic>false</PropertyModelIsAutomatic>
               <Index>1</Index>
@@ -40601,7 +40601,7 @@
         <ItemSymbol>Tmg_Period</ItemSymbol>
         <ReadOnly>false</ReadOnly>
         <UserReadOnly>false</UserReadOnly>
-        <Value>init:70 µs;prec:5%;RTS:none;clksrc_presc[SpeedMode0]Auto select;clksrc_presc[SpeedMode1]Auto select;clksrc_presc[SpeedMode2]Auto select;clksrc_presc[SpeedMode3]Auto select;clksrc_presc[SpeedMode4]Auto select;clksrc_presc[SpeedMode5]Auto select;clksrc_presc[SpeedMode6]Auto select;clksrc_presc[SpeedMode7]Auto select</Value>
+        <Value>init:120 µs;prec:5%;RTS:none;clksrc_presc[SpeedMode0]Auto select;clksrc_presc[SpeedMode1]Auto select;clksrc_presc[SpeedMode2]Auto select;clksrc_presc[SpeedMode3]Auto select;clksrc_presc[SpeedMode4]Auto select;clksrc_presc[SpeedMode5]Auto select;clksrc_presc[SpeedMode6]Auto select;clksrc_presc[SpeedMode7]Auto select</Value>
         <RuntimeSetting>0</RuntimeSetting>
         <ReqDevPrescHigh>-1</ReqDevPrescHigh>
         <ReqDevPrescLow>-1</ReqDevPrescLow>
@@ -41329,7 +41329,7 @@
     <BeanType>RNet</BeanType>
     <Name>RNET1</Name>
     <CompNumb>190</CompNumb>
-    <CompEnabled>true</CompEnabled>
+    <CompEnabled>false</CompEnabled>
     <GenCodeMode>ALWAYS_WRITE</GenCodeMode>
     <IconName>RNet</IconName>
     <UserFolderName>nRF</UserFolderName>
@@ -41651,7 +41651,7 @@
     <BeanType>nRF24L01</BeanType>
     <Name>RF1</Name>
     <CompNumb>191</CompNumb>
-    <CompEnabled>true</CompEnabled>
+    <CompEnabled>false</CompEnabled>
     <GenCodeMode>ALWAYS_WRITE</GenCodeMode>
     <IconName>nRF24L01</IconName>
     <UserFolderName>nRF</UserFolderName>
@@ -43875,7 +43875,7 @@
       </ItemState>
       <ItemState>
         <ItemSymbol>OnInterrupt</ItemSymbol>
-        <ReadOnly>true</ReadOnly>
+        <ReadOnly>false</ReadOnly>
         <UserReadOnly>false</UserReadOnly>
         <PropertyModelIsAutomatic>false</PropertyModelIsAutomatic>
         <Value>true</Value>
@@ -44090,7 +44090,7 @@
     <BeanType>SynchroMaster</BeanType>
     <Name>SM1</Name>
     <CompNumb>214</CompNumb>
-    <CompEnabled>true</CompEnabled>
+    <CompEnabled>false</CompEnabled>
     <GenCodeMode>ALWAYS_WRITE</GenCodeMode>
     <IconName>PHONE</IconName>
     <UserFolderName>nRF</UserFolderName>
@@ -45242,7 +45242,7 @@
               <ItemSymbol>BaudRate</ItemSymbol>
               <ReadOnly>false</ReadOnly>
               <UserReadOnly>false</UserReadOnly>
-              <Value>init:10 MHz;prec:1.5%;RTS:none;clksrc_presc[SpeedMode0]Auto select;clksrc_presc[SpeedMode1]Auto select;clksrc_presc[SpeedMode2]Auto select;clksrc_presc[SpeedMode3]Auto select;clksrc_presc[SpeedMode4]Auto select;clksrc_presc[SpeedMode5]Auto select;clksrc_presc[SpeedMode6]Auto select;clksrc_presc[SpeedMode7]Auto select</Value>
+              <Value>10 MHz</Value>
               <RuntimeSetting>0</RuntimeSetting>
               <ReqDevPrescHigh>-1</ReqDevPrescHigh>
               <ReqDevPrescLow>-1</ReqDevPrescLow>
@@ -45286,7 +45286,7 @@
               <ItemSymbol>DelayBetweenChars</ItemSymbol>
               <ReadOnly>false</ReadOnly>
               <UserReadOnly>false</UserReadOnly>
-              <Value>init:0.033333 µs;prec:5%;RTS:none;clksrc_presc[SpeedMode0]Auto select;clksrc_presc[SpeedMode1]Auto select;clksrc_presc[SpeedMode2]Auto select;clksrc_presc[SpeedMode3]Auto select;clksrc_presc[SpeedMode4]Auto select;clksrc_presc[SpeedMode5]Auto select;clksrc_presc[SpeedMode6]Auto select;clksrc_presc[SpeedMode7]Auto select</Value>
+              <Value>0.033333 µs</Value>
               <RuntimeSetting>0</RuntimeSetting>
               <ReqDevPrescHigh>-1</ReqDevPrescHigh>
               <ReqDevPrescLow>-1</ReqDevPrescLow>
@@ -45330,7 +45330,7 @@
               <ItemSymbol>DelayCStoCLK</ItemSymbol>
               <ReadOnly>false</ReadOnly>
               <UserReadOnly>false</UserReadOnly>
-              <Value>init:0.033333 µs;prec:5%;RTS:none;clksrc_presc[SpeedMode0]Auto select;clksrc_presc[SpeedMode1]Auto select;clksrc_presc[SpeedMode2]Auto select;clksrc_presc[SpeedMode3]Auto select;clksrc_presc[SpeedMode4]Auto select;clksrc_presc[SpeedMode5]Auto select;clksrc_presc[SpeedMode6]Auto select;clksrc_presc[SpeedMode7]Auto select</Value>
+              <Value>0.033333 µs</Value>
               <RuntimeSetting>0</RuntimeSetting>
               <ReqDevPrescHigh>-1</ReqDevPrescHigh>
               <ReqDevPrescLow>-1</ReqDevPrescLow>
@@ -45374,7 +45374,7 @@
               <ItemSymbol>DelayCLKtoCS</ItemSymbol>
               <ReadOnly>false</ReadOnly>
               <UserReadOnly>false</UserReadOnly>
-              <Value>init:0.033333 µs;prec:5%;RTS:none;clksrc_presc[SpeedMode0]Auto select;clksrc_presc[SpeedMode1]Auto select;clksrc_presc[SpeedMode2]Auto select;clksrc_presc[SpeedMode3]Auto select;clksrc_presc[SpeedMode4]Auto select;clksrc_presc[SpeedMode5]Auto select;clksrc_presc[SpeedMode6]Auto select;clksrc_presc[SpeedMode7]Auto select</Value>
+              <Value>0.033333 µs</Value>
               <RuntimeSetting>0</RuntimeSetting>
               <ReqDevPrescHigh>-1</ReqDevPrescHigh>
               <ReqDevPrescLow>-1</ReqDevPrescLow>
@@ -46073,7 +46073,7 @@
       </ItemState>
       <ItemState>
         <ItemSymbol>RecvChar</ItemSymbol>
-        <ReadOnly>true</ReadOnly>
+        <ReadOnly>false</ReadOnly>
         <UserReadOnly>false</UserReadOnly>
         <PropertyModelIsAutomatic>false</PropertyModelIsAutomatic>
         <Index>0</Index>
@@ -46084,7 +46084,7 @@
       </ItemState>
       <ItemState>
         <ItemSymbol>SendChar</ItemSymbol>
-        <ReadOnly>true</ReadOnly>
+        <ReadOnly>false</ReadOnly>
         <UserReadOnly>false</UserReadOnly>
         <PropertyModelIsAutomatic>false</PropertyModelIsAutomatic>
         <Index>0</Index>
@@ -46095,7 +46095,7 @@
       </ItemState>
       <ItemState>
         <ItemSymbol>RecvBlock</ItemSymbol>
-        <ReadOnly>true</ReadOnly>
+        <ReadOnly>false</ReadOnly>
         <UserReadOnly>false</UserReadOnly>
         <PropertyModelIsAutomatic>false</PropertyModelIsAutomatic>
         <Index>0</Index>
@@ -46106,7 +46106,7 @@
       </ItemState>
       <ItemState>
         <ItemSymbol>SendBlock</ItemSymbol>
-        <ReadOnly>true</ReadOnly>
+        <ReadOnly>false</ReadOnly>
         <UserReadOnly>false</UserReadOnly>
         <PropertyModelIsAutomatic>false</PropertyModelIsAutomatic>
         <Index>0</Index>
@@ -46117,7 +46117,7 @@
       </ItemState>
       <ItemState>
         <ItemSymbol>ClearRxBuf</ItemSymbol>
-        <ReadOnly>true</ReadOnly>
+        <ReadOnly>false</ReadOnly>
         <UserReadOnly>false</UserReadOnly>
         <PropertyModelIsAutomatic>false</PropertyModelIsAutomatic>
         <Index>0</Index>
@@ -46128,7 +46128,7 @@
       </ItemState>
       <ItemState>
         <ItemSymbol>ClearTxBuf</ItemSymbol>
-        <ReadOnly>true</ReadOnly>
+        <ReadOnly>false</ReadOnly>
         <UserReadOnly>false</UserReadOnly>
         <PropertyModelIsAutomatic>false</PropertyModelIsAutomatic>
         <Index>0</Index>
@@ -46139,18 +46139,18 @@
       </ItemState>
       <ItemState>
         <ItemSymbol>CharsInRxBuf</ItemSymbol>
-        <ReadOnly>true</ReadOnly>
+        <ReadOnly>false</ReadOnly>
         <UserReadOnly>false</UserReadOnly>
         <PropertyModelIsAutomatic>false</PropertyModelIsAutomatic>
-        <Index>0</Index>
-        <Value>true</Value>
+        <Index>1</Index>
+        <Value>false</Value>
         <LastSelection>false</LastSelection>
         <LastUserSel>no</LastUserSel>
         <UsrMethodName>CharsInRxBuf</UsrMethodName>
       </ItemState>
       <ItemState>
         <ItemSymbol>GetCharsInRxBuf</ItemSymbol>
-        <ReadOnly>true</ReadOnly>
+        <ReadOnly>false</ReadOnly>
         <UserReadOnly>false</UserReadOnly>
         <PropertyModelIsAutomatic>false</PropertyModelIsAutomatic>
         <Index>0</Index>
@@ -46161,18 +46161,18 @@
       </ItemState>
       <ItemState>
         <ItemSymbol>CharsInTxBuf</ItemSymbol>
-        <ReadOnly>true</ReadOnly>
+        <ReadOnly>false</ReadOnly>
         <UserReadOnly>false</UserReadOnly>
         <PropertyModelIsAutomatic>false</PropertyModelIsAutomatic>
-        <Index>0</Index>
-        <Value>true</Value>
+        <Index>1</Index>
+        <Value>false</Value>
         <LastSelection>false</LastSelection>
         <LastUserSel>no</LastUserSel>
         <UsrMethodName>CharsInTxBuf</UsrMethodName>
       </ItemState>
       <ItemState>
         <ItemSymbol>GetCharsInTxBuf</ItemSymbol>
-        <ReadOnly>true</ReadOnly>
+        <ReadOnly>false</ReadOnly>
         <UserReadOnly>false</UserReadOnly>
         <PropertyModelIsAutomatic>false</PropertyModelIsAutomatic>
         <Index>0</Index>
@@ -51529,7 +51529,7 @@
     <Methods>
       <ItemState>
         <ItemSymbol>strcpy</ItemSymbol>
-        <ReadOnly>true</ReadOnly>
+        <ReadOnly>false</ReadOnly>
         <UserReadOnly>false</UserReadOnly>
         <PropertyModelIsAutomatic>false</PropertyModelIsAutomatic>
         <ItemWasNeverEnabledInChgScript>true</ItemWasNeverEnabledInChgScript>
@@ -51541,7 +51541,7 @@
       </ItemState>
       <ItemState>
         <ItemSymbol>strcat</ItemSymbol>
-        <ReadOnly>true</ReadOnly>
+        <ReadOnly>false</ReadOnly>
         <UserReadOnly>false</UserReadOnly>
         <PropertyModelIsAutomatic>false</PropertyModelIsAutomatic>
         <ItemWasNeverEnabledInChgScript>true</ItemWasNeverEnabledInChgScript>
@@ -51565,7 +51565,7 @@
       </ItemState>
       <ItemState>
         <ItemSymbol>chcat</ItemSymbol>
-        <ReadOnly>true</ReadOnly>
+        <ReadOnly>false</ReadOnly>
         <UserReadOnly>false</UserReadOnly>
         <PropertyModelIsAutomatic>false</PropertyModelIsAutomatic>
         <ItemWasNeverEnabledInChgScript>true</ItemWasNeverEnabledInChgScript>
@@ -51577,7 +51577,7 @@
       </ItemState>
       <ItemState>
         <ItemSymbol>Num8sToStr</ItemSymbol>
-        <ReadOnly>true</ReadOnly>
+        <ReadOnly>false</ReadOnly>
         <UserReadOnly>false</UserReadOnly>
         <PropertyModelIsAutomatic>false</PropertyModelIsAutomatic>
         <ItemWasNeverEnabledInChgScript>true</ItemWasNeverEnabledInChgScript>
@@ -51589,7 +51589,7 @@
       </ItemState>
       <ItemState>
         <ItemSymbol>Num8uToStr</ItemSymbol>
-        <ReadOnly>true</ReadOnly>
+        <ReadOnly>false</ReadOnly>
         <UserReadOnly>false</UserReadOnly>
         <PropertyModelIsAutomatic>false</PropertyModelIsAutomatic>
         <ItemWasNeverEnabledInChgScript>true</ItemWasNeverEnabledInChgScript>
@@ -51601,7 +51601,7 @@
       </ItemState>
       <ItemState>
         <ItemSymbol>Num16sToStr</ItemSymbol>
-        <ReadOnly>true</ReadOnly>
+        <ReadOnly>false</ReadOnly>
         <UserReadOnly>false</UserReadOnly>
         <PropertyModelIsAutomatic>false</PropertyModelIsAutomatic>
         <ItemWasNeverEnabledInChgScript>true</ItemWasNeverEnabledInChgScript>
@@ -51613,7 +51613,7 @@
       </ItemState>
       <ItemState>
         <ItemSymbol>Num16uToStr</ItemSymbol>
-        <ReadOnly>true</ReadOnly>
+        <ReadOnly>false</ReadOnly>
         <UserReadOnly>false</UserReadOnly>
         <PropertyModelIsAutomatic>false</PropertyModelIsAutomatic>
         <ItemWasNeverEnabledInChgScript>true</ItemWasNeverEnabledInChgScript>
@@ -51625,7 +51625,7 @@
       </ItemState>
       <ItemState>
         <ItemSymbol>Num32uToStr</ItemSymbol>
-        <ReadOnly>true</ReadOnly>
+        <ReadOnly>false</ReadOnly>
         <UserReadOnly>false</UserReadOnly>
         <PropertyModelIsAutomatic>false</PropertyModelIsAutomatic>
         <ItemWasNeverEnabledInChgScript>true</ItemWasNeverEnabledInChgScript>
@@ -51637,7 +51637,7 @@
       </ItemState>
       <ItemState>
         <ItemSymbol>Num32sToStr</ItemSymbol>
-        <ReadOnly>true</ReadOnly>
+        <ReadOnly>false</ReadOnly>
         <UserReadOnly>false</UserReadOnly>
         <PropertyModelIsAutomatic>false</PropertyModelIsAutomatic>
         <ItemWasNeverEnabledInChgScript>true</ItemWasNeverEnabledInChgScript>
@@ -51661,7 +51661,7 @@
       </ItemState>
       <ItemState>
         <ItemSymbol>Num16sToStrFormatted</ItemSymbol>
-        <ReadOnly>true</ReadOnly>
+        <ReadOnly>false</ReadOnly>
         <UserReadOnly>false</UserReadOnly>
         <PropertyModelIsAutomatic>false</PropertyModelIsAutomatic>
         <ItemWasNeverEnabledInChgScript>true</ItemWasNeverEnabledInChgScript>
@@ -51673,7 +51673,7 @@
       </ItemState>
       <ItemState>
         <ItemSymbol>Num16uToStrFormatted</ItemSymbol>
-        <ReadOnly>true</ReadOnly>
+        <ReadOnly>false</ReadOnly>
         <UserReadOnly>false</UserReadOnly>
         <PropertyModelIsAutomatic>false</PropertyModelIsAutomatic>
         <ItemWasNeverEnabledInChgScript>true</ItemWasNeverEnabledInChgScript>
@@ -51685,7 +51685,7 @@
       </ItemState>
       <ItemState>
         <ItemSymbol>Num32uToStrFormatted</ItemSymbol>
-        <ReadOnly>true</ReadOnly>
+        <ReadOnly>false</ReadOnly>
         <UserReadOnly>false</UserReadOnly>
         <PropertyModelIsAutomatic>false</PropertyModelIsAutomatic>
         <ItemWasNeverEnabledInChgScript>true</ItemWasNeverEnabledInChgScript>
@@ -51697,7 +51697,7 @@
       </ItemState>
       <ItemState>
         <ItemSymbol>Num32sToStrFormatted</ItemSymbol>
-        <ReadOnly>true</ReadOnly>
+        <ReadOnly>false</ReadOnly>
         <UserReadOnly>false</UserReadOnly>
         <PropertyModelIsAutomatic>false</PropertyModelIsAutomatic>
         <ItemWasNeverEnabledInChgScript>true</ItemWasNeverEnabledInChgScript>
@@ -51709,7 +51709,7 @@
       </ItemState>
       <ItemState>
         <ItemSymbol>strcatNum8u</ItemSymbol>
-        <ReadOnly>true</ReadOnly>
+        <ReadOnly>false</ReadOnly>
         <UserReadOnly>false</UserReadOnly>
         <PropertyModelIsAutomatic>false</PropertyModelIsAutomatic>
         <ItemWasNeverEnabledInChgScript>true</ItemWasNeverEnabledInChgScript>
@@ -51721,7 +51721,7 @@
       </ItemState>
       <ItemState>
         <ItemSymbol>strcatNum8s</ItemSymbol>
-        <ReadOnly>true</ReadOnly>
+        <ReadOnly>false</ReadOnly>
         <UserReadOnly>false</UserReadOnly>
         <PropertyModelIsAutomatic>false</PropertyModelIsAutomatic>
         <ItemWasNeverEnabledInChgScript>true</ItemWasNeverEnabledInChgScript>
@@ -51733,7 +51733,7 @@
       </ItemState>
       <ItemState>
         <ItemSymbol>strcatNum16u</ItemSymbol>
-        <ReadOnly>true</ReadOnly>
+        <ReadOnly>false</ReadOnly>
         <UserReadOnly>false</UserReadOnly>
         <PropertyModelIsAutomatic>false</PropertyModelIsAutomatic>
         <ItemWasNeverEnabledInChgScript>true</ItemWasNeverEnabledInChgScript>
@@ -51745,7 +51745,7 @@
       </ItemState>
       <ItemState>
         <ItemSymbol>strcatNum16s</ItemSymbol>
-        <ReadOnly>true</ReadOnly>
+        <ReadOnly>false</ReadOnly>
         <UserReadOnly>false</UserReadOnly>
         <PropertyModelIsAutomatic>false</PropertyModelIsAutomatic>
         <ItemWasNeverEnabledInChgScript>true</ItemWasNeverEnabledInChgScript>
@@ -51757,7 +51757,7 @@
       </ItemState>
       <ItemState>
         <ItemSymbol>strcatNum32u</ItemSymbol>
-        <ReadOnly>true</ReadOnly>
+        <ReadOnly>false</ReadOnly>
         <UserReadOnly>false</UserReadOnly>
         <PropertyModelIsAutomatic>false</PropertyModelIsAutomatic>
         <ItemWasNeverEnabledInChgScript>true</ItemWasNeverEnabledInChgScript>
@@ -51769,7 +51769,7 @@
       </ItemState>
       <ItemState>
         <ItemSymbol>strcatNum32s</ItemSymbol>
-        <ReadOnly>true</ReadOnly>
+        <ReadOnly>false</ReadOnly>
         <UserReadOnly>false</UserReadOnly>
         <PropertyModelIsAutomatic>false</PropertyModelIsAutomatic>
         <ItemWasNeverEnabledInChgScript>true</ItemWasNeverEnabledInChgScript>
@@ -51781,7 +51781,7 @@
       </ItemState>
       <ItemState>
         <ItemSymbol>strcatNum16uFormatted</ItemSymbol>
-        <ReadOnly>true</ReadOnly>
+        <ReadOnly>false</ReadOnly>
         <UserReadOnly>false</UserReadOnly>
         <PropertyModelIsAutomatic>false</PropertyModelIsAutomatic>
         <ItemWasNeverEnabledInChgScript>true</ItemWasNeverEnabledInChgScript>
@@ -51793,7 +51793,7 @@
       </ItemState>
       <ItemState>
         <ItemSymbol>strcatNum16sFormatted</ItemSymbol>
-        <ReadOnly>true</ReadOnly>
+        <ReadOnly>false</ReadOnly>
         <UserReadOnly>false</UserReadOnly>
         <PropertyModelIsAutomatic>false</PropertyModelIsAutomatic>
         <ItemWasNeverEnabledInChgScript>true</ItemWasNeverEnabledInChgScript>
@@ -51805,7 +51805,7 @@
       </ItemState>
       <ItemState>
         <ItemSymbol>strcatNum32uFormatted</ItemSymbol>
-        <ReadOnly>true</ReadOnly>
+        <ReadOnly>false</ReadOnly>
         <UserReadOnly>false</UserReadOnly>
         <PropertyModelIsAutomatic>false</PropertyModelIsAutomatic>
         <ItemWasNeverEnabledInChgScript>true</ItemWasNeverEnabledInChgScript>
@@ -51817,7 +51817,7 @@
       </ItemState>
       <ItemState>
         <ItemSymbol>strcatNum32sFormatted</ItemSymbol>
-        <ReadOnly>true</ReadOnly>
+        <ReadOnly>false</ReadOnly>
         <UserReadOnly>false</UserReadOnly>
         <PropertyModelIsAutomatic>false</PropertyModelIsAutomatic>
         <ItemWasNeverEnabledInChgScript>true</ItemWasNeverEnabledInChgScript>
@@ -51829,7 +51829,7 @@
       </ItemState>
       <ItemState>
         <ItemSymbol>strcatNum8Hex</ItemSymbol>
-        <ReadOnly>true</ReadOnly>
+        <ReadOnly>false</ReadOnly>
         <UserReadOnly>false</UserReadOnly>
         <PropertyModelIsAutomatic>false</PropertyModelIsAutomatic>
         <ItemWasNeverEnabledInChgScript>true</ItemWasNeverEnabledInChgScript>
@@ -51841,7 +51841,7 @@
       </ItemState>
       <ItemState>
         <ItemSymbol>strcatNum16Hex</ItemSymbol>
-        <ReadOnly>true</ReadOnly>
+        <ReadOnly>false</ReadOnly>
         <UserReadOnly>false</UserReadOnly>
         <PropertyModelIsAutomatic>false</PropertyModelIsAutomatic>
         <ItemWasNeverEnabledInChgScript>true</ItemWasNeverEnabledInChgScript>
@@ -51853,7 +51853,7 @@
       </ItemState>
       <ItemState>
         <ItemSymbol>strcatNum24Hex</ItemSymbol>
-        <ReadOnly>true</ReadOnly>
+        <ReadOnly>false</ReadOnly>
         <UserReadOnly>false</UserReadOnly>
         <PropertyModelIsAutomatic>false</PropertyModelIsAutomatic>
         <ItemWasNeverEnabledInChgScript>true</ItemWasNeverEnabledInChgScript>
@@ -51865,7 +51865,7 @@
       </ItemState>
       <ItemState>
         <ItemSymbol>strcatNum32Hex</ItemSymbol>
-        <ReadOnly>true</ReadOnly>
+        <ReadOnly>false</ReadOnly>
         <UserReadOnly>false</UserReadOnly>
         <PropertyModelIsAutomatic>false</PropertyModelIsAutomatic>
         <ItemWasNeverEnabledInChgScript>true</ItemWasNeverEnabledInChgScript>
@@ -51877,7 +51877,7 @@
       </ItemState>
       <ItemState>
         <ItemSymbol>strcatNum32sDotValue100</ItemSymbol>
-        <ReadOnly>true</ReadOnly>
+        <ReadOnly>false</ReadOnly>
         <UserReadOnly>false</UserReadOnly>
         <PropertyModelIsAutomatic>false</PropertyModelIsAutomatic>
         <ItemWasNeverEnabledInChgScript>true</ItemWasNeverEnabledInChgScript>
@@ -51901,7 +51901,7 @@
       </ItemState>
       <ItemState>
         <ItemSymbol>IsLeapYear</ItemSymbol>
-        <ReadOnly>true</ReadOnly>
+        <ReadOnly>false</ReadOnly>
         <UserReadOnly>false</UserReadOnly>
         <PropertyModelIsAutomatic>false</PropertyModelIsAutomatic>
         <ItemWasNeverEnabledInChgScript>true</ItemWasNeverEnabledInChgScript>
@@ -51913,7 +51913,7 @@
       </ItemState>
       <ItemState>
         <ItemSymbol>WeekDay</ItemSymbol>
-        <ReadOnly>true</ReadOnly>
+        <ReadOnly>false</ReadOnly>
         <UserReadOnly>false</UserReadOnly>
         <PropertyModelIsAutomatic>false</PropertyModelIsAutomatic>
         <ItemWasNeverEnabledInChgScript>true</ItemWasNeverEnabledInChgScript>
@@ -51925,7 +51925,7 @@
       </ItemState>
       <ItemState>
         <ItemSymbol>ReadEscapedName</ItemSymbol>
-        <ReadOnly>true</ReadOnly>
+        <ReadOnly>false</ReadOnly>
         <UserReadOnly>false</UserReadOnly>
         <PropertyModelIsAutomatic>false</PropertyModelIsAutomatic>
         <ItemWasNeverEnabledInChgScript>true</ItemWasNeverEnabledInChgScript>
@@ -51937,7 +51937,7 @@
       </ItemState>
       <ItemState>
         <ItemSymbol>xatoi</ItemSymbol>
-        <ReadOnly>true</ReadOnly>
+        <ReadOnly>false</ReadOnly>
         <UserReadOnly>false</UserReadOnly>
         <PropertyModelIsAutomatic>false</PropertyModelIsAutomatic>
         <ItemWasNeverEnabledInChgScript>true</ItemWasNeverEnabledInChgScript>
@@ -51949,7 +51949,7 @@
       </ItemState>
       <ItemState>
         <ItemSymbol>ScanDate</ItemSymbol>
-        <ReadOnly>true</ReadOnly>
+        <ReadOnly>false</ReadOnly>
         <UserReadOnly>false</UserReadOnly>
         <PropertyModelIsAutomatic>false</PropertyModelIsAutomatic>
         <ItemWasNeverEnabledInChgScript>true</ItemWasNeverEnabledInChgScript>
@@ -51961,7 +51961,7 @@
       </ItemState>
       <ItemState>
         <ItemSymbol>ScanTime</ItemSymbol>
-        <ReadOnly>true</ReadOnly>
+        <ReadOnly>false</ReadOnly>
         <UserReadOnly>false</UserReadOnly>
         <PropertyModelIsAutomatic>false</PropertyModelIsAutomatic>
         <ItemWasNeverEnabledInChgScript>true</ItemWasNeverEnabledInChgScript>
@@ -51973,7 +51973,7 @@
       </ItemState>
       <ItemState>
         <ItemSymbol>ScanDecimal8uNumber</ItemSymbol>
-        <ReadOnly>true</ReadOnly>
+        <ReadOnly>false</ReadOnly>
         <UserReadOnly>false</UserReadOnly>
         <PropertyModelIsAutomatic>false</PropertyModelIsAutomatic>
         <ItemWasNeverEnabledInChgScript>true</ItemWasNeverEnabledInChgScript>
@@ -51985,7 +51985,7 @@
       </ItemState>
       <ItemState>
         <ItemSymbol>ScanDecimal8sNumber</ItemSymbol>
-        <ReadOnly>true</ReadOnly>
+        <ReadOnly>false</ReadOnly>
         <UserReadOnly>false</UserReadOnly>
         <PropertyModelIsAutomatic>false</PropertyModelIsAutomatic>
         <ItemWasNeverEnabledInChgScript>true</ItemWasNeverEnabledInChgScript>
@@ -51997,7 +51997,7 @@
       </ItemState>
       <ItemState>
         <ItemSymbol>ScanDecimal16uNumber</ItemSymbol>
-        <ReadOnly>true</ReadOnly>
+        <ReadOnly>false</ReadOnly>
         <UserReadOnly>false</UserReadOnly>
         <PropertyModelIsAutomatic>false</PropertyModelIsAutomatic>
         <ItemWasNeverEnabledInChgScript>true</ItemWasNeverEnabledInChgScript>
@@ -52009,7 +52009,7 @@
       </ItemState>
       <ItemState>
         <ItemSymbol>ScanDecimal16sNumber</ItemSymbol>
-        <ReadOnly>true</ReadOnly>
+        <ReadOnly>false</ReadOnly>
         <UserReadOnly>false</UserReadOnly>
         <PropertyModelIsAutomatic>false</PropertyModelIsAutomatic>
         <ItemWasNeverEnabledInChgScript>true</ItemWasNeverEnabledInChgScript>
@@ -52021,7 +52021,7 @@
       </ItemState>
       <ItemState>
         <ItemSymbol>ScanDecimal32uNumber</ItemSymbol>
-        <ReadOnly>true</ReadOnly>
+        <ReadOnly>false</ReadOnly>
         <UserReadOnly>false</UserReadOnly>
         <PropertyModelIsAutomatic>false</PropertyModelIsAutomatic>
         <ItemWasNeverEnabledInChgScript>true</ItemWasNeverEnabledInChgScript>
@@ -52033,7 +52033,7 @@
       </ItemState>
       <ItemState>
         <ItemSymbol>ScanDecimal32sNumber</ItemSymbol>
-        <ReadOnly>true</ReadOnly>
+        <ReadOnly>false</ReadOnly>
         <UserReadOnly>false</UserReadOnly>
         <PropertyModelIsAutomatic>false</PropertyModelIsAutomatic>
         <ItemWasNeverEnabledInChgScript>true</ItemWasNeverEnabledInChgScript>
@@ -52057,7 +52057,7 @@
       </ItemState>
       <ItemState>
         <ItemSymbol>ScanHex8uNumber</ItemSymbol>
-        <ReadOnly>true</ReadOnly>
+        <ReadOnly>false</ReadOnly>
         <UserReadOnly>false</UserReadOnly>
         <PropertyModelIsAutomatic>false</PropertyModelIsAutomatic>
         <ItemWasNeverEnabledInChgScript>true</ItemWasNeverEnabledInChgScript>
@@ -52069,7 +52069,7 @@
       </ItemState>
       <ItemState>
         <ItemSymbol>ScanHex8uNumberNoPrefix</ItemSymbol>
-        <ReadOnly>true</ReadOnly>
+        <ReadOnly>false</ReadOnly>
         <UserReadOnly>false</UserReadOnly>
         <PropertyModelIsAutomatic>false</PropertyModelIsAutomatic>
         <ItemWasNeverEnabledInChgScript>true</ItemWasNeverEnabledInChgScript>
@@ -52081,7 +52081,7 @@
       </ItemState>
       <ItemState>
         <ItemSymbol>ScanHex16uNumber</ItemSymbol>
-        <ReadOnly>true</ReadOnly>
+        <ReadOnly>false</ReadOnly>
         <UserReadOnly>false</UserReadOnly>
         <PropertyModelIsAutomatic>false</PropertyModelIsAutomatic>
         <ItemWasNeverEnabledInChgScript>true</ItemWasNeverEnabledInChgScript>
@@ -52093,7 +52093,7 @@
       </ItemState>
       <ItemState>
         <ItemSymbol>ScanHex32uNumber</ItemSymbol>
-        <ReadOnly>true</ReadOnly>
+        <ReadOnly>false</ReadOnly>
         <UserReadOnly>false</UserReadOnly>
         <PropertyModelIsAutomatic>false</PropertyModelIsAutomatic>
         <ItemWasNeverEnabledInChgScript>true</ItemWasNeverEnabledInChgScript>
@@ -52129,7 +52129,7 @@
       </ItemState>
       <ItemState>
         <ItemSymbol>strcmp</ItemSymbol>
-        <ReadOnly>true</ReadOnly>
+        <ReadOnly>false</ReadOnly>
         <UserReadOnly>false</UserReadOnly>
         <PropertyModelIsAutomatic>false</PropertyModelIsAutomatic>
         <ItemWasNeverEnabledInChgScript>true</ItemWasNeverEnabledInChgScript>
@@ -52141,7 +52141,7 @@
       </ItemState>
       <ItemState>
         <ItemSymbol>strncmp</ItemSymbol>
-        <ReadOnly>true</ReadOnly>
+        <ReadOnly>false</ReadOnly>
         <UserReadOnly>false</UserReadOnly>
         <PropertyModelIsAutomatic>false</PropertyModelIsAutomatic>
         <ItemWasNeverEnabledInChgScript>true</ItemWasNeverEnabledInChgScript>
@@ -52153,7 +52153,7 @@
       </ItemState>
       <ItemState>
         <ItemSymbol>strFind</ItemSymbol>
-        <ReadOnly>true</ReadOnly>
+        <ReadOnly>false</ReadOnly>
         <UserReadOnly>false</UserReadOnly>
         <PropertyModelIsAutomatic>false</PropertyModelIsAutomatic>
         <ItemWasNeverEnabledInChgScript>true</ItemWasNeverEnabledInChgScript>
@@ -52165,7 +52165,7 @@
       </ItemState>
       <ItemState>
         <ItemSymbol>strtailcmp</ItemSymbol>
-        <ReadOnly>true</ReadOnly>
+        <ReadOnly>false</ReadOnly>
         <UserReadOnly>false</UserReadOnly>
         <PropertyModelIsAutomatic>false</PropertyModelIsAutomatic>
         <ItemWasNeverEnabledInChgScript>true</ItemWasNeverEnabledInChgScript>
@@ -52177,7 +52177,7 @@
       </ItemState>
       <ItemState>
         <ItemSymbol>strlen</ItemSymbol>
-        <ReadOnly>true</ReadOnly>
+        <ReadOnly>false</ReadOnly>
         <UserReadOnly>false</UserReadOnly>
         <PropertyModelIsAutomatic>false</PropertyModelIsAutomatic>
         <ItemWasNeverEnabledInChgScript>true</ItemWasNeverEnabledInChgScript>
@@ -52189,7 +52189,7 @@
       </ItemState>
       <ItemState>
         <ItemSymbol>strCutTail</ItemSymbol>
-        <ReadOnly>true</ReadOnly>
+        <ReadOnly>false</ReadOnly>
         <UserReadOnly>false</UserReadOnly>
         <PropertyModelIsAutomatic>false</PropertyModelIsAutomatic>
         <ItemWasNeverEnabledInChgScript>true</ItemWasNeverEnabledInChgScript>
