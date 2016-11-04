@@ -80,6 +80,22 @@
 /* forward declaration */
 static uint8_t SHELL_ParseCommand(const unsigned char *cmd, bool *handled, const CLS1_StdIOType *io);
 
+/*STDIO for Segger RTT*/
+static CLS1_ConstStdIOType RTT_stdio = {
+		(CLS1_StdIO_In_FctType) RTT1_StdIOReadChar, /*stdin*/
+		(CLS1_StdIO_OutErr_FctType) RTT1_StdIOSendChar, /*stdout*/
+		(CLS1_StdIO_OutErr_FctType) RTT1_StdIOSendChar, /*stderr*/
+		RTT1_StdIOKeyPressed /*if not empty*/
+};
+
+/*STDIO "Copy" for copying on every "channel"*/
+static CLS1_ConstStdIOType CopyStdio = {
+		(CLS1_StdIO_In_FctType) CopyStdIn,
+		(CLS1_StdIO_OutErr_FctType) CopyStdOut,
+		(CLS1_StdIO_OutErr_FctType) CopyStdErr,
+		CopyKeyPressed
+};
+
 static const CLS1_ParseCommandCallback CmdParserTable[] =
 {
   CLS1_ParseCommand, /* Processor Expert Shell component, is first in list */
@@ -148,6 +164,10 @@ static const CLS1_ParseCommandCallback CmdParserTable[] =
 };
 
 static uint32_t SHELL_val; /* used as demo value for shell */
+
+
+
+
 
 void SHELL_SendString(unsigned char *msg) {
 #if PL_CONFIG_HAS_SHELL_QUEUE
