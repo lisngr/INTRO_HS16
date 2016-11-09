@@ -77,16 +77,69 @@
 #endif
 #include "KIN1.h"
 
-/* forward declaration */
-static uint8_t SHELL_ParseCommand(const unsigned char *cmd, bool *handled, const CLS1_StdIOType *io);
+
+
+
+
 
 /*STDIO for Segger RTT*/
-static CLS1_ConstStdIOType RTT_stdio = {
+static CLS1_ConstStdIOType RTT_Stdio = {
 		(CLS1_StdIO_In_FctType) RTT1_StdIOReadChar, /*stdin*/
 		(CLS1_StdIO_OutErr_FctType) RTT1_StdIOSendChar, /*stdout*/
 		(CLS1_StdIO_OutErr_FctType) RTT1_StdIOSendChar, /*stderr*/
 		RTT1_StdIOKeyPressed /*if not empty*/
 };
+
+/* Stdin for CopyStdio */
+static void CopyStdIn(uint8_t ch) {
+#if CLS1_DEFAULT_SERIAL
+	CLS1_GetStdio()->stdIn(ch);
+#endif
+#if PL_CONFIG_HAS_SEGGER_RTT
+	RTT_Stdio.stdIn(ch);
+#endif
+#if PL_CONFIG_HAS_BLUETOOTH
+	BT_Stdio.stdIn(ch);
+#endif
+}
+/* Stdout for CopyStdio */
+static void CopyStdOut(uint8_t ch) {
+#if CLS1_DEFAULT_SERIAL
+	CLS1_GetStdio()->stdOut(ch);
+#endif
+#if PL_CONFIG_HAS_SEGGER_RTT
+	RTT_Stdio.stdOut(ch);
+#endif
+#if PL_CONFIG_HAS_BLUETOOTH
+	BT_Stdio.stdOut(ch);
+#endif
+}
+
+/* StdErr for CopyStdio */
+static void CopyStdErr(uint8_t ch) {
+#if CLS1_DEFAULT_SERIAL
+	CLS1_GetStdio()->stdErr(ch);
+#endif
+#if PL_CONFIG_HAS_SEGGER_RTT
+	RTT_Stdio.stdErr(ch);
+#endif
+#if PL_CONFIG_HAS_BLUETOOTH
+	BT_Stdio.stdErr(ch);
+#endif
+}
+
+/* KeyPressed for CopyStdio */
+static bool CopyKeyPressed(void) {
+#if CLS1_DEFAULT_SERIAL
+	CLS1_GetStdio()->keyPressed;
+#endif
+#if PL_CONFIG_HAS_SEGGER_RTT
+	RTT_Stdio.keyPressed;
+#endif
+#if PL_CONFIG_HAS_BLUETOOTH
+	BT_Stdio.keyPressed;
+#endif
+}
 
 /*STDIO "Copy" for copying on every "channel"*/
 static CLS1_ConstStdIOType CopyStdio = {
@@ -95,6 +148,21 @@ static CLS1_ConstStdIOType CopyStdio = {
 		(CLS1_StdIO_OutErr_FctType) CopyStdErr,
 		CopyKeyPressed
 };
+uint8_t Copy_DefaultShellBuffer[CLS1_DEFAULT_SHELL_BUFFER_SIZE];
+
+
+
+
+
+
+
+
+
+
+/* forward declaration */
+static uint8_t SHELL_ParseCommand(const unsigned char *cmd, bool *handled, const CLS1_StdIOType *io);
+
+
 
 static const CLS1_ParseCommandCallback CmdParserTable[] =
 {
@@ -163,11 +231,9 @@ static const CLS1_ParseCommandCallback CmdParserTable[] =
   NULL /* Sentinel */
 };
 
+
+
 static uint32_t SHELL_val; /* used as demo value for shell */
-
-
-
-
 
 void SHELL_SendString(unsigned char *msg) {
 #if PL_CONFIG_HAS_SHELL_QUEUE
@@ -272,17 +338,17 @@ static void ShellTask(void *pvParameters) {
 #endif
   for(;;) {
 #if CLS1_DEFAULT_SERIAL
-    (void)CLS1_ReadAndParseWithCommandTable(localConsole_buf, sizeof(localConsole_buf), ioLocal, CmdParserTable);
+    (void)CLS1_ReadAndParseWithCommandTable(localConsole_buf, sizeof(localConsole_buf), &CopyStdio, CmdParserTable);
 #endif
 #if PL_CONFIG_HAS_BLUETOOTH
-    (void)CLS1_ReadAndParseWithCommandTable(bluetooth_buf, sizeof(bluetooth_buf), &BT_stdio, CmdParserTable);
+    (void)CLS1_ReadAndParseWithCommandTable(bluetooth_buf, sizeof(bluetooth_buf), &CopyStdio, CmdParserTable);
 #endif
 #if PL_CONFIG_HAS_SEGGER_RTT
-    (void)CLS1_ReadAndParseWithCommandTable(rtt_buf, sizeof(rtt_buf), &RTT_stdio, CmdParserTable);
+    (void)CLS1_ReadAndParseWithCommandTable(rtt_buf, sizeof(rtt_buf), &CopyStdio, CmdParserTable);
 #endif
 #if PL_CONFIG_HAS_RADIO && RNET_CONFIG_REMOTE_STDIO
     RSTDIO_Print(ioLocal); /* dispatch incoming messages */
-    (void)CLS1_ReadAndParseWithCommandTable(radio_cmd_buf, sizeof(radio_cmd_buf), ioRemote, CmdParserTable);
+    (void)CLS1_ReadAndParseWithCommandTable(radio_cmd_buf, sizeof(radio_cmd_buf), &CopyStdio, CmdParserTable);
 #endif
 
 #if PL_CONFIG_HAS_SHELL_QUEUE
@@ -316,6 +382,7 @@ void SHELL_Init(void) {
     for(;;){} /* error */
   }
 #endif
+
 }
 
 void SHELL_Deinit(void) {
