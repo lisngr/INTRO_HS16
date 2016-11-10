@@ -321,7 +321,7 @@ static void ShellTask(void *pvParameters) {
   static unsigned char rtt_buf[DEFAULT_BUF_SIZE];
 #endif
 #if CLS1_DEFAULT_SERIAL
-  CLS1_ConstStdIOTypePtr ioLocal = &CopyStdio;
+  CLS1_ConstStdIOTypePtr ioLocal = &CopyStdio /*CLS1_GetStdio()*/ ;
 #endif
 #if PL_CONFIG_HAS_RADIO && RNET_CONFIG_REMOTE_STDIO
   static unsigned char radio_cmd_buf[48];
