@@ -97,6 +97,11 @@
 #include "KIN1.h"
 #include "IFsh1.h"
 #include "IntFlashLdd1.h"
+#include "USB1.h"
+#include "CDC1.h"
+#include "Tx1.h"
+#include "Rx1.h"
+#include "USB0.h"
 #include "TMOUT1.h"
 
 #ifdef __cplusplus

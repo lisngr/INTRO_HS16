@@ -18,6 +18,9 @@
 #if PL_CONFIG_HAS_BLUETOOTH
   #include "BT1.h"
 #endif
+#if PL_CONFIG_HAS_USB_CDC
+  #include "CDC1.h"
+#endif
 #if PL_CONFIG_HAS_BUZZER
   #include "Buzzer.h"
 #endif
@@ -79,11 +82,8 @@
 
 
 
-
-
-
 /*STDIO for Segger RTT*/
-static CLS1_ConstStdIOType RTT_Stdio = {
+static CLS1_ConstStdIOType RTT_stdio = {
 		(CLS1_StdIO_In_FctType) RTT1_StdIOReadChar, /*stdin*/
 		(CLS1_StdIO_OutErr_FctType) RTT1_StdIOSendChar, /*stdout*/
 		(CLS1_StdIO_OutErr_FctType) RTT1_StdIOSendChar, /*stderr*/
@@ -98,10 +98,13 @@ static void CopyStdIn(uint8_t *ch) {
 #endif
 #endif
 #if PL_CONFIG_HAS_SEGGER_RTT
-	RTT_Stdio.stdIn(ch);
+	RTT_stdio.stdIn(ch);
 #endif
 #if PL_CONFIG_HAS_BLUETOOTH
-	BT_Stdio.stdIn(ch);
+	BT_stdio.stdIn(ch);
+#endif
+#if PL_CONFIG_HAS_USB_CDC
+	CDC1_stdio.stdIn(ch);
 #endif
 }
 /* Stdout for CopyStdio */
@@ -112,60 +115,59 @@ static void CopyStdOut(uint8_t *ch) {
 #endif
 #endif
 #if PL_CONFIG_HAS_SEGGER_RTT
-	RTT_Stdio.stdOut(ch);
+	RTT_stdio.stdOut(ch);
 #endif
 #if PL_CONFIG_HAS_BLUETOOTH
-	BT_Stdio.stdOut(ch);
+	BT_stdio.stdOut(ch);
+#endif
+#if PL_CONFIG_HAS_USB_CDC
+	CDC1_stdio.stdOut(ch);
 #endif
 }
 
 /* StdErr for CopyStdio */
-static void CopyStdErr(uint8_t *ch) {
+/*static void CopyStdErr(uint8_t *ch) {
 #if CLS1_DEFAULT_SERIAL
 #if !PL_LOCAL_CONFIG_BOARD_IS_ROBO
 	CLS1_GetStdio()->stdErr(ch);
 #endif
 #endif
 #if PL_CONFIG_HAS_SEGGER_RTT
-	RTT_Stdio.stdErr(ch);
+	RTT_stdio.stdErr(ch);
 #endif
 #if PL_CONFIG_HAS_BLUETOOTH
-	BT_Stdio.stdErr(ch);
+	BT_stdio.stdErr(ch);
 #endif
-}
+#if PL_CONFIG_HAS_USB_CDC
+	CDC1_stdio.stdErr(ch);
+#endif
+}*/
 
 /* KeyPressed for CopyStdio */
-static bool CopyKeyPressed(void) {
+/*static bool CopyKeyPressed(void) {
 #if CLS1_DEFAULT_SERIAL
 #if !PL_LOCAL_CONFIG_BOARD_IS_ROBO
 	CLS1_GetStdio()->keyPressed;
 #endif
 #endif
 #if PL_CONFIG_HAS_SEGGER_RTT
-	RTT_Stdio.keyPressed;
+	RTT_stdio.keyPressed;
 #endif
 #if PL_CONFIG_HAS_BLUETOOTH
-	BT_Stdio.keyPressed;
+	BT_stdio.keyPressed;
 #endif
-}
+#if PL_CONFIG_HAS_USB_CDC
+	CDC1_stdio.keyPressed;
+#endif
+}*/
 
 /*STDIO "Copy" for copying on every "channel"*/
 static CLS1_ConstStdIOType CopyStdio = {
-		(CLS1_StdIO_In_FctType) CopyStdIn,
+		(CLS1_StdIO_In_FctType) CLS1_ReadChar,
 		(CLS1_StdIO_OutErr_FctType) CopyStdOut,
-		(CLS1_StdIO_OutErr_FctType) CopyStdErr,
-		CopyKeyPressed
+		(CLS1_StdIO_OutErr_FctType) CopyStdOut,
+		CLS1_KeyPressed
 };
-uint8_t Copy_DefaultShellBuffer[CLS1_DEFAULT_SHELL_BUFFER_SIZE];
-
-
-
-
-
-
-
-
-
 
 /* forward declaration */
 static uint8_t SHELL_ParseCommand(const unsigned char *cmd, bool *handled, const CLS1_StdIOType *io);
@@ -320,6 +322,9 @@ static void ShellTask(void *pvParameters) {
 #if PL_CONFIG_HAS_SEGGER_RTT
   static unsigned char rtt_buf[DEFAULT_BUF_SIZE];
 #endif
+#if PL_CONFIG_HAS_USB_CDC
+  static unsigned char usbcdc_buf[DEFAULT_BUF_SIZE];
+#endif
 #if CLS1_DEFAULT_SERIAL
   CLS1_ConstStdIOTypePtr ioLocal = &CopyStdio /*CLS1_GetStdio()*/ ;
 #endif
@@ -334,6 +339,9 @@ static void ShellTask(void *pvParameters) {
 #endif
 #if PL_CONFIG_HAS_SEGGER_RTT
   rtt_buf[0] = '\0';
+#endif
+#if PL_CONFIG_HAS_USB_CDC
+  usbcdc_buf[0] = '\0';
 #endif
 #if CLS1_DEFAULT_SERIAL
   localConsole_buf[0] = '\0';
@@ -353,6 +361,9 @@ static void ShellTask(void *pvParameters) {
 #endif
 #if PL_CONFIG_HAS_SEGGER_RTT
     (void)CLS1_ReadAndParseWithCommandTable(rtt_buf, sizeof(rtt_buf), &CopyStdio, CmdParserTable);
+#endif
+#if PL_CONFIG_HAS_USB_CDC
+    (void)CLS1_ReadAndParseWithCommandTable(usbcdc_buf, sizeof(usbcdc_buf), &CopyStdio, CmdParserTable);
 #endif
 #if PL_CONFIG_HAS_RADIO && RNET_CONFIG_REMOTE_STDIO
     RSTDIO_Print(ioLocal); /* dispatch incoming messages */
