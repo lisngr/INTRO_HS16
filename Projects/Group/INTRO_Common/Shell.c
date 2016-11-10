@@ -91,9 +91,11 @@ static CLS1_ConstStdIOType RTT_Stdio = {
 };
 
 /* Stdin for CopyStdio */
-static void CopyStdIn(uint8_t ch) {
+static void CopyStdIn(uint8_t *ch) {
 #if CLS1_DEFAULT_SERIAL
+#if !PL_LOCAL_CONFIG_BOARD_IS_ROBO
 	CLS1_GetStdio()->stdIn(ch);
+#endif
 #endif
 #if PL_CONFIG_HAS_SEGGER_RTT
 	RTT_Stdio.stdIn(ch);
@@ -103,9 +105,11 @@ static void CopyStdIn(uint8_t ch) {
 #endif
 }
 /* Stdout for CopyStdio */
-static void CopyStdOut(uint8_t ch) {
+static void CopyStdOut(uint8_t *ch) {
 #if CLS1_DEFAULT_SERIAL
+#if !PL_LOCAL_CONFIG_BOARD_IS_ROBO
 	CLS1_GetStdio()->stdOut(ch);
+#endif
 #endif
 #if PL_CONFIG_HAS_SEGGER_RTT
 	RTT_Stdio.stdOut(ch);
@@ -116,9 +120,11 @@ static void CopyStdOut(uint8_t ch) {
 }
 
 /* StdErr for CopyStdio */
-static void CopyStdErr(uint8_t ch) {
+static void CopyStdErr(uint8_t *ch) {
 #if CLS1_DEFAULT_SERIAL
+#if !PL_LOCAL_CONFIG_BOARD_IS_ROBO
 	CLS1_GetStdio()->stdErr(ch);
+#endif
 #endif
 #if PL_CONFIG_HAS_SEGGER_RTT
 	RTT_Stdio.stdErr(ch);
@@ -131,7 +137,9 @@ static void CopyStdErr(uint8_t ch) {
 /* KeyPressed for CopyStdio */
 static bool CopyKeyPressed(void) {
 #if CLS1_DEFAULT_SERIAL
+#if !PL_LOCAL_CONFIG_BOARD_IS_ROBO
 	CLS1_GetStdio()->keyPressed;
+#endif
 #endif
 #if PL_CONFIG_HAS_SEGGER_RTT
 	RTT_Stdio.keyPressed;
@@ -313,7 +321,7 @@ static void ShellTask(void *pvParameters) {
   static unsigned char rtt_buf[DEFAULT_BUF_SIZE];
 #endif
 #if CLS1_DEFAULT_SERIAL
-  CLS1_ConstStdIOTypePtr ioLocal = CLS1_GetStdio();  
+  CLS1_ConstStdIOTypePtr ioLocal = &CopyStdio;
 #endif
 #if PL_CONFIG_HAS_RADIO && RNET_CONFIG_REMOTE_STDIO
   static unsigned char radio_cmd_buf[48];

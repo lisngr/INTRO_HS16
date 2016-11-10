@@ -89,6 +89,8 @@
 #include "TU_QuadInt.h"
 #include "WAIT1.h"
 #include "CS1.h"
+#include "XF1.h"
+#include "XF2.h"
 #include "HF1.h"
 #include "KSDK1.h"
 #include "UTIL1.h"
