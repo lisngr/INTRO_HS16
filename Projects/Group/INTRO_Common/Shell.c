@@ -91,7 +91,7 @@ static CLS1_ConstStdIOType RTT_stdio = {
 };
 
 /* Stdin for CopyStdio */
-static void CopyStdIn(uint8_t *ch) {
+/*static void CopyStdIn(uint8_t *ch) {
 #if CLS1_DEFAULT_SERIAL
 #if !PL_LOCAL_CONFIG_BOARD_IS_ROBO
 	CLS1_GetStdio()->stdIn(ch);
@@ -106,7 +106,7 @@ static void CopyStdIn(uint8_t *ch) {
 #if PL_CONFIG_HAS_USB_CDC
 	CDC1_stdio.stdIn(ch);
 #endif
-}
+}*/
 /* Stdout for CopyStdio */
 static void CopyStdOut(uint8_t *ch) {
 #if CLS1_DEFAULT_SERIAL
@@ -144,22 +144,22 @@ static void CopyStdOut(uint8_t *ch) {
 }*/
 
 /* KeyPressed for CopyStdio */
-/*static bool CopyKeyPressed(void) {
+static bool CopyKeyPressed(void) {
 #if CLS1_DEFAULT_SERIAL
 #if !PL_LOCAL_CONFIG_BOARD_IS_ROBO
-	CLS1_GetStdio()->keyPressed;
+	return CLS1_GetStdio()->keyPressed;
 #endif
 #endif
 #if PL_CONFIG_HAS_SEGGER_RTT
-	RTT_stdio.keyPressed;
+	return RTT_stdio.keyPressed;
 #endif
 #if PL_CONFIG_HAS_BLUETOOTH
-	BT_stdio.keyPressed;
+	return BT_stdio.keyPressed;
 #endif
 #if PL_CONFIG_HAS_USB_CDC
-	CDC1_stdio.keyPressed;
+	return CDC1_stdio.keyPressed;
 #endif
-}*/
+}
 
 /*STDIO "Copy" for copying on every "channel"*/
 static CLS1_ConstStdIOType CopyStdio = {
