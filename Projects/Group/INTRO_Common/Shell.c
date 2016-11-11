@@ -374,6 +374,10 @@ static void ShellTask(void *pvParameters) {
 #if PL_CONFIG_SQUEUE_SINGLE_CHAR
     {
         /*! \todo Handle shell queue */
+    	unsigned char msg;
+
+    	msg = SQUEUE_ReceiveChar();
+    	CLS1_SendStr(&msg, CLS1_GetStdio()->stdOut);
     }
 #else /* PL_CONFIG_SQUEUE_SINGLE_CHAR */
     {
