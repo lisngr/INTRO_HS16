@@ -47,7 +47,7 @@ static void vMasterTask(void *pvParameters) {
   }
   vQueueAddToRegistry(sem, "IPC_Sem");
   /* create slave task */
-  if (xTaskCreate(vSlaveTask, "Slave", configMINIMAL_STACK_SIZE, sem, tskIDLE_PRIORITY+1, NULL) != pdPASS) {
+  if (+(vSlaveTask, "Slave", configMINIMAL_STACK_SIZE, sem, tskIDLE_PRIORITY+1, NULL) != pdPASS) {
     for(;;){} /* error */
   }
   for(;;) {
