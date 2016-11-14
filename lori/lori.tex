@@ -1,0 +1,50 @@
+\documentclass{standalone}
+\usepackage[utf8]{inputenc}
+
+\usepackage{tikz}
+\usepackage{forloop}
+\usepackage{calc}
+\usepackage{ifthen}
+\usepackage{circuitikz}
+
+\begin{document}
+
+\newcounter{a}
+\newcounter{b}
+\begin{tikzpicture}
+
+\node[draw, green, circle] at (9,2.5) (upperpoint) {} ;
+
+\forloop{a}{1}{\value{a} < 12}{
+% Rectangles above
+\node[draw, green, rectangle] at (\value{a}, 0) (a\arabic{a}) {} ;
+% Circs above
+\node[draw, green, circle] at (\value{a}, -2.5) (b\arabic{a}) {} ;
+% Rectangles below
+\node[draw, green, rectangle] at (\value{a},-5) (c\arabic{a}) {} ;
+% Circs above
+\node[draw, green, circle] at (\value{a}, -7.5) (d\arabic{a}) {} ;
+}
+
+\forloop{a}{1}{\value{a} < 12}{
+%
+\draw[blue,<->](upperpoint) -- (a\arabic{a});
+%
+\draw[blue,<->](a\arabic{a}) -- (b\arabic{a});
+%
+\draw[blue,<->](b\arabic{a}) -- (c\arabic{a});
+%
+\draw[blue,<->](c\arabic{a}) -- (d\arabic{a});
+}
+
+
+\forloop{a}{1}{\value{a} < 12}{
+\forloop{b}{1}{\value{b} < 12}{
+\draw[blue,<->](b\arabic{b}) -- (c\arabic{a});
+}
+}
+
+
+\end{tikzpicture}
+
+\end{document}
