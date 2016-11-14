@@ -111,11 +111,11 @@ static CLS1_ConstStdIOType RTT_stdio = {
 static void CopyStdOut(uint8_t *ch) {
 #if CLS1_DEFAULT_SERIAL
 #if !PL_LOCAL_CONFIG_BOARD_IS_ROBO
-	CLS1_GetStdio()->stdOut(ch);
+	CLS1_GetStdio()->stdOut(*ch);
 #endif
 #endif
 #if PL_CONFIG_HAS_SEGGER_RTT
-	RTT_stdio.stdOut(ch);
+	RTT_stdio.stdOut(*ch);
 #endif
 #if PL_CONFIG_HAS_BLUETOOTH
 	BT_stdio.stdOut(ch);
