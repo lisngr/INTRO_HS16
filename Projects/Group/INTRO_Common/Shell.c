@@ -64,11 +64,11 @@
 #if PL_CONFIG_HAS_LINE_FOLLOW
   #include "LineFollow.h"
 #endif
-#if PL_CONFIG_HAS_RADIO
+/*#if PL_CONFIG_HAS_RADIO
   #include "RApp.h"
   #include "RNet_App.h"
   #include "RNetConf.h"
-#endif
+#endif*/
 #if RNET_CONFIG_REMOTE_STDIO
   #include "RStdIO.h"
 #endif
@@ -80,42 +80,48 @@
 #endif
 #include "KIN1.h"
 
-
-
-/*STDIO for Segger RTT*/
+/*STDIO for Segger RTT
 static CLS1_ConstStdIOType RTT_stdio = {
-		(CLS1_StdIO_In_FctType) RTT1_StdIOReadChar, /*stdin*/
-		(CLS1_StdIO_OutErr_FctType) RTT1_StdIOSendChar, /*stdout*/
-		(CLS1_StdIO_OutErr_FctType) RTT1_StdIOSendChar, /*stderr*/
-		RTT1_StdIOKeyPressed /*if not empty*/
-};
+		(CLS1_StdIO_In_FctType) RTT1_StdIOReadChar, //stdin
+		(CLS1_StdIO_OutErr_FctType) RTT1_StdIOSendChar, //stdout
+		(CLS1_StdIO_OutErr_FctType) RTT1_StdIOSendChar, //stderr
+		RTT1_StdIOKeyPressed //if not empty
+}; */
+
 
 /* Stdin for CopyStdio */
-/*static void CopyStdIn(uint8_t *ch) {
+static void CopyStdIn(uint8_t *ch) {
 #if CLS1_DEFAULT_SERIAL
 #if !PL_LOCAL_CONFIG_BOARD_IS_ROBO
 	CLS1_GetStdio()->stdIn(ch);
 #endif
-#endif
+
 #if PL_CONFIG_HAS_SEGGER_RTT
-	RTT_stdio.stdIn(ch);
+	if (RTT1_stdio.keyPressed()){
+		RTT1_stdio.stdIn(ch);
+	}
 #endif
 #if PL_CONFIG_HAS_BLUETOOTH
-	BT_stdio.stdIn(ch);
+	if(BT_stdio.keyPressed()){
+		BT_stdio.stdIn(ch);
+	}
 #endif
 #if PL_CONFIG_HAS_USB_CDC
-	CDC1_stdio.stdIn(ch);
+	if(CDC1_stdio.keyPressed()){
+		CDC1_stdio.stdIn(ch);
+	}
 #endif
-}*/
+}
+
 /* Stdout for CopyStdio */
-static void CopyStdOut(uint8_t *ch) {
+static void CopyStdOut(uint8_t ch) {
 #if CLS1_DEFAULT_SERIAL
 #if !PL_LOCAL_CONFIG_BOARD_IS_ROBO
 	CLS1_GetStdio()->stdOut(ch);
 #endif
 #endif
 #if PL_CONFIG_HAS_SEGGER_RTT
-	RTT_stdio.stdOut(ch);
+	RTT1_stdio.stdOut(ch);
 #endif
 #if PL_CONFIG_HAS_BLUETOOTH
 	BT_stdio.stdOut(ch);
@@ -125,23 +131,6 @@ static void CopyStdOut(uint8_t *ch) {
 #endif
 }
 
-/* StdErr for CopyStdio */
-/*static void CopyStdErr(uint8_t *ch) {
-#if CLS1_DEFAULT_SERIAL
-#if !PL_LOCAL_CONFIG_BOARD_IS_ROBO
-	CLS1_GetStdio()->stdErr(ch);
-#endif
-#endif
-#if PL_CONFIG_HAS_SEGGER_RTT
-	RTT_stdio.stdErr(ch);
-#endif
-#if PL_CONFIG_HAS_BLUETOOTH
-	BT_stdio.stdErr(ch);
-#endif
-#if PL_CONFIG_HAS_USB_CDC
-	CDC1_stdio.stdErr(ch);
-#endif
-}*/
 
 /* KeyPressed for CopyStdio */
 static bool CopyKeyPressed(void) {
@@ -151,7 +140,7 @@ static bool CopyKeyPressed(void) {
 #endif
 #endif
 #if PL_CONFIG_HAS_SEGGER_RTT
-	return RTT_stdio.keyPressed;
+	return RTT1_stdio.keyPressed;
 #endif
 #if PL_CONFIG_HAS_BLUETOOTH
 	return BT_stdio.keyPressed;
@@ -163,10 +152,10 @@ static bool CopyKeyPressed(void) {
 
 /*STDIO "Copy" for copying on every "channel"*/
 static CLS1_ConstStdIOType CopyStdio = {
-		(CLS1_StdIO_In_FctType) CLS1_ReadChar,
+		(CLS1_StdIO_In_FctType) CopyStdIn,
 		(CLS1_StdIO_OutErr_FctType) CopyStdOut,
 		(CLS1_StdIO_OutErr_FctType) CopyStdOut,
-		CLS1_KeyPressed
+		CopyKeyPressed
 };
 
 /* forward declaration */
@@ -248,10 +237,10 @@ static uint32_t SHELL_val; /* used as demo value for shell */
 void SHELL_SendString(unsigned char *msg) {
 #if PL_CONFIG_HAS_SHELL_QUEUE
   SQUEUE_SendString(msg);
-#elif CLS1_DEFAULT_SERIAL
-  CLS1_SendStr(msg, CLS1_GetStdio()->stdOut);
 #else
+  CLS1_SendStr(msg, CLS1_GetStdio()->stdOut);
 #endif
+#endif // HEIKEL!
 }
 
 /*!
