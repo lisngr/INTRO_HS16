@@ -3,7 +3,7 @@
   <Header>
     <Name>TINY_01</Name>
     <SavedBy>memory_stick</SavedBy>
-    <ModificationStamp>35</ModificationStamp>
+    <ModificationStamp>37</ModificationStamp>
     <Date>2016-10-13</Date>
     <IDE>Eclipse IDE</IDE>
     <PEversion>1.12.2.RT7_b1550-0615</PEversion>
@@ -29,7 +29,7 @@
     <UseExistingModules>true</UseExistingModules>
     <RenamePeripheries>false</RenamePeripheries>
     <Autodependency>true</Autodependency>
-    <ProjectCompNumb>275</ProjectCompNumb>
+    <ProjectCompNumb>281</ProjectCompNumb>
     <DelUnusedPreviouslyGenFiles>true</DelUnusedPreviouslyGenFiles>
     <GeneratedCodeFrozen>false</GeneratedCodeFrozen>
     <AssignInitComponentNameToPrph>true</AssignInitComponentNameToPrph>
@@ -53034,7 +53034,7 @@
               <ReadOnly>false</ReadOnly>
               <UserReadOnly>false</UserReadOnly>
               <PropertyModelIsAutomatic>false</PropertyModelIsAutomatic>
-              <Value>50</Value>
+              <Value>10</Value>
               <Base>DEC</Base>
             </ItemState>
             <ItemState>
@@ -53042,7 +53042,7 @@
               <ReadOnly>false</ReadOnly>
               <UserReadOnly>false</UserReadOnly>
               <PropertyModelIsAutomatic>false</PropertyModelIsAutomatic>
-              <Value>5</Value>
+              <Value>2</Value>
               <Base>DEC</Base>
             </ItemState>
             <ItemState>
@@ -55099,7 +55099,7 @@
       </ItemState>
       <ItemState>
         <ItemSymbol>CounterTickPeriod</ItemSymbol>
-        <ReadOnly>false</ReadOnly>
+        <ReadOnly>true</ReadOnly>
         <UserReadOnly>false</UserReadOnly>
         <PropertyModelIsAutomatic>false</PropertyModelIsAutomatic>
         <Value>10</Value>
@@ -55110,8 +55110,8 @@
         <ReadOnly>false</ReadOnly>
         <UserReadOnly>false</UserReadOnly>
         <PropertyModelIsAutomatic>false</PropertyModelIsAutomatic>
-        <Value>false</Value>
-        <Expanded>false</Expanded>
+        <Value>true</Value>
+        <Expanded>true</Expanded>
       </ItemState>
       <ItemState>
         <ItemSymbol>RTOS</ItemSymbol>
