@@ -46,7 +46,13 @@
 #include "AS1.h"
 #include "ASerialLdd1.h"
 #include "RTT1.h"
+#include "SYS1.h"
 #include "FRTOS1.h"
+#include "USB1.h"
+#include "CDC1.h"
+#include "Tx1.h"
+#include "Rx1.h"
+#include "USB0.h"
 #include "WAIT1.h"
 #include "CS1.h"
 #include "HF1.h"
@@ -68,6 +74,7 @@
 #include "KSDK1.h"
 #include "SW1.h"
 #include "KIN1.h"
+#include "XF1.h"
 
 #ifdef __cplusplus
 extern "C" {
