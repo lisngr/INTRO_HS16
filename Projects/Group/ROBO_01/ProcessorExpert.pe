@@ -3,7 +3,7 @@
   <Header>
     <Name>ROBO_01</Name>
     <SavedBy>Erich Styger</SavedBy>
-    <ModificationStamp>128</ModificationStamp>
+    <ModificationStamp>131</ModificationStamp>
     <Date>2016-02-29</Date>
     <IDE>Eclipse IDE</IDE>
     <PEversion>1.12.2.RT7_b1550-0615</PEversion>
@@ -29,7 +29,7 @@
     <UseExistingModules>true</UseExistingModules>
     <RenamePeripheries>false</RenamePeripheries>
     <Autodependency>true</Autodependency>
-    <ProjectCompNumb>437</ProjectCompNumb>
+    <ProjectCompNumb>442</ProjectCompNumb>
     <DelUnusedPreviouslyGenFiles>true</DelUnusedPreviouslyGenFiles>
     <GeneratedCodeFrozen>false</GeneratedCodeFrozen>
     <AssignInitComponentNameToPrph>true</AssignInitComponentNameToPrph>
@@ -10308,7 +10308,7 @@
       <ItemId16>44</ItemId16>
       <Value16>true</Value16>
       <ItemId17>47</ItemId17>
-      <Value17>false</Value17>
+      <Value17>true</Value17>
       <ItemId18>48</ItemId18>
       <Value18>true</Value18>
       <ItemId19>50</ItemId19>
@@ -21418,7 +21418,7 @@
         <ReadOnly>false</ReadOnly>
         <UserReadOnly>false</UserReadOnly>
         <PropertyModelIsAutomatic>false</PropertyModelIsAutomatic>
-        <Value>24000</Value>
+        <Value>8000</Value>
         <Base>DEC</Base>
       </ItemState>
       <ItemState>
@@ -26676,7 +26676,7 @@
     <BeanType>TimerUnit_LDD</BeanType>
     <Name>RefCnt</Name>
     <CompNumb>47</CompNumb>
-    <CompEnabled>false</CompEnabled>
+    <CompEnabled>true</CompEnabled>
     <GenCodeMode>ALWAYS_WRITE</GenCodeMode>
     <IconName>CLOCKS_LDD</IconName>
     <UserFolderName>Reflectance</UserFolderName>
@@ -26855,7 +26855,7 @@
         <ItemSymbol>Overrundevice</ItemSymbol>
         <ReadOnly>false</ReadOnly>
         <UserReadOnly>false</UserReadOnly>
-        <Value />
+        <Value>FTM2_Free</Value>
         <SharedPrphMode>false</SharedPrphMode>
       </ItemState>
       <ItemState>
@@ -26953,7 +26953,7 @@
       </ItemState>
       <ItemState>
         <ItemSymbol>CounterInt</ItemSymbol>
-        <Value />
+        <Value>INT_FTM2</Value>
       </ItemState>
       <ItemState>
         <ItemSymbol>CounterInitPriority</ItemSymbol>

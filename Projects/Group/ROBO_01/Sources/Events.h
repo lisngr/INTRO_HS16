@@ -53,6 +53,7 @@
 #include "LED_IR.h"
 #include "LEDpin3.h"
 #include "BitIoLdd5.h"
+#include "RefCnt.h"
 #include "IR1.h"
 #include "BitIoLdd6.h"
 #include "IR2.h"
