@@ -130,7 +130,7 @@ void REF_CalibrateStartStop(void) {
   }
 }
 #endif
-
+static xSemaphoreHandle REF_Mutex_Measure_Raw;
 /*!
  * \brief Measures the time until the sensor discharges
  * \param raw Array to store the raw values.
@@ -173,7 +173,7 @@ static void REF_MeasureRaw(SensorTimeType raw[REF_NOF_SENSORS]) {
         cnt++;
       }
     }
-  } while(cnt!=REF_NOF_SENSORS);
+  } while((cnt!=REF_NOF_SENSORS) && (timerVal<=14000));
 
   CS1_ExitCritical();
 
@@ -602,6 +602,18 @@ void REF_Init(void) {
   (void)FRTOS1_xSemaphoreTake(REF_StartStopSem, 0); /* empty token */
   FRTOS1_vQueueAddToRegistry(REF_StartStopSem, "RefStartStopSem");
 #endif
+
+
+  REF_Mutex_Measure_Raw = xSemaphoreCreateMutex();
+  if (REF_Mutex_Measure_Raw==NULL) {
+    for(;;);
+  }
+  vQueueAddToRegistry(REF_Mutex_Measure_Raw, "RefSem");
+#if configUSE_TRACE_HOOKS
+  PTRC1_vTraceSetQueueName(REF_Mutex_Measure_Raw, "RefSem");
+#endif
+
+
   refState = REF_STATE_INIT;
   timerHandle = RefCnt_Init(NULL);
   /*! \todo You might need to adjust priority or other task settings */
