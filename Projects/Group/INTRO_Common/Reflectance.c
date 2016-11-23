@@ -175,6 +175,10 @@ static void REF_MeasureRaw(SensorTimeType raw[REF_NOF_SENSORS]) {
     }
   } while((cnt!=REF_NOF_SENSORS) && (timerVal<=14000));
 
+  for(i=0;i<REF_NOF_SENSORS;i++) {
+      if(raw[i] == MAX_SENSOR_VALUE){raw[i] = 14000;}
+  }
+
   CS1_ExitCritical();
 
   LED_IR_Off(); /* IR LED's off */
@@ -608,10 +612,11 @@ void REF_Init(void) {
   if (REF_Mutex_Measure_Raw==NULL) {
     for(;;);
   }
+  //(void)FRTOS1_xSemaphoreTake(REF_Mutex_Measure_Raw, 0); /* empty token */
   vQueueAddToRegistry(REF_Mutex_Measure_Raw, "RefSem");
-#if configUSE_TRACE_HOOKS
-  PTRC1_vTraceSetQueueName(REF_Mutex_Measure_Raw, "RefSem");
-#endif
+//#if configUSE_TRACE_HOOKS
+//  PTRC1_vTraceSetQueueName(REF_Mutex_Measure_Raw, "RefSem");
+//#endif
 
 
   refState = REF_STATE_INIT;
