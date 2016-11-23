@@ -142,7 +142,7 @@ static void REF_MeasureRaw(SensorTimeType raw[REF_NOF_SENSORS]) {
   RefCnt_TValueType timerVal;
   /*! \todo Consider reentrancy and mutual exclusion! */
 
-  CS1_CriticalVariable();
+
 
   if(FRTOS1_xSemaphoreTake(REF_Mutex_Measure_Raw, portMAX_DELAY)==pdPASS){
 
@@ -155,7 +155,7 @@ static void REF_MeasureRaw(SensorTimeType raw[REF_NOF_SENSORS]) {
   }
   WAIT1_Waitus(50); /* give at least 10 us to charge the capacitor */
 
-  CS1_EnterCritical();
+  FRTOS1_taskENTER_CRITICAL();
 
   for(i=0;i<REF_NOF_SENSORS;i++) {
     SensorFctArray[i].SetInput(); /* turn I/O line as input */
@@ -179,7 +179,7 @@ static void REF_MeasureRaw(SensorTimeType raw[REF_NOF_SENSORS]) {
       if(raw[i] == MAX_SENSOR_VALUE){raw[i] = 14000;}
   }
 
-  CS1_ExitCritical();
+  FRTOS1_taskEXIT_CRITICAL();
 
   LED_IR_Off(); /* IR LED's off */
   FRTOS1_xSemaphoreGive(REF_Mutex_Measure_Raw);
