@@ -64,6 +64,8 @@
 #include "Tx1.h"
 #include "Rx1.h"
 #include "USB0.h"
+#include "IFsh1.h"
+#include "IntFlashLdd1.h"
 #include "TMOUT1.h"
 #include "WAIT1.h"
 #include "UTIL1.h"
