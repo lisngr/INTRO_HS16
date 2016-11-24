@@ -36,6 +36,9 @@ extern "C" {
 
 /* User includes (#include below this line is not maintained by Processor Expert) */
 #include "Event.h"
+#include "Trigger.h"
+#include "Timer.h"
+#include "Tacho.h"
 
 /*
 ** ===================================================================
@@ -120,6 +123,7 @@ void FRTOS1_vApplicationTickHook(void)
   /* Called for every RTOS tick. */
   /* Write your code here ... */
 	TRG_AddTick();
+	TACHO_Sample();
 }
 
 /*
