@@ -397,7 +397,7 @@ static uint8_t ParsePidParameter(PID_Config *config, const unsigned char *cmd, b
 }
 
 uint8_t PID_ParseCommand(const unsigned char *cmd, bool *handled, const CLS1_StdIOType *io) {
-  uint8_t res = ERR_OK;
+  uint8_t res, resL, resR = ERR_OK;
 
   if (UTIL1_strcmp((char*)cmd, (char*)CLS1_CMD_HELP)==0 || UTIL1_strcmp((char*)cmd, (char*)"pid help")==0) {
     PID_PrintHelp(io);
@@ -413,6 +413,10 @@ uint8_t PID_ParseCommand(const unsigned char *cmd, bool *handled, const CLS1_Std
     res = ParsePidParameter(&posLeftConfig, cmd+sizeof("pid pos L ")-1, handled, io);
   } else if (UTIL1_strncmp((char*)cmd, (char*)"pid pos R ", sizeof("pid pos R ")-1)==0) {
     res = ParsePidParameter(&posRightConfig, cmd+sizeof("pid pos R ")-1, handled, io);
+  } else if (UTIL1_strncmp((char*)cmd, (char*)"pid pos speed ", sizeof("pid pos speed ")-1)==0) {
+    resR = ParsePidParameter(&posRightConfig, cmd+sizeof("pid pos speed ")-1, handled, io);
+    resL = ParsePidParameter(&posLeftConfig, cmd+sizeof("pid pos speed ")-1, handled, io);
+    res= resL||resR;
   } else if (UTIL1_strncmp((char*)cmd, (char*)"pid fw ", sizeof("pid fw ")-1)==0) {
     res = ParsePidParameter(&lineFwConfig, cmd+sizeof("pid fw ")-1, handled, io);
   }
