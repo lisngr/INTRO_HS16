@@ -37,6 +37,11 @@
 #define NVMC_REFLECTANCE_DATA_START_ADDR  (NVMC_FLASH_START_ADDR)
 #define NVMC_REFLECTANCE_DATA_SIZE        (6*2*2) /* maximum of 6 sensors (min and max) values with 16 bits */
 #define NVMC_REFLECTANCE_END_ADDR         (NVMC_REFLECTANCE_DATA_START_ADDR+NVMC_REFLECTANCE_DATA_SIZE)
+/*
+#define NVMC_PID_DATA_START_ADDR  (NVMC_REFLECTANCE_END_ADDR + 1)
+#define NVMC_PID_DATA_SIZE        (5*(6*4 + 1*1)) //5 configs with each 6 x 32bit plus 1 x 8bit values
+#define NVMC_PID_END_ADDR         (NVMC_PID_DATA_START_ADDR + NVMC_PID_DATA_SIZE)
+*/
 
 /*!
  * \brief Saves the reflectance calibration data

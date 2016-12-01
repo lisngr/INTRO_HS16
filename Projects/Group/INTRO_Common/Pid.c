@@ -23,11 +23,21 @@ typedef struct {
   int32_t lastError;
   int32_t integral;
 } PID_Config;
-
+/*
+typedef struct {
+	PID_Config lineFwConfig;
+	PID_Config speedLeftConfig;
+	PID_Config speedRightConfig;
+	PID_Config posLeftConfig;
+	PID_Config posRightConfig;
+} PID_Global_Config;
+*/
 /*! \todo Add your own additional configurations as needed, at least with a position config */
 static PID_Config lineFwConfig;
 static PID_Config speedLeftConfig, speedRightConfig;
 static PID_Config posLeftConfig, posRightConfig;
+
+//static PID_Global_Config pidStorageConfig;
 
 static int32_t PID(int32_t currVal, int32_t setVal, PID_Config *config) {
   int32_t error;
@@ -343,6 +353,7 @@ static void PID_PrintStatus(const CLS1_StdIOType *io) {
 
 static uint8_t ParsePidParameter(PID_Config *config, const unsigned char *cmd, bool *handled, const CLS1_StdIOType *io) {
   const unsigned char *p;
+  //unsigned char yolovar = *p;
   uint8_t val8u;
   uint32_t val32u;
   uint8_t res = ERR_OK;
@@ -393,11 +404,16 @@ static uint8_t ParsePidParameter(PID_Config *config, const unsigned char *cmd, b
       res = ERR_FAILED;
     }
   }
+  /*
+  if(res != ERR_FAILED){
+	  res = NVMC_SavePIDData(&pidStorageConfig, sizeof(pidStorageConfig));
+  }
+	*/
   return res;
 }
 
 uint8_t PID_ParseCommand(const unsigned char *cmd, bool *handled, const CLS1_StdIOType *io) {
-  uint8_t res, resL, resR = ERR_OK;
+  uint8_t res = ERR_OK;
 
   if (UTIL1_strcmp((char*)cmd, (char*)CLS1_CMD_HELP)==0 || UTIL1_strcmp((char*)cmd, (char*)"pid help")==0) {
     PID_PrintHelp(io);
@@ -414,9 +430,9 @@ uint8_t PID_ParseCommand(const unsigned char *cmd, bool *handled, const CLS1_Std
   } else if (UTIL1_strncmp((char*)cmd, (char*)"pid pos R ", sizeof("pid pos R ")-1)==0) {
     res = ParsePidParameter(&posRightConfig, cmd+sizeof("pid pos R ")-1, handled, io);
   } else if (UTIL1_strncmp((char*)cmd, (char*)"pid pos speed ", sizeof("pid pos speed ")-1)==0) {
-    resR = ParsePidParameter(&posRightConfig, cmd+sizeof("pid pos speed ")-1, handled, io);
-    resL = ParsePidParameter(&posLeftConfig, cmd+sizeof("pid pos speed ")-1, handled, io);
-    res= resL||resR;
+    res = ParsePidParameter(&posRightConfig, cmd+sizeof("pid pos ")-1, handled, io);
+    res = ParsePidParameter(&posLeftConfig, cmd+sizeof("pid pos ")-1, handled, io);
+
   } else if (UTIL1_strncmp((char*)cmd, (char*)"pid fw ", sizeof("pid fw ")-1)==0) {
     res = ParsePidParameter(&lineFwConfig, cmd+sizeof("pid fw ")-1, handled, io);
   }
@@ -445,17 +461,17 @@ void PID_Deinit(void) {
 
 void PID_Init(void) {
   /*! \todo determine your PID values */
-  speedLeftConfig.pFactor100 = 0;
-  speedLeftConfig.iFactor100 = 0;
+  speedLeftConfig.pFactor100 = 2300;
+  speedLeftConfig.iFactor100 = 200;
   speedLeftConfig.dFactor100 = 0;
-  speedLeftConfig.iAntiWindup = 0;
+  speedLeftConfig.iAntiWindup = 65000;
   speedLeftConfig.lastError = 0;
   speedLeftConfig.integral = 0;
 
-  speedRightConfig.pFactor100 = 0;
-  speedRightConfig.iFactor100 = 0;
+  speedRightConfig.pFactor100 = 1800;
+  speedRightConfig.iFactor100 = 200;
   speedRightConfig.dFactor100 = 0;
-  speedRightConfig.iAntiWindup = 0;
+  speedRightConfig.iAntiWindup = 65000;
   speedRightConfig.lastError = 0;
   speedRightConfig.integral = 0;
 
@@ -467,11 +483,11 @@ void PID_Init(void) {
   lineFwConfig.lastError = 0;
   lineFwConfig.integral = 0;
 
-  posLeftConfig.pFactor100 = 0;
-  posLeftConfig.iFactor100 = 0;
+  posLeftConfig.pFactor100 = 100;
+  posLeftConfig.iFactor100 = 10;
   posLeftConfig.dFactor100 = 0;
   posLeftConfig.iAntiWindup = 0;
-  posLeftConfig.maxSpeedPercent = 0;
+  posLeftConfig.maxSpeedPercent = 50;
   posLeftConfig.lastError = 0;
   posLeftConfig.integral = 0;
   posRightConfig.pFactor100 = posLeftConfig.pFactor100;
