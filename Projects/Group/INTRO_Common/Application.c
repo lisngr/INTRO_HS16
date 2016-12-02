@@ -47,7 +47,7 @@ void APP_EventHandler(EVNT_Handle event) {
   case EVNT_STARTUP:
     LED1_On(); /* just do something */
 #if PL_CONFIG_HAS_BUZZER
-    BUZ_PlayTune(BUZ_TUNE_WELCOME);
+    //BUZ_PlayTune(BUZ_TUNE_WELCOME);
 #endif
     break;
   case EVNT_LED_HEARTBEAT:

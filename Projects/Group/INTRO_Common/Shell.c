@@ -365,8 +365,9 @@ static void ShellTask(void *pvParameters) {
         /*! \todo Handle shell queue */
     	unsigned char msg;
 
-    	msg = SQUEUE_ReceiveChar();
-    	CLS1_SendStr(&msg, CLS1_GetStdio()->stdOut);
+    	while((msg=SQUEUE_ReceiveChar()) && msg!='\0') {
+    		CLS1_GetStdio()->stdOut(msg);
+    	}
     }
 #else /* PL_CONFIG_SQUEUE_SINGLE_CHAR */
     {
@@ -380,7 +381,7 @@ static void ShellTask(void *pvParameters) {
     }
 #endif /* PL_CONFIG_SQUEUE_SINGLE_CHAR */
 #endif /* PL_CONFIG_HAS_SHELL_QUEUE */
-    FRTOS1_vTaskDelay(10/portTICK_PERIOD_MS);
+    FRTOS1_vTaskDelay(5/portTICK_PERIOD_MS);
   } /* for */
 }
 #endif
