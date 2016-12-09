@@ -40,6 +40,10 @@
 #if PL_CONFIG_HAS_LINE_FOLLOW
   #include "LineFollow.h"
 #endif
+#if PL_CONFIG_HAS_RADIO
+  #include "RNet_App.h"
+  #include "RNet_AppConfig.h"
+#endif
 
 #if PL_CONFIG_HAS_EVENTS
 void APP_EventHandler(EVNT_Handle event) {
@@ -53,20 +57,58 @@ void APP_EventHandler(EVNT_Handle event) {
   case EVNT_LED_HEARTBEAT:
     LED1_Neg();
     break;
-
 #if PL_CONFIG_HAS_KEYS
-  #if PL_CONFIG_NOF_KEYS>=1
+
   case EVNT_SW1_PRESSED:
 #if PL_CONFIG_HAS_LINE_FOLLOW
 	  LF_StartStopFollowing();
 #endif
-    //CLS1_SendStr((uint8_t*)"SW1 pressed\r\n", CLS1_GetStdio()->stdOut);
-   //SHELL_SendString("SW 1 PRESSED\r\n");
 #if PL_CONFIG_HAS_BUZZER
     BUZ_PlayTune(BUZ_TUNE_BUTTON);
 #endif
+
+#if PL_CONFIG_CONTROL_SENDER
+    (void)RAPP_SendPayloadDataBlock('A', sizeof('A'), RAPP_MSG_TYPE_JOYSTICK_BTN, RNETA_GetDestAddr(), RPHY_PACKET_FLAGS_REQ_ACK);
+#endif
     break;
-  #endif
+#if PL_CONFIG_NOF_KEYS>1
+  case EVNT_SW2_PRESSED:
+#if PL_CONFIG_CONTROL_SENDER
+    (void)RAPP_SendPayloadDataBlock('B', sizeof('B'), RAPP_MSG_TYPE_JOYSTICK_BTN, RNETA_GetDestAddr(), RPHY_PACKET_FLAGS_REQ_ACK);
+#endif
+	 break;
+  case EVNT_SW3_PRESSED:
+#if PL_CONFIG_CONTROL_SENDER
+    (void)RAPP_SendPayloadDataBlock('C', sizeof('C'), RAPP_MSG_TYPE_JOYSTICK_BTN, RNETA_GetDestAddr(), RPHY_PACKET_FLAGS_REQ_ACK);
+#endif
+	  break;
+  case EVNT_SW4_PRESSED:
+#if PL_CONFIG_CONTROL_SENDER
+    (void)RAPP_SendPayloadDataBlock('D', sizeof('D'), RAPP_MSG_TYPE_JOYSTICK_BTN, RNETA_GetDestAddr(), RPHY_PACKET_FLAGS_REQ_ACK);
+#endif
+	  break;
+  case EVNT_SW5_PRESSED:
+#if PL_CONFIG_CONTROL_SENDER
+    (void)RAPP_SendPayloadDataBlock('E', sizeof('E'), RAPP_MSG_TYPE_JOYSTICK_BTN, RNETA_GetDestAddr(), RPHY_PACKET_FLAGS_REQ_ACK);
+#endif
+	  break;
+  case EVNT_SW6_PRESSED:
+#if PL_CONFIG_CONTROL_SENDER
+    (void)RAPP_SendPayloadDataBlock('F', sizeof('F'), RAPP_MSG_TYPE_JOYSTICK_BTN, RNETA_GetDestAddr(), RPHY_PACKET_FLAGS_REQ_ACK);
+#endif
+	  break;
+  case EVNT_SW7_PRESSED:
+#if PL_CONFIG_CONTROL_SENDER
+    (void)RAPP_SendPayloadDataBlock('G', sizeof('G'), RAPP_MSG_TYPE_JOYSTICK_BTN, RNETA_GetDestAddr(), RPHY_PACKET_FLAGS_REQ_ACK);
+#endif
+	  break;
+#endif
+
+
+
+
+
+
 #endif /* PL_CONFIG_HAS_KEYS */
 
   default:

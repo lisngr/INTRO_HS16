@@ -311,7 +311,6 @@ static void ShellTask(void *pvParameters) {
 #endif
 #if PL_CONFIG_HAS_RADIO && RNET_CONFIG_REMOTE_STDIO
   static unsigned char radio_cmd_buf[48];
-  CLS1_ConstStdIOType *ioRemote = RSTDIO_GetStdioRx();
 #endif
 
   (void)pvParameters; /* not used */

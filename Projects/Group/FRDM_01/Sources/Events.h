@@ -66,6 +66,8 @@
 #include "BitIoLdd6.h"
 #include "SW7.h"
 #include "BitIoLdd7.h"
+#include "AD1.h"
+#include "AdcLdd1.h"
 #include "RNET1.h"
 #include "RF1.h"
 #include "CE1.h"

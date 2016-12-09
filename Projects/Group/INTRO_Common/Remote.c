@@ -26,6 +26,9 @@
 #if PL_CONFIG_HAS_DRIVE
   #include "Drive.h"
 #endif
+#if PL_CONFIG_HAS_MOTOR_TACHO
+  #include "Tacho.h"
+#endif
 #if PL_CONFIG_HAS_LEDS
   #include "LED.h"
 #endif
@@ -151,7 +154,7 @@ static void REMOTE_HandleMotorMsg(int16_t speedVal, int16_t directionVal, int16_
   }
   if (z<-900) { /* have a way to stop motor: turn FRDM USB port side up or down */
 #if PL_CONFIG_HAS_DRIVE
-    DRV_SetSpeed(1000, 1000);
+    DRV_SetSpeed(0, 0);
 #else
     MOT_SetSpeedPercent(MOT_GetMotorHandle(MOT_MOTOR_LEFT), 0);
     MOT_SetSpeedPercent(MOT_GetMotorHandle(MOT_MOTOR_RIGHT), 0);
@@ -296,15 +299,15 @@ uint8_t REMOTE_HandleRemoteRxMessage(RAPP_MSG_Type type, uint8_t size, uint8_t *
 
       } else if (val=='C') { /* red 'C' button */
               /*! \todo add functionality */
-    	  if TACHO_GetSpeed(TRUE) > 50{
-    			  DRV_SetSpeed(TACHO_GetSpeed(TRUE)-50,TACHO_GetSpeed(FALSE)-50); /* decrease speed*/
+    	  if(TACHO_GetSpeed(TRUE) > 50 ){
+    		  DRV_SetSpeed(TACHO_GetSpeed(TRUE)-50,TACHO_GetSpeed(FALSE)-50); /* decrease speed*/
     	  }
       } else if (val=='B') { /* red 'C' button */
               /*! \todo add functionality */
       } else if (val=='A') { /* green 'A' button */
         /*! \todo add functionality */
-    	  if TACHO_GetSpeed(TRUE) < 1000 {
-    	     			  DRV_SetSpeed(TACHO_GetSpeed(TRUE)+50,TACHO_GetSpeed(FALSE)+50); /* increase speed*/
+    	  if(TACHO_GetSpeed(TRUE) < 1000){
+    		  DRV_SetSpeed(TACHO_GetSpeed(TRUE)+50,TACHO_GetSpeed(FALSE)+50); /* increase speed*/
     	  }
       }
 #else
