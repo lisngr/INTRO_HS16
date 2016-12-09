@@ -94,7 +94,7 @@ static void CopyStdIn(uint8_t *ch) {
 	#if CLS1_DEFAULT_SERIAL
 		CLS1_GetStdio()->stdIn(ch);
 	#endif
-	#if PL_CONFIG_HAS_SEGGER_RTT
+	#if PL_CONFIG_HAS_SEGGER_RTT && !PL_LOCAL_CONFIG_BOARD_IS_ROBO
 		RTT1_stdio.stdIn(ch);
 	#endif
 	#if PL_CONFIG_HAS_BLUETOOTH
@@ -114,7 +114,7 @@ static void CopyStdOut(uint8_t ch) {
 	#if CLS1_DEFAULT_SERIAL
 		CLS1_GetStdio()->stdOut(ch);
 	#endif
-	#if PL_CONFIG_HAS_SEGGER_RTT
+	#if PL_CONFIG_HAS_SEGGER_RTT && !PL_LOCAL_CONFIG_BOARD_IS_ROBO
 		RTT1_stdio.stdOut(ch);
 	#endif
 	#if PL_CONFIG_HAS_BLUETOOTH
@@ -131,7 +131,7 @@ static bool CopyKeyPressed(void) {
 	#if CLS1_DEFAULT_SERIAL
 		return CLS1_GetStdio()->keyPressed;
 	#endif
-	#if PL_CONFIG_HAS_SEGGER_RTT
+	#if PL_CONFIG_HAS_SEGGER_RTT && !PL_LOCAL_CONFIG_BOARD_IS_ROBO
 		return RTT1_stdio.keyPressed;
 	#endif
 	#if PL_CONFIG_HAS_BLUETOOTH
