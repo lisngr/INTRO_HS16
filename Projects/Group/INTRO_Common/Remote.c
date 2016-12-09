@@ -94,6 +94,7 @@ static uint8_t REMOTE_GetXY(uint16_t *x, uint16_t *y, int8_t *x8, int8_t *y8) {
   return ERR_OK;
 }
 
+
 static void RemoteTask (void *pvParameters) {
   (void)pvParameters;
 #if PL_CONFIG_HAS_JOYSTICK
@@ -139,7 +140,6 @@ static void RemoteTask (void *pvParameters) {
   } /* for */
 }
 #endif
-
 #if PL_CONFIG_HAS_MOTOR
 static void REMOTE_HandleMotorMsg(int16_t speedVal, int16_t directionVal, int16_t z) {
   #define SCALE_DOWN 30
@@ -289,10 +289,23 @@ uint8_t REMOTE_HandleRemoteRxMessage(RAPP_MSG_Type type, uint8_t size, uint8_t *
         REMOTE_SetOnOff(TRUE);
         DRV_SetMode(DRV_MODE_SPEED);
         SHELL_SendString("Remote ON\r\n");
-      } else if (val=='C') { /* red 'C' button */
+      } else if (val=='E') { /* red 'C' button */
         /*! \todo add functionality */
+      } else if (val=='D') { /* red 'C' button */
+        /*! \todo add functionality */
+
+      } else if (val=='C') { /* red 'C' button */
+              /*! \todo add functionality */
+    	  if TACHO_GetSpeed(TRUE) > 50{
+    			  DRV_SetSpeed(TACHO_GetSpeed(TRUE)-50,TACHO_GetSpeed(FALSE)-50); /* decrease speed*/
+    	  }
+      } else if (val=='B') { /* red 'C' button */
+              /*! \todo add functionality */
       } else if (val=='A') { /* green 'A' button */
         /*! \todo add functionality */
+    	  if TACHO_GetSpeed(TRUE) < 1000 {
+    	     			  DRV_SetSpeed(TACHO_GetSpeed(TRUE)+50,TACHO_GetSpeed(FALSE)+50); /* increase speed*/
+    	  }
       }
 #else
       *handled = FALSE; /* no shell and no buzzer? */
