@@ -40,18 +40,18 @@ static void MainTask(void* param) {
 	  FRTOS1_vTaskDelay(pdMS_TO_TICKS(50));
   }
 }
-
+/*
 static void vSlaveTask(void *pvParameters) {
   xSemaphoreHandle sem = (xSemaphoreHandle)pvParameters;
 
   if (sem==NULL) {
     for(;;) {
-      /* should not be NULL? */
+      // should not be NULL?
     	vTaskDelay(1000/portTICK_PERIOD_MS);
     }
   }
   for(;;) {
-    /*! \todo Implement functionality */
+    //! \todo Implement functionality
 	  if(xSemaphoreTake(sem, 100)){
 		  LED2_Neg();
 	  }
@@ -60,29 +60,31 @@ static void vSlaveTask(void *pvParameters) {
 }
 
 static void vMasterTask(void *pvParameters) {
-  /*! \todo Understand functionality */
+  //! \todo Understand functionality
   xSemaphoreHandle sem = NULL;
 
-  (void)pvParameters; /* parameter not used */
+  (void)pvParameters; // parameter not used
   sem = xSemaphoreCreateBinary();
-  if (sem==NULL) { /* semaphore creation failed */
-    for(;;){} /* error */
+  if (sem==NULL) { // semaphore creation failed
+    for(;;){} // error
   }
   vQueueAddToRegistry(sem, "IPC_Sem");
 
-  /*Main Task*/
+  //Main Task
   if (FRTOS1_xTaskCreate(vSlaveTask, (signed portCHAR *)"SemSlave", configMINIMAL_STACK_SIZE, sem, tskIDLE_PRIORITY+2, NULL) != pdPASS) {
-	  for(;;){} /* error case only, stay here! */
+	  for(;;){} // error case only, stay here!
   }
 
   for(;;) {
-    (void)xSemaphoreGive(sem); /* give control to other task */
+    (void)xSemaphoreGive(sem); // give control to other task
     vTaskDelay(1000/portTICK_PERIOD_MS);
   }
 }
+*/
+
 void RTOS_Init(void) {
   static const int led1 = 1;
-  static const int led2 = 2;
+ // static const int led2 = 2;
 
   EVNT_SetEvent(EVNT_STARTUP); /* set startup event */
   /*! \todo Create tasks here */
@@ -97,9 +99,10 @@ void RTOS_Init(void) {
   }
 
   /*LED toggle Task*/
+  /*
   if (FRTOS1_xTaskCreate(vMasterTask, (signed portCHAR *)"SemMaster", configMINIMAL_STACK_SIZE, NULL, tskIDLE_PRIORITY+2, NULL) != pdPASS) {
-	  for(;;){} /* error case only, stay here! */
-  }
+	  for(;;){} // error case only, stay here!
+  }*/
 
 
 

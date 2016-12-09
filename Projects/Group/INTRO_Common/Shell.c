@@ -8,77 +8,77 @@
 
 #include "Platform.h"
 #if PL_CONFIG_HAS_SHELL
-#include "Shell.h"
-#include "CLS1.h"
-#include "Application.h"
+	#include "Shell.h"
+	#include "CLS1.h"
+	#include "Application.h"
 
-#if PL_CONFIG_HAS_RTOS
-#include "FRTOS1.h"
-#endif
-#if PL_CONFIG_HAS_BLUETOOTH
-  #include "BT1.h"
-#endif
-#if PL_CONFIG_HAS_USB_CDC
-  #include "CDC1.h"
-#endif
-#if PL_CONFIG_HAS_BUZZER
-  #include "Buzzer.h"
-#endif
-#if PL_CONFIG_HAS_SHELL_QUEUE
-  #include "ShellQueue.h"
-#endif
-#if PL_CONFIG_HAS_REFLECTANCE
-  #include "Reflectance.h"
-#endif
-#if PL_CONFIG_HAS_SEGGER_RTT
-  #include "RTT1.h"
-#endif
-#if PL_CONFIG_HAS_MOTOR
-  #include "Motor.h"
-#endif
-#if PL_CONFIG_HAS_MCP4728
-  #include "MCP4728.h"
-#endif
-#if PL_CONFIG_HAS_QUADRATURE
-  #include "Q4CLeft.h"
-  #include "Q4CRight.h"
-#endif
-#if PL_CONFIG_HAS_QUAD_CALIBRATION
-  #include "QuadCalib.h"
-#endif
-#if PL_CONFIG_HAS_MOTOR_TACHO
-  #include "Tacho.h"
-#endif
-#if PL_CONFIG_HAS_ULTRASONIC
-  #include "Ultrasonic.h"
-#endif
-#if PL_CONFIG_HAS_PID
-  #include "PID.h"
-#endif
-#if PL_CONFIG_HAS_DRIVE
-  #include "Drive.h"
-#endif
-#if PL_CONFIG_HAS_TURN
-  #include "Turn.h"
-#endif
-#if PL_CONFIG_HAS_LINE_FOLLOW
-  #include "LineFollow.h"
-#endif
-/*#if PL_CONFIG_HAS_RADIO
-  #include "RApp.h"
-  #include "RNet_App.h"
-  #include "RNetConf.h"
-#endif*/
-#if RNET_CONFIG_REMOTE_STDIO
-  #include "RStdIO.h"
-#endif
-#if PL_CONFIG_HAS_REMOTE
-  #include "Remote.h"
-#endif
-#if PL_CONFIG_HAS_LINE_MAZE
-  #include "Maze.h"
-#endif
-#include "KIN1.h"
+	#if PL_CONFIG_HAS_RTOS
+		#include "FRTOS1.h"
+	#endif
+	#if PL_CONFIG_HAS_BLUETOOTH
+  	  	  #include "BT1.h"
+	#endif
+	#if PL_CONFIG_HAS_USB_CDC
+		#include "CDC1.h"
+	#endif
+	#if PL_CONFIG_HAS_BUZZER
+		#include "Buzzer.h"
+	#endif
+	#if PL_CONFIG_HAS_SHELL_QUEUE
+		#include "ShellQueue.h"
+	#endif
+	#if PL_CONFIG_HAS_REFLECTANCE
+		#include "Reflectance.h"
+	#endif
+	#if PL_CONFIG_HAS_SEGGER_RTT
+  		#include "RTT1.h"
+	#endif
+	#if PL_CONFIG_HAS_MOTOR
+  		#include "Motor.h"
+	#endif
+	#if PL_CONFIG_HAS_MCP4728
+		#include "MCP4728.h"
+	#endif
+	#if PL_CONFIG_HAS_QUADRATURE
+		#include "Q4CLeft.h"
+		#include "Q4CRight.h"
+	#endif
+	#if PL_CONFIG_HAS_QUAD_CALIBRATION
+		#include "QuadCalib.h"
+	#endif
+	#if PL_CONFIG_HAS_MOTOR_TACHO
+		#include "Tacho.h"
+	#endif
+	#if PL_CONFIG_HAS_ULTRASONIC
+		#include "Ultrasonic.h"
+	#endif
+	#if PL_CONFIG_HAS_PID
+		#include "PID.h"
+	#endif
+	#if PL_CONFIG_HAS_DRIVE
+		#include "Drive.h"
+	#endif
+	#if PL_CONFIG_HAS_TURN
+		#include "Turn.h"
+	#endif
+	#if PL_CONFIG_HAS_LINE_FOLLOW
+		#include "LineFollow.h"
+	#endif
+	#if PL_CONFIG_HAS_RADIO
+		#include "RApp.h"
+		#include "RNet_App.h"
+ 	 	#include "RNetConf.h"
+	#endif
+	#if RNET_CONFIG_REMOTE_STDIO
+		#include "RStdIO.h"
+	#endif
+	#if PL_CONFIG_HAS_REMOTE
+		#include "Remote.h"
+	#endif
+	#if PL_CONFIG_HAS_LINE_MAZE
+		#include "Maze.h"
+	#endif
+	#include "KIN1.h"
 
 /*STDIO for Segger RTT
 static CLS1_ConstStdIOType RTT_stdio = {
@@ -91,63 +91,55 @@ static CLS1_ConstStdIOType RTT_stdio = {
 
 /* Stdin for CopyStdio */
 static void CopyStdIn(uint8_t *ch) {
-#if CLS1_DEFAULT_SERIAL
-#if !PL_LOCAL_CONFIG_BOARD_IS_ROBO
-	CLS1_GetStdio()->stdIn(ch);
-#endif
-
-#if PL_CONFIG_HAS_SEGGER_RTT
-	if (RTT1_stdio.keyPressed()){
+	#if CLS1_DEFAULT_SERIAL
+		CLS1_GetStdio()->stdIn(ch);
+	#endif
+	#if PL_CONFIG_HAS_SEGGER_RTT
 		RTT1_stdio.stdIn(ch);
-	}
-#endif
-#if PL_CONFIG_HAS_BLUETOOTH
-	if(BT_stdio.keyPressed()){
-		BT_stdio.stdIn(ch);
-	}
-#endif
-#if PL_CONFIG_HAS_USB_CDC
-	if(CDC1_stdio.keyPressed()){
-		CDC1_stdio.stdIn(ch);
-	}
-#endif
+	#endif
+	#if PL_CONFIG_HAS_BLUETOOTH
+		if(BT_stdio.keyPressed()){
+			BT_stdio.stdIn(ch);
+		}
+	#endif
+	#if PL_CONFIG_HAS_USB_CDC
+		if(CDC1_stdio.keyPressed()){
+			CDC1_stdio.stdIn(ch);
+		}
+	#endif
 }
 
 /* Stdout for CopyStdio */
 static void CopyStdOut(uint8_t ch) {
-#if CLS1_DEFAULT_SERIAL
-#if !PL_LOCAL_CONFIG_BOARD_IS_ROBO
-	CLS1_GetStdio()->stdOut(ch);
-#endif
-#endif
-#if PL_CONFIG_HAS_SEGGER_RTT
-	RTT1_stdio.stdOut(ch);
-#endif
-#if PL_CONFIG_HAS_BLUETOOTH
-	BT_stdio.stdOut(ch);
-#endif
-#if PL_CONFIG_HAS_USB_CDC
-	CDC1_stdio.stdOut(ch);
-#endif
+	#if CLS1_DEFAULT_SERIAL
+		CLS1_GetStdio()->stdOut(ch);
+	#endif
+	#if PL_CONFIG_HAS_SEGGER_RTT
+		RTT1_stdio.stdOut(ch);
+	#endif
+	#if PL_CONFIG_HAS_BLUETOOTH
+		BT_stdio.stdOut(ch);
+	#endif
+	#if PL_CONFIG_HAS_USB_CDC
+		CDC1_stdio.stdOut(ch);
+	#endif
 }
 
 
 /* KeyPressed for CopyStdio */
 static bool CopyKeyPressed(void) {
-#if CLS1_DEFAULT_SERIAL
-#if !PL_LOCAL_CONFIG_BOARD_IS_ROBO
-	return CLS1_GetStdio()->keyPressed;
-#endif
-#endif
-#if PL_CONFIG_HAS_SEGGER_RTT
-	return RTT1_stdio.keyPressed;
-#endif
-#if PL_CONFIG_HAS_BLUETOOTH
-	return BT_stdio.keyPressed;
-#endif
-#if PL_CONFIG_HAS_USB_CDC
-	return CDC1_stdio.keyPressed;
-#endif
+	#if CLS1_DEFAULT_SERIAL
+		return CLS1_GetStdio()->keyPressed;
+	#endif
+	#if PL_CONFIG_HAS_SEGGER_RTT
+		return RTT1_stdio.keyPressed;
+	#endif
+	#if PL_CONFIG_HAS_BLUETOOTH
+		return BT_stdio.keyPressed;
+	#endif
+	#if PL_CONFIG_HAS_USB_CDC
+		return CDC1_stdio.keyPressed;
+	#endif
 }
 
 /*STDIO "Copy" for copying on every "channel"*/
@@ -239,7 +231,6 @@ void SHELL_SendString(unsigned char *msg) {
   SQUEUE_SendString(msg);
 #else
   CLS1_SendStr(msg, CLS1_GetStdio()->stdOut);
-#endif
 #endif // HEIKEL!
 }
 
@@ -298,6 +289,7 @@ void SHELL_ParseCmd(unsigned char *cmd) {
   #endif
   /* \todo Extend as needed */
 }
+
 #if PL_CONFIG_HAS_RTOS
 static void ShellTask(void *pvParameters) {
   /* \todo Extend as needed */
@@ -385,6 +377,7 @@ static void ShellTask(void *pvParameters) {
   } /* for */
 }
 #endif
+
 void SHELL_Init(void) {
   SHELL_val = 0;
 #if !CLS1_DEFAULT_SERIAL && PL_CONFIG_CONFIG_HAS_BLUETOOTH
