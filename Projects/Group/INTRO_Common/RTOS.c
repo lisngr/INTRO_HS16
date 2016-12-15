@@ -18,6 +18,12 @@ static void AppTask(void* param) {
 
   (void)param; /* avoid compiler warning */
   for(;;) {
+
+	#if PL_CONFIG_HAS_KEYS
+		KEY_Scan();
+		EVNT_HandleEvent(APP_EventHandler, TRUE);
+	#endif
+
     if (*whichLED==1) {
       LED1_Neg();
     } else if (*whichLED==2) {
@@ -30,14 +36,19 @@ static void AppTask(void* param) {
 
 static void MainTask(void* param) {
 
-  (void)param; /* avoid compiler warning */
+	const int *whichLED = (int*)param;
   for(;;) {
 	#if PL_CONFIG_HAS_KEYS
 		KEY_Scan();
 		EVNT_HandleEvent(APP_EventHandler, TRUE);
 	#endif
+		 if (*whichLED==1) {
+		      LED1_Neg();
+		    } else if (*whichLED==2) {
+		      //LED2_Neg();
+		    }
 	  /*Task Delay*/
-	  FRTOS1_vTaskDelay(pdMS_TO_TICKS(50));
+	  FRTOS1_vTaskDelay(pdMS_TO_TICKS(500));
   }
 }
 /*
@@ -90,9 +101,9 @@ void RTOS_Init(void) {
   /*! \todo Create tasks here */
 
   	  /*LED toggle Task*/
-  if (FRTOS1_xTaskCreate(AppTask, (signed portCHAR *)"App1", configMINIMAL_STACK_SIZE, (void*)&led1, tskIDLE_PRIORITY, NULL) != pdPASS) {
-    for(;;){} /* error case only, stay here! */
-  }
+//  if (FRTOS1_xTaskCreate(AppTask, (signed portCHAR *)"App1", configMINIMAL_STACK_SIZE, (void*)&led1, tskIDLE_PRIORITY, NULL) != pdPASS) {
+//    for(;;){} /* error case only, stay here! */
+//  }
   	  /*Main Task*/
   if (FRTOS1_xTaskCreate(MainTask, (signed portCHAR *)"Main", configMINIMAL_STACK_SIZE, NULL , tskIDLE_PRIORITY, NULL) != pdPASS) {
     for(;;){} /* error case only, stay here! */
