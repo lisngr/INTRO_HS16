@@ -44,6 +44,9 @@
   #include "RNet_App.h"
   #include "RNet_AppConfig.h"
 #endif
+#if PL_CONFIG_HAS_REMOTE_STDIO
+	#include "RStdIO.h"
+#endif
 
 #if PL_CONFIG_HAS_EVENTS
 void APP_EventHandler(EVNT_Handle event) {
@@ -68,8 +71,13 @@ void APP_EventHandler(EVNT_Handle event) {
 #endif
 
 #if PL_CONFIG_CONTROL_SENDER
+#if PL_CONFIG_HAS_REMOTE_STDIO
+    /*Sending Radio Radio Payload over Shell /RStdIo)*/
+    RSTDIO_SendToTxStdio(RSTDIO_QUEUE_TX_IN, "buzzer buz 800 400\r\n",sizeof("buzzer buz 800 400\r\n")-1 );
+#else
     (void)RAPP_SendPayloadDataBlock('A', sizeof('A'), RAPP_MSG_TYPE_JOYSTICK_BTN, RNETA_GetDestAddr(), RPHY_PACKET_FLAGS_REQ_ACK);
 #endif
+    #endif
     break;
 #if PL_CONFIG_NOF_KEYS > 1
   case EVNT_SW2_PRESSED:

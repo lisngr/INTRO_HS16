@@ -141,6 +141,7 @@ static void RemoteTask (void *pvParameters) {
 #endif
       FRTOS1_vTaskDelay(200/portTICK_PERIOD_MS);
     } else {
+    	/*do nothing if no joystick */
       FRTOS1_vTaskDelay(1000/portTICK_PERIOD_MS);
     }
   } /* for */
