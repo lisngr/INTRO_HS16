@@ -63,6 +63,7 @@ void APP_EventHandler(EVNT_Handle event) {
 #if PL_CONFIG_HAS_KEYS
 
   case EVNT_SW1_PRESSED:
+	  SHELL_SendString("Switch 1 pressed, sent A");
 #if PL_CONFIG_HAS_LINE_FOLLOW
 	  LF_StartStopFollowing();
 #endif
@@ -81,31 +82,37 @@ void APP_EventHandler(EVNT_Handle event) {
     break;
 #if PL_CONFIG_NOF_KEYS > 1
   case EVNT_SW2_PRESSED:
+	  SHELL_SendString("Switch 1 pressed, sent B");
 #if PL_CONFIG_CONTROL_SENDER
     (void)RAPP_SendPayloadDataBlock('B', sizeof('B'), RAPP_MSG_TYPE_JOYSTICK_BTN, RNETA_GetDestAddr(), RPHY_PACKET_FLAGS_REQ_ACK);
 #endif
 	 break;
   case EVNT_SW3_PRESSED:
+	  SHELL_SendString("Switch 1 pressed, sent C");
 #if PL_CONFIG_CONTROL_SENDER
     (void)RAPP_SendPayloadDataBlock('C', sizeof('C'), RAPP_MSG_TYPE_JOYSTICK_BTN, RNETA_GetDestAddr(), RPHY_PACKET_FLAGS_REQ_ACK);
 #endif
 	  break;
   case EVNT_SW4_PRESSED:
+	  SHELL_SendString("Switch 1 pressed, sent D");
 #if PL_CONFIG_CONTROL_SENDER
     (void)RAPP_SendPayloadDataBlock('D', sizeof('D'), RAPP_MSG_TYPE_JOYSTICK_BTN, RNETA_GetDestAddr(), RPHY_PACKET_FLAGS_REQ_ACK);
 #endif
 	  break;
   case EVNT_SW5_PRESSED:
+	  SHELL_SendString("Switch 1 pressed, sent E");
 #if PL_CONFIG_CONTROL_SENDER
     (void)RAPP_SendPayloadDataBlock('E', sizeof('E'), RAPP_MSG_TYPE_JOYSTICK_BTN, RNETA_GetDestAddr(), RPHY_PACKET_FLAGS_REQ_ACK);
 #endif
 	  break;
   case EVNT_SW6_PRESSED:
+	  SHELL_SendString("Switch 1 pressed, sent F");
 #if PL_CONFIG_CONTROL_SENDER
     (void)RAPP_SendPayloadDataBlock('F', sizeof('F'), RAPP_MSG_TYPE_JOYSTICK_BTN, RNETA_GetDestAddr(), RPHY_PACKET_FLAGS_REQ_ACK);
 #endif
 	  break;
   case EVNT_SW7_PRESSED:
+	  SHELL_SendString("Switch 1 pressed, sent G");
 #if PL_CONFIG_CONTROL_SENDER
     (void)RAPP_SendPayloadDataBlock('G', sizeof('G'), RAPP_MSG_TYPE_JOYSTICK_BTN, RNETA_GetDestAddr(), RPHY_PACKET_FLAGS_REQ_ACK);
 #endif
