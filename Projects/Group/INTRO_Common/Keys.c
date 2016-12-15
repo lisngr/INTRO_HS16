@@ -8,8 +8,9 @@
  */
 
 #include "Platform.h"
+
 #if PL_CONFIG_HAS_KEYS
-  #include "Keys.h"
+	#include "Keys.h"
 #if PL_CONFIG_HAS_EVENTS
   #include "Event.h"
 #endif
@@ -25,44 +26,50 @@
   #include "SYS1.h"
 #endif
 #endif
+
+
 void KEY_Scan(void) {
+#if PL_CONFIG_HAS_DEBOUNCE
+	KEYDBNC_Process();
+#else
   #if PL_CONFIG_NOF_KEYS >= 1 && !PL_CONFIG_KEY_1_ISR
     if (KEY1_Get()) { /* key pressed */
-      EVNT_SetEvent(EVNT_SW1_PRESSED);
+    	EVNT_SetEvent(EVNT_SW1_PRESSED);
     }
   #endif
   #if PL_CONFIG_NOF_KEYS >= 2 && !PL_CONFIG_KEY_2_ISR
     if (KEY2_Get()) { /* key pressed */
-      EVNT_SetEvent(EVNT_SW2_PRESSED);
+    	EVNT_SetEvent(EVNT_SW2_PRESSED);
     }
   #endif
 #if PL_CONFIG_NOF_KEYS >= 3 && !PL_CONFIG_KEY_3_ISR
     if (KEY3_Get()) { /* key pressed */
-      EVNT_SetEvent(EVNT_SW3_PRESSED);
+    	EVNT_SetEvent(EVNT_SW3_PRESSED);
     }
   #endif
 #if PL_CONFIG_NOF_KEYS >= 4 && !PL_CONFIG_KEY_4_ISR
     if (KEY4_Get()) { /* key pressed */
-      EVNT_SetEvent(EVNT_SW4_PRESSED);
+    	EVNT_SetEvent(EVNT_SW4_PRESSED);
     }
   #endif
 #if PL_CONFIG_NOF_KEYS >= 5 && !PL_CONFIG_KEY_5_ISR
     if (KEY5_Get()) { /* key pressed */
-      EVNT_SetEvent(EVNT_SW5_PRESSED);
+    	EVNT_SetEvent(EVNT_SW5_PRESSED);
     }
   #endif
 #if PL_CONFIG_NOF_KEYS >= 6 && !PL_CONFIG_KEY_6_ISR
     if (KEY6_Get()) { /* key pressed */
-      EVNT_SetEvent(EVNT_SW6_PRESSED);
+    	EVNT_SetEvent(EVNT_SW6_PRESSED);
     }
   #endif
 #if PL_CONFIG_NOF_KEYS >= 7 && !PL_CONFIG_KEY_7_ISR
     if (KEY7_Get()) { /* key pressed */
-      EVNT_SetEvent(EVNT_SW7_PRESSED);
+    	EVNT_SetEvent(EVNT_SW7_PRESSED);
     }
   #endif
-
+#endif
 }
+
 // Durch uns hinzugefuegt.
 #if PL_CONFIG_HAS_KBI
 //

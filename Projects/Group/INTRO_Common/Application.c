@@ -51,7 +51,7 @@ void APP_EventHandler(EVNT_Handle event) {
   case EVNT_STARTUP:
     LED1_On(); /* just do something */
 #if PL_CONFIG_HAS_BUZZER
-    //BUZ_PlayTune(BUZ_TUNE_WELCOME);
+    BUZ_PlayTune(BUZ_TUNE_WELCOME);
 #endif
     break;
   case EVNT_LED_HEARTBEAT:
@@ -71,7 +71,7 @@ void APP_EventHandler(EVNT_Handle event) {
     (void)RAPP_SendPayloadDataBlock('A', sizeof('A'), RAPP_MSG_TYPE_JOYSTICK_BTN, RNETA_GetDestAddr(), RPHY_PACKET_FLAGS_REQ_ACK);
 #endif
     break;
-#if PL_CONFIG_NOF_KEYS>1
+#if PL_CONFIG_NOF_KEYS > 1
   case EVNT_SW2_PRESSED:
 #if PL_CONFIG_CONTROL_SENDER
     (void)RAPP_SendPayloadDataBlock('B', sizeof('B'), RAPP_MSG_TYPE_JOYSTICK_BTN, RNETA_GetDestAddr(), RPHY_PACKET_FLAGS_REQ_ACK);

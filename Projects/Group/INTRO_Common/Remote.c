@@ -47,6 +47,8 @@ static uint16_t midPointX, midPointY;
 #endif
 
 #if PL_CONFIG_CONTROL_SENDER
+
+#if PL_CONFIG_HAS_JOYSTICK
 static int8_t ToSigned8Bit(uint16_t val, bool isX) {
   int32_t tmp;
 
@@ -97,6 +99,7 @@ static uint8_t REMOTE_GetXY(uint16_t *x, uint16_t *y, int8_t *x8, int8_t *y8) {
   return ERR_OK;
 }
 
+#endif
 
 static void RemoteTask (void *pvParameters) {
   (void)pvParameters;
