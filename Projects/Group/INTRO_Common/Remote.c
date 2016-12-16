@@ -5,7 +5,7 @@
  *
  * Module to handle accelerometer values passed over the Radio.
  */
-
+//static uint8_t harzerBuf[2];
 #include "Platform.h" /* interface to the platform */
 #if PL_CONFIG_HAS_REMOTE
 #include "Remote.h"
@@ -38,7 +38,12 @@
 #if PL_CONFIG_HAS_SHELL
   #include "Shell.h"
 #endif
-
+#if PL_CONFIG_BOARD_IS_REMOTE
+#include "SW1.h"
+#include "SW2.h"
+#include "SW6.h"
+#include "SW7.h"
+#endif
 static bool REMOTE_isOn = FALSE;
 static bool REMOTE_isVerbose = FALSE;
 static bool REMOTE_useJoystick = TRUE;
@@ -48,7 +53,10 @@ static uint16_t midPointX, midPointY;
 
 #if PL_CONFIG_CONTROL_SENDER
 
+/*! \todo emulate joystick */
 #if PL_CONFIG_HAS_JOYSTICK
+
+#if PL_CONFIG_BOARD_IS_FRDM
 
 static int8_t ToSigned8Bit(uint16_t val, bool isX) {
   int32_t tmp;
@@ -102,45 +110,97 @@ static uint8_t REMOTE_GetXY(uint16_t *x, uint16_t *y, int8_t *x8, int8_t *y8) {
 
 #endif
 
+#endif
+
 void RemoteSendButtons(int EVNT_BUTTON){
+    //uint8_t buf[2];
 
 	switch(EVNT_BUTTON){
 		case 1:
-			(void)RAPP_SendPayloadDataBlock("A", sizeof("A"), RAPP_MSG_TYPE_JOYSTICK_BTN, RNETA_GetDestAddr(), RPHY_PACKET_FLAGS_REQ_ACK);
+			#if PL_CONFIG_BOARD_IS_REMOTE
+			//
+			#endif
+			#if PL_CONFIG_BOARD_IS_FRDM
+				(void)RAPP_SendPayloadDataBlock("A", sizeof("A"), RAPP_MSG_TYPE_JOYSTICK_BTN, RNETA_GetDestAddr(), RPHY_PACKET_FLAGS_REQ_ACK);
+			#endif
 			break;
 		case 2:
-			(void)RAPP_SendPayloadDataBlock("B", sizeof("B"), RAPP_MSG_TYPE_JOYSTICK_BTN, RNETA_GetDestAddr(), RPHY_PACKET_FLAGS_REQ_ACK);
+			#if PL_CONFIG_BOARD_IS_REMOTE
+			//
+	        #endif
+			#if PL_CONFIG_BOARD_IS_FRDM
+				(void)RAPP_SendPayloadDataBlock("B", sizeof("B"), RAPP_MSG_TYPE_JOYSTICK_BTN, RNETA_GetDestAddr(), RPHY_PACKET_FLAGS_REQ_ACK);
+			#endif
 			break;
 		case 3:
 			(void)RAPP_SendPayloadDataBlock("C", sizeof("C"), RAPP_MSG_TYPE_JOYSTICK_BTN, RNETA_GetDestAddr(), RPHY_PACKET_FLAGS_REQ_ACK);
 			break;
 		case 4:
-			(void)RAPP_SendPayloadDataBlock("D", sizeof("D"), RAPP_MSG_TYPE_JOYSTICK_BTN, RNETA_GetDestAddr(), RPHY_PACKET_FLAGS_REQ_ACK);
+			#if PL_CONFIG_BOARD_IS_REMOTE
+			//DRIVE ON "G"
+				(void)RAPP_SendPayloadDataBlock("G", sizeof("G"), RAPP_MSG_TYPE_JOYSTICK_BTN, RNETA_GetDestAddr(), RPHY_PACKET_FLAGS_REQ_ACK);
+			#endif
+			#if PL_CONFIG_BOARD_IS_FRDM
+				(void)RAPP_SendPayloadDataBlock("D", sizeof("D"), RAPP_MSG_TYPE_JOYSTICK_BTN, RNETA_GetDestAddr(), RPHY_PACKET_FLAGS_REQ_ACK);
+			#endif
 			break;
 		case 5:
 			(void)RAPP_SendPayloadDataBlock("E", sizeof("E"), RAPP_MSG_TYPE_JOYSTICK_BTN, RNETA_GetDestAddr(), RPHY_PACKET_FLAGS_REQ_ACK);
 			break;
 		case 6:
-			(void)RAPP_SendPayloadDataBlock("F", sizeof("F"), RAPP_MSG_TYPE_JOYSTICK_BTN, RNETA_GetDestAddr(), RPHY_PACKET_FLAGS_REQ_ACK);
+			#if PL_CONFIG_BOARD_IS_REMOTE
+			//
+			#endif
+			#if PL_CONFIG_BOARD_IS_FRDM
+						(void)RAPP_SendPayloadDataBlock("F", sizeof("F"), RAPP_MSG_TYPE_JOYSTICK_BTN, RNETA_GetDestAddr(), RPHY_PACKET_FLAGS_REQ_ACK);
+			#endif
 			break;
 		case 7:
-			(void)RAPP_SendPayloadDataBlock("G", sizeof("G"), RAPP_MSG_TYPE_JOYSTICK_BTN, RNETA_GetDestAddr(), RPHY_PACKET_FLAGS_REQ_ACK);
+			#if PL_CONFIG_BOARD_IS_REMOTE
+				//
+			#endif
+			#if PL_CONFIG_BOARD_IS_FRDM
+						(void)RAPP_SendPayloadDataBlock("G", sizeof("G"), RAPP_MSG_TYPE_JOYSTICK_BTN, RNETA_GetDestAddr(), RPHY_PACKET_FLAGS_REQ_ACK);
+			#endif
 			break;
 	}
 }
 
 
-
-
+/*! \todo alot */
 static void RemoteTask (void *pvParameters) {
   (void)pvParameters;
 #if PL_CONFIG_HAS_JOYSTICK
+#if PL_CONFIG_BOARD_IS_FRDM
   (void)REMOTE_GetXY(&midPointX, &midPointY, NULL, NULL);
+#endif
 #endif
   FRTOS1_vTaskDelay(1000/portTICK_PERIOD_MS);
   for(;;) {
     if (REMOTE_isOn) {
+
+#if PL_CONFIG_BOARD_IS_REMOTE
+
+    uint8_t buf[2] = {0,0};
+
+    if(!SW1_GetVal()){// RIGHT
+    	buf[0] = 100;
+    }
+    if(!SW2_GetVal()){// LEFT
+    	buf[0] = -100;
+    }
+    if(!SW7_GetVal()){// FORWARD
+    	buf[1] = 100;
+    }
+    if(!SW6_GetVal()){// BACKWARD
+    	buf[1] = -100;
+    }
+
+  	 (void)RAPP_SendPayloadDataBlock(buf, sizeof(buf), RAPP_MSG_TYPE_JOYSTICK_XY, RNETA_GetDestAddr(), RPHY_PACKET_FLAGS_REQ_ACK);
+#endif
+
 #if PL_CONFIG_HAS_JOYSTICK
+
       if (REMOTE_useJoystick) {
         uint8_t buf[2];
         int16_t x, y;
@@ -170,11 +230,16 @@ static void RemoteTask (void *pvParameters) {
         LED1_Neg();
       }
 #endif
-      FRTOS1_vTaskDelay(200/portTICK_PERIOD_MS);
+
+
+      FRTOS1_vTaskDelay(150/portTICK_PERIOD_MS);
     } else {
+#if PL_CONFIG_BOARD_IS_FRDM
     	/*do nothing if no joystick */
       FRTOS1_vTaskDelay(1000/portTICK_PERIOD_MS);
+#endif
     }
+
   } /* for */
 }
 #endif
