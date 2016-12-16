@@ -40,9 +40,9 @@
 #if PL_CONFIG_HAS_LINE_FOLLOW
   #include "LineFollow.h"
 #endif
-#if PL_CONFIG_HAS_RADIO
-  #include "RNet_App.h"
-  #include "RNet_AppConfig.h"
+
+#if PL_CONFIG_HAS_REMOTE
+	#include "Remote.h"
 #endif
 #if PL_CONFIG_HAS_REMOTE_STDIO
 	#include "RStdIO.h"
@@ -63,7 +63,7 @@ void APP_EventHandler(EVNT_Handle event) {
 #if PL_CONFIG_HAS_KEYS
 
   case EVNT_SW1_PRESSED:
-	  SHELL_SendString("Switch 1 pressed, sent A");
+	  SHELL_SendString("Switch 1 pressed, sent A\r\n");
 #if PL_CONFIG_HAS_LINE_FOLLOW
 	  LF_StartStopFollowing();
 #endif
@@ -76,45 +76,45 @@ void APP_EventHandler(EVNT_Handle event) {
     /*Sending Radio Radio Payload over Shell /RStdIo)*/
     RSTDIO_SendToTxStdio(RSTDIO_QUEUE_TX_IN, "buzzer buz 800 400\r\n",sizeof("buzzer buz 800 400\r\n")-1 );
 #else
-    (void)RAPP_SendPayloadDataBlock('A', sizeof('A'), RAPP_MSG_TYPE_JOYSTICK_BTN, RNETA_GetDestAddr(), RPHY_PACKET_FLAGS_REQ_ACK);
+    RemoteSendButtons(1);
 #endif
     #endif
     break;
 #if PL_CONFIG_NOF_KEYS > 1
   case EVNT_SW2_PRESSED:
-	  SHELL_SendString("Switch 1 pressed, sent B");
+	  SHELL_SendString("Switch 1 pressed, sent B\n\r");
 #if PL_CONFIG_CONTROL_SENDER
-    (void)RAPP_SendPayloadDataBlock('B', sizeof('B'), RAPP_MSG_TYPE_JOYSTICK_BTN, RNETA_GetDestAddr(), RPHY_PACKET_FLAGS_REQ_ACK);
+	  RemoteSendButtons(2);
 #endif
 	 break;
   case EVNT_SW3_PRESSED:
-	  SHELL_SendString("Switch 1 pressed, sent C");
+	  SHELL_SendString("Switch 2 pressed, sent C\n\r");
 #if PL_CONFIG_CONTROL_SENDER
-    (void)RAPP_SendPayloadDataBlock('C', sizeof('C'), RAPP_MSG_TYPE_JOYSTICK_BTN, RNETA_GetDestAddr(), RPHY_PACKET_FLAGS_REQ_ACK);
+	  RemoteSendButtons(3);
 #endif
 	  break;
   case EVNT_SW4_PRESSED:
-	  SHELL_SendString("Switch 1 pressed, sent D");
+	  SHELL_SendString("Switch 3 pressed, sent D\n\r");
 #if PL_CONFIG_CONTROL_SENDER
-    (void)RAPP_SendPayloadDataBlock('D', sizeof('D'), RAPP_MSG_TYPE_JOYSTICK_BTN, RNETA_GetDestAddr(), RPHY_PACKET_FLAGS_REQ_ACK);
+	  RemoteSendButtons(4);
 #endif
 	  break;
   case EVNT_SW5_PRESSED:
-	  SHELL_SendString("Switch 1 pressed, sent E");
+	  SHELL_SendString("Switch 4 pressed, sent E\n\r");
 #if PL_CONFIG_CONTROL_SENDER
-    (void)RAPP_SendPayloadDataBlock('E', sizeof('E'), RAPP_MSG_TYPE_JOYSTICK_BTN, RNETA_GetDestAddr(), RPHY_PACKET_FLAGS_REQ_ACK);
+	  RemoteSendButtons(5);
 #endif
 	  break;
   case EVNT_SW6_PRESSED:
-	  SHELL_SendString("Switch 1 pressed, sent F");
+	  SHELL_SendString("Switch 5 pressed, sent F\n\r");
 #if PL_CONFIG_CONTROL_SENDER
-    (void)RAPP_SendPayloadDataBlock('F', sizeof('F'), RAPP_MSG_TYPE_JOYSTICK_BTN, RNETA_GetDestAddr(), RPHY_PACKET_FLAGS_REQ_ACK);
+	  RemoteSendButtons(6);
 #endif
 	  break;
   case EVNT_SW7_PRESSED:
-	  SHELL_SendString("Switch 1 pressed, sent G");
+	  SHELL_SendString("Switch 6 pressed, sent G\n\r");
 #if PL_CONFIG_CONTROL_SENDER
-    (void)RAPP_SendPayloadDataBlock('G', sizeof('G'), RAPP_MSG_TYPE_JOYSTICK_BTN, RNETA_GetDestAddr(), RPHY_PACKET_FLAGS_REQ_ACK);
+	  RemoteSendButtons(7);
 #endif
 	  break;
 #endif

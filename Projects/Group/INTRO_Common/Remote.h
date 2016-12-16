@@ -28,6 +28,13 @@ bool REMOTE_GetOnOff(void);
  */
 void REMOTE_SetOnOff(bool on);
 
+
+// \breif: Send buttons based on event
+void RemoteSendButtons(int EVNT_BUTTON);
+
+
+
+
 /*!
  * \brief Parses a command
  * \param cmd Command string to be parsed

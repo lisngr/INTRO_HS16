@@ -101,6 +101,36 @@ static uint8_t REMOTE_GetXY(uint16_t *x, uint16_t *y, int8_t *x8, int8_t *y8) {
 
 #endif
 
+void RemoteSendButtons(int EVNT_BUTTON){
+
+	switch(EVNT_BUTTON){
+		case 1:
+			(void)RAPP_SendPayloadDataBlock("A", sizeof("A"), RAPP_MSG_TYPE_JOYSTICK_BTN, RNETA_GetDestAddr(), RPHY_PACKET_FLAGS_REQ_ACK);
+			break;
+		case 2:
+			(void)RAPP_SendPayloadDataBlock("B", sizeof("B"), RAPP_MSG_TYPE_JOYSTICK_BTN, RNETA_GetDestAddr(), RPHY_PACKET_FLAGS_REQ_ACK);
+			break;
+		case 3:
+			(void)RAPP_SendPayloadDataBlock("C", sizeof("C"), RAPP_MSG_TYPE_JOYSTICK_BTN, RNETA_GetDestAddr(), RPHY_PACKET_FLAGS_REQ_ACK);
+			break;
+		case 4:
+			(void)RAPP_SendPayloadDataBlock("D", sizeof("D"), RAPP_MSG_TYPE_JOYSTICK_BTN, RNETA_GetDestAddr(), RPHY_PACKET_FLAGS_REQ_ACK);
+			break;
+		case 5:
+			(void)RAPP_SendPayloadDataBlock("E", sizeof("E"), RAPP_MSG_TYPE_JOYSTICK_BTN, RNETA_GetDestAddr(), RPHY_PACKET_FLAGS_REQ_ACK);
+			break;
+		case 6:
+			(void)RAPP_SendPayloadDataBlock("F", sizeof("F"), RAPP_MSG_TYPE_JOYSTICK_BTN, RNETA_GetDestAddr(), RPHY_PACKET_FLAGS_REQ_ACK);
+			break;
+		case 7:
+			(void)RAPP_SendPayloadDataBlock("G", sizeof("G"), RAPP_MSG_TYPE_JOYSTICK_BTN, RNETA_GetDestAddr(), RPHY_PACKET_FLAGS_REQ_ACK);
+			break;
+	}
+}
+
+
+
+
 static void RemoteTask (void *pvParameters) {
   (void)pvParameters;
 #if PL_CONFIG_HAS_JOYSTICK
@@ -286,32 +316,38 @@ uint8_t REMOTE_HandleRemoteRxMessage(RAPP_MSG_Type type, uint8_t size, uint8_t *
       *handled = TRUE;
       val = *data; /* get data value */
 #if PL_CONFIG_HAS_SHELL && PL_CONFIG_HAS_BUZZER && PL_CONFIG_HAS_REMOTE
+      uint8_t buf[64];
+      UTIL1_strcpy(buf, sizeof(buf), (unsigned char*)"Received Val = ");
+      UTIL1_strcatNum8s(buf, sizeof(buf), val);
+      UTIL1_strcat(buf, sizeof(buf), (unsigned char*)"\r\n");
+      SHELL_SendString((unsigned char*)buf);
       if (val=='F') { /* F button, disable remote */
         SHELL_ParseCmd((unsigned char*)"buzzer buz 300 500");
         REMOTE_SetOnOff(FALSE);
         DRV_SetSpeed(0,0); /* turn off motors */
         SHELL_SendString("Remote OFF\r\n");
-      } else if (val=='G') { /* center joystick button: enable remote */
+      } else if (val=='G') { /* center joystick button: set Drive Mode */
         SHELL_ParseCmd((unsigned char*)"buzzer buz 300 1000");
-        REMOTE_SetOnOff(TRUE);
         DRV_SetMode(DRV_MODE_SPEED);
-        SHELL_SendString("Remote ON\r\n");
+        SHELL_SendString("Drive Mode\r\n");
       } else if (val=='E') { /* red 'C' button */
-        /*! \todo add functionality */
+    	  SHELL_ParseCmd((unsigned char*)"buzzer buz 300 500");
+    	  REMOTE_SetOnOff(TRUE);
+    	  SHELL_SendString("Remote ON\r\n");
       } else if (val=='D') { /* red 'C' button */
         /*! \todo add functionality */
 
       } else if (val=='C') { /* red 'C' button */
               /*! \todo add functionality */
-    	  if(TACHO_GetSpeed(TRUE) > 50 ){
-    		  DRV_SetSpeed(TACHO_GetSpeed(TRUE)-50,TACHO_GetSpeed(FALSE)-50); /* decrease speed*/
+    	  if(TACHO_GetSpeed(TRUE) > 500 ){
+    		  DRV_SetSpeed(TACHO_GetSpeed(TRUE)-500,TACHO_GetSpeed(FALSE)-500); /* decrease speed*/
     	  }
       } else if (val=='B') { /* red 'C' button */
               /*! \todo add functionality */
       } else if (val=='A') { /* green 'A' button */
         /*! \todo add functionality */
-    	  if(TACHO_GetSpeed(TRUE) < 1000){
-    		  DRV_SetSpeed(TACHO_GetSpeed(TRUE)+50,TACHO_GetSpeed(FALSE)+50); /* increase speed*/
+    	  if(TACHO_GetSpeed(TRUE) < 7000){
+    		  DRV_SetSpeed(TACHO_GetSpeed(TRUE)+500,TACHO_GetSpeed(FALSE)+500); /* increase speed*/
     	  }
       }
 #else

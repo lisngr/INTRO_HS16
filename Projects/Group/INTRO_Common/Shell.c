@@ -357,7 +357,7 @@ static void ShellTask(void *pvParameters) {
     	unsigned char msg;
 
     	while((msg=SQUEUE_ReceiveChar()) && msg!='\0') {
-    		CLS1_GetStdio()->stdOut(msg);
+    		CopyStdOut(msg);
     	}
     }
 #else /* PL_CONFIG_SQUEUE_SINGLE_CHAR */
