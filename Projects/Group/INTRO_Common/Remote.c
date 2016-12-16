@@ -184,16 +184,16 @@ static void RemoteTask (void *pvParameters) {
     uint8_t buf[2] = {0,0};
 
     if(!SW1_GetVal()){// RIGHT
-    	buf[0] = 100;
+    	buf[0] = 120;
     }
     if(!SW2_GetVal()){// LEFT
-    	buf[0] = -100;
+    	buf[0] = -120;
     }
     if(!SW7_GetVal()){// FORWARD
-    	buf[1] = 100;
+    	buf[1] = 120;
     }
     if(!SW6_GetVal()){// BACKWARD
-    	buf[1] = -100;
+    	buf[1] = -120;
     }
 
   	 (void)RAPP_SendPayloadDataBlock(buf, sizeof(buf), RAPP_MSG_TYPE_JOYSTICK_XY, RNETA_GetDestAddr(), RPHY_PACKET_FLAGS_REQ_ACK);
@@ -229,10 +229,12 @@ static void RemoteTask (void *pvParameters) {
         (void)RAPP_SendPayloadDataBlock(buf, sizeof(buf), RAPP_MSG_TYPE_JOYSTICK_XY, RNETA_GetDestAddr(), RPHY_PACKET_FLAGS_REQ_ACK);
         LED1_Neg();
       }
+      FRTOS1_vTaskDelay(200/portTICK_PERIOD_MS);
+#endif
+#if PL_CONFIG_BOARD_IS_REMOTE
+      FRTOS1_vTaskDelay(50/portTICK_PERIOD_MS);
 #endif
 
-
-      FRTOS1_vTaskDelay(150/portTICK_PERIOD_MS);
     } else {
 #if PL_CONFIG_BOARD_IS_FRDM
     	/*do nothing if no joystick */
