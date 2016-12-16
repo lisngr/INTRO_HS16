@@ -49,6 +49,7 @@ static uint16_t midPointX, midPointY;
 #if PL_CONFIG_CONTROL_SENDER
 
 #if PL_CONFIG_HAS_JOYSTICK
+
 static int8_t ToSigned8Bit(uint16_t val, bool isX) {
   int32_t tmp;
 

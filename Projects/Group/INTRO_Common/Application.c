@@ -82,37 +82,37 @@ void APP_EventHandler(EVNT_Handle event) {
     break;
 #if PL_CONFIG_NOF_KEYS > 1
   case EVNT_SW2_PRESSED:
-	  SHELL_SendString("Switch 1 pressed, sent B\n\r");
+	  SHELL_SendString("Switch 2 pressed, sent B\n\r");
 #if PL_CONFIG_CONTROL_SENDER
 	  RemoteSendButtons(2);
 #endif
 	 break;
   case EVNT_SW3_PRESSED:
-	  SHELL_SendString("Switch 2 pressed, sent C\n\r");
+	  SHELL_SendString("Switch 3 pressed, sent C\n\r");
 #if PL_CONFIG_CONTROL_SENDER
 	  RemoteSendButtons(3);
 #endif
 	  break;
   case EVNT_SW4_PRESSED:
-	  SHELL_SendString("Switch 3 pressed, sent D\n\r");
+	  SHELL_SendString("Switch 4 pressed, sent D\n\r");
 #if PL_CONFIG_CONTROL_SENDER
 	  RemoteSendButtons(4);
 #endif
 	  break;
   case EVNT_SW5_PRESSED:
-	  SHELL_SendString("Switch 4 pressed, sent E\n\r");
+	  SHELL_SendString("Switch 5 pressed, sent E\n\r");
 #if PL_CONFIG_CONTROL_SENDER
 	  RemoteSendButtons(5);
 #endif
 	  break;
   case EVNT_SW6_PRESSED:
-	  SHELL_SendString("Switch 5 pressed, sent F\n\r");
+	  SHELL_SendString("Switch 6 pressed, sent F\n\r");
 #if PL_CONFIG_CONTROL_SENDER
 	  RemoteSendButtons(6);
 #endif
 	  break;
   case EVNT_SW7_PRESSED:
-	  SHELL_SendString("Switch 6 pressed, sent G\n\r");
+	  SHELL_SendString("Switch 7 pressed, sent G\n\r");
 #if PL_CONFIG_CONTROL_SENDER
 	  RemoteSendButtons(7);
 #endif
