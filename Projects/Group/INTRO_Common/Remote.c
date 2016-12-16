@@ -44,6 +44,11 @@
 #include "SW6.h"
 #include "SW7.h"
 #endif
+#if PL_CONFIG_HAS_LINE_FOLLOW
+  #include "LineFollow.h"
+#endif
+
+
 static bool REMOTE_isOn = FALSE;
 static bool REMOTE_isVerbose = FALSE;
 static bool REMOTE_useJoystick = TRUE;
@@ -400,8 +405,12 @@ uint8_t REMOTE_HandleRemoteRxMessage(RAPP_MSG_Type type, uint8_t size, uint8_t *
         SHELL_SendString("Drive Mode\r\n");
       } else if (val=='E') { /* red 'C' button */
     	  SHELL_ParseCmd((unsigned char*)"buzzer buz 300 500");
+    	  #if 0
     	  REMOTE_SetOnOff(TRUE);
     	  SHELL_SendString("Remote ON\r\n");
+		#elif PL_CONFIG_HAS_LINE_FOLLOW
+    	  LF_StartStopFollowing();
+		#endif
       } else if (val=='D') { /* red 'C' button */
         /*! \todo add functionality */
 
