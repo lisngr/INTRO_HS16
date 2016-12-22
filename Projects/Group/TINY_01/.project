@@ -32,7 +32,7 @@
 	</natures>
 	<linkedResources>
 		<link>
-			<name>INTRO_Common</name>
+			<name>Sources/INTRO_Common</name>
 			<type>2</type>
 			<locationURI>PARENT-1-PROJECT_LOC/INTRO_Common</locationURI>
 		</link>
