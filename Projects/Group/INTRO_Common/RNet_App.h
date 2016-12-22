@@ -23,6 +23,8 @@
  */
 RNWK_ShortAddrType RNETA_GetDestAddr(void);
 
+void RNETA_SetDestAddr(RNWK_ShortAddrType);
+
 /*! \brief Driver de-initialization */
 void RNETA_Deinit(void);
 

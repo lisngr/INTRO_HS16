@@ -25,8 +25,14 @@
 #if PL_CONFIG_HAS_REMOTE
   #include "Remote.h"
 #endif
+#if PL_CONFIG_BOARD_IS_ROBO
+static RNWK_ShortAddrType APP_dstAddr = 0x03; /* destination node address */
+#endif
 
-static RNWK_ShortAddrType APP_dstAddr = RNWK_ADDR_BROADCAST; /* destination node address */
+#if PL_CONFIG_BOARD_IS_REMOTE
+static RNWK_ShortAddrType APP_dstAddr = 0x02; /* destination node address */
+#endif
+
 
 typedef enum {
   RNETA_NONE,
@@ -38,6 +44,10 @@ static RNETA_State appState = RNETA_NONE;
 
 RNWK_ShortAddrType RNETA_GetDestAddr(void) {
   return APP_dstAddr;
+}
+
+void RNETA_SetDestAddr(RNWK_ShortAddrType adr) {
+  APP_dstAddr = adr;
 }
 
 static uint8_t HandleDataRxMessage(RAPP_MSG_Type type, uint8_t size, uint8_t *data, RNWK_ShortAddrType srcAddr, bool *handled, RPHY_PacketDesc *packet) {
@@ -122,9 +132,16 @@ static void Process(void) {
 }
 
 static void Init(void) {
-  if (RAPP_SetThisNodeAddr(RNWK_ADDR_BROADCAST)!=ERR_OK) { /* set a default address */
+#if PL_CONFIG_BOARD_IS_ROBO
+  if (RAPP_SetThisNodeAddr(0x02)!=ERR_OK) { /* set a default address */
     //APP_DebugPrint((unsigned char*)"ERR: Failed setting node address\r\n");
   }
+#endif
+#if PL_CONFIG_BOARD_IS_REMOTE
+  if (RAPP_SetThisNodeAddr(03)!=ERR_OK) { /* set a default address */
+      //APP_DebugPrint((unsigned char*)"ERR: Failed setting node address\r\n");
+    }
+#endif
 }
 
 static void RadioTask(void *pvParameters) {

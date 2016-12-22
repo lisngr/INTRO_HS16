@@ -14,6 +14,7 @@
 #include "Shell.h"
 #include "Motor.h"
 #include "Reflectance.h"
+#include "Remote.h"
 #if PL_CONFIG_HAS_TURN
   #include "Turn.h"
 #endif
@@ -30,6 +31,13 @@
 #if PL_CONFIG_HAS_LINE_MAZE
   #include "Maze.h"
 #endif
+#if PL_CONFIG_HAS_RADIO
+  #include "RNet_App.h"
+  #include "RNet_AppConfig.h"
+#endif
+
+
+static bool SENT_C = FALSE;
 
 typedef enum {
   STATE_IDLE,              /* idle, not doing anything */
@@ -126,6 +134,13 @@ static void StateMachine(void) {
       break;
     case STATE_STOP:
       //SHELL_SendString("Stopped!\r\n");
+    	if(SENT_C==FALSE){
+    	    		//send C to Station
+    				RNETA_SetDestAddr(0x12); // set to station Address
+    	    		(void)RAPP_SendPayloadDataBlock("C", sizeof("C"), RAPP_MSG_TYPE_TIMEMEASURE, RNETA_GetDestAddr(), RPHY_PACKET_FLAGS_REQ_ACK);
+    	    		RNETA_SetDestAddr(0x02); // set dest ADr to back to Remote
+    	    		SENT_C=TRUE;
+    	}
 #if PL_CONFIG_HAS_TURN
       TURN_Turn(TURN_STOP, NULL);
 #endif

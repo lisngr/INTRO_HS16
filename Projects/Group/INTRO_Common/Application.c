@@ -63,7 +63,7 @@ void APP_EventHandler(EVNT_Handle event) {
 #if PL_CONFIG_HAS_KEYS
 
   case EVNT_SW1_PRESSED:
-	  SHELL_SendString("Switch 1 pressed, sent A\r\n");
+	  //SHELL_SendString("Switch 1 pressed, sent A\r\n");
 #if PL_CONFIG_HAS_LINE_FOLLOW
 	  LF_StartStopFollowing();
 #endif
@@ -73,7 +73,7 @@ void APP_EventHandler(EVNT_Handle event) {
 
 #if PL_CONFIG_CONTROL_SENDER
 #if PL_CONFIG_HAS_REMOTE_STDIO
-    /*Sending Radio Radio Payload over Shell /RStdIo)*/
+    /*Sending Radio Radio Payload over Shell (RStdIo)*/
     RSTDIO_SendToTxStdio(RSTDIO_QUEUE_TX_IN, "buzzer buz 800 400\r\n",sizeof("buzzer buz 800 400\r\n")-1 );
 #else
     RemoteSendButtons(1);
@@ -82,37 +82,37 @@ void APP_EventHandler(EVNT_Handle event) {
     break;
 #if PL_CONFIG_NOF_KEYS > 1
   case EVNT_SW2_PRESSED:
-	  SHELL_SendString("Switch 2 pressed, sent B\n\r");
+	  //SHELL_SendString("Switch 2 pressed, sent B\n\r");
 #if PL_CONFIG_CONTROL_SENDER
 	  RemoteSendButtons(2);
 #endif
 	 break;
   case EVNT_SW3_PRESSED:
-	  SHELL_SendString("Switch 3 pressed, sent C\n\r");
+	  //SHELL_SendString("Switch 3 pressed, sent C\n\r");
 #if PL_CONFIG_CONTROL_SENDER
 	  RemoteSendButtons(3);
 #endif
 	  break;
   case EVNT_SW4_PRESSED:
-	  SHELL_SendString("Switch 4 pressed, sent D\n\r");
+	  //SHELL_SendString("Switch 4 pressed, sent D\n\r");
 #if PL_CONFIG_CONTROL_SENDER
 	  RemoteSendButtons(4);
 #endif
 	  break;
   case EVNT_SW5_PRESSED:
-	  SHELL_SendString("Switch 5 pressed, sent E\n\r");
+	  //SHELL_SendString("Switch 5 pressed, sent E\n\r");
 #if PL_CONFIG_CONTROL_SENDER
 	  RemoteSendButtons(5);
 #endif
 	  break;
   case EVNT_SW6_PRESSED:
-	  SHELL_SendString("Switch 6 pressed, sent F\n\r");
+	  //SHELL_SendString("Switch 6 pressed, sent F\n\r");
 #if PL_CONFIG_CONTROL_SENDER
 	  RemoteSendButtons(6);
 #endif
 	  break;
   case EVNT_SW7_PRESSED:
-	  SHELL_SendString("Switch 7 pressed, sent G\n\r");
+	  //SHELL_SendString("Switch 7 pressed, sent G\n\r");
 #if PL_CONFIG_CONTROL_SENDER
 	  RemoteSendButtons(7);
 #endif
