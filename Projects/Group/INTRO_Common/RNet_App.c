@@ -26,11 +26,11 @@
   #include "Remote.h"
 #endif
 #if PL_CONFIG_BOARD_IS_ROBO
-static RNWK_ShortAddrType APP_dstAddr = 0x03; /* destination node address */
+static RNWK_ShortAddrType APP_dstAddr = 0x02; /* destination node address */
 #endif
 
 #if PL_CONFIG_BOARD_IS_REMOTE
-static RNWK_ShortAddrType APP_dstAddr = 0x02; /* destination node address */
+static RNWK_ShortAddrType APP_dstAddr = 0x03; /* destination node address */
 #endif
 
 
@@ -133,15 +133,16 @@ static void Process(void) {
 
 static void Init(void) {
 #if PL_CONFIG_BOARD_IS_ROBO
-  if (RAPP_SetThisNodeAddr(0x02)!=ERR_OK) { /* set a default address */
+  if (RAPP_SetThisNodeAddr(0x03)!=ERR_OK) { /* set a default address */
     //APP_DebugPrint((unsigned char*)"ERR: Failed setting node address\r\n");
   }
 #endif
 #if PL_CONFIG_BOARD_IS_REMOTE
-  if (RAPP_SetThisNodeAddr(03)!=ERR_OK) { /* set a default address */
+  if (RAPP_SetThisNodeAddr(0x02)!=ERR_OK) { /* set a default address */
       //APP_DebugPrint((unsigned char*)"ERR: Failed setting node address\r\n");
     }
 #endif
+
 }
 
 static void RadioTask(void *pvParameters) {

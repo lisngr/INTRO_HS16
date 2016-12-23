@@ -123,7 +123,7 @@ static uint8_t REMOTE_GetXY(uint16_t *x, uint16_t *y, int8_t *x8, int8_t *y8) {
 
 void RemoteSendButtons(int EVNT_BUTTON){
     //uint8_t buf[2];
-
+	uint8_t bufrr[2];
 	switch(EVNT_BUTTON){
 		case 1:
 			#if PL_CONFIG_BOARD_IS_REMOTE
@@ -162,6 +162,12 @@ void RemoteSendButtons(int EVNT_BUTTON){
 
 			break;
 		case 5:
+#if PL_CONFIG_BOARD_IS_REMOTE
+
+			bufrr[1] = 0;
+			bufrr[0] = 0;
+			(void)RAPP_SendPayloadDataBlock(bufrr, sizeof(bufrr), RAPP_MSG_TYPE_JOYSTICK_XY, RNETA_GetDestAddr(), RPHY_PACKET_FLAGS_REQ_ACK);
+#endif
 			(void)RAPP_SendPayloadDataBlock("E", sizeof("E"), RAPP_MSG_TYPE_JOYSTICK_BTN, RNETA_GetDestAddr(), RPHY_PACKET_FLAGS_REQ_ACK);
 			break;
 		case 6:
@@ -202,12 +208,16 @@ static void RemoteTask (void *pvParameters) {
 
     if(!SW1_GetVal()){// RIGHT
     	buf[0] = 120;
+    	(void)RAPP_SendPayloadDataBlock(buf, sizeof(buf), RAPP_MSG_TYPE_JOYSTICK_XY, RNETA_GetDestAddr(), RPHY_PACKET_FLAGS_REQ_ACK);
     }
     if(!SW2_GetVal()){// LEFT
     	buf[0] = -120;
+    	(void)RAPP_SendPayloadDataBlock(buf, sizeof(buf), RAPP_MSG_TYPE_JOYSTICK_XY, RNETA_GetDestAddr(), RPHY_PACKET_FLAGS_REQ_ACK);
     }
     if(!SW7_GetVal()){// FORWARD
     	buf[1] = 120;
+    	(void)RAPP_SendPayloadDataBlock(buf, sizeof(buf), RAPP_MSG_TYPE_JOYSTICK_XY, RNETA_GetDestAddr(), RPHY_PACKET_FLAGS_REQ_ACK);
+
     	if(SENT_A==FALSE){
     		//send A to Station
     		RNETA_SetDestAddr(0x12); // set to station Address
@@ -216,14 +226,12 @@ static void RemoteTask (void *pvParameters) {
     		SENT_A=TRUE;
     	}
 
-
-
     }
     if(!SW6_GetVal()){// BACKWARD
     	buf[1] = -120;
+    	(void)RAPP_SendPayloadDataBlock(buf, sizeof(buf), RAPP_MSG_TYPE_JOYSTICK_XY, RNETA_GetDestAddr(), RPHY_PACKET_FLAGS_REQ_ACK);
     }
 
-  	 (void)RAPP_SendPayloadDataBlock(buf, sizeof(buf), RAPP_MSG_TYPE_JOYSTICK_XY, RNETA_GetDestAddr(), RPHY_PACKET_FLAGS_REQ_ACK);
 #endif
 
 #if PL_CONFIG_HAS_JOYSTICK
